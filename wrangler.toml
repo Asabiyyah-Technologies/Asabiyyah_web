@@ -1,6 +1,0 @@
-name = "asabiyyah-web"
-compatibility_date = "2026-11-12"
-pages_build_output_dir = "dist"
-
-[build]
-command = "bash build.sh"
