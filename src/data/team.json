@@ -1,0 +1,64 @@
+[
+  {
+    "id": "muhammad-auwal-aliyu",
+    "name": "Muhammad Auwal Aliyu",
+    "role": "Co-Founder & Chief Executive Officer (CEO)",
+    "statutory_title": "Director & Shareholder (PSC)",
+    "equity_share": "33.33%",
+    "shares_allotted": 1666667,
+    "monogram": "MAA",
+    "credentials": [
+      "B.Sc. Computer Science (FUTB, CGPA: 4.79/5.00, First Class)",
+      "DataCamp Certified Data Scientist in Python (2026)",
+      "DataCamp Certified AI Engineering for Developers (2026)",
+      "Kaggle Certified Data Analysis (2024)"
+    ],
+    "summary": "AI systems engineer and full-stack developer leading the corporate vision, institutional capital formation, regulatory negotiations, and core AI systems architecture of Asabiyyah Technologies Ltd.",
+    "technical_expertise": "FastAPI, Python, TypeScript, Quantized LLMs (Qwen), RAG, Multi-Agent Systems, Docker, PostgreSQL, SQLite.",
+    "links": {
+      "github": "https://github.com/MaAbumusAb",
+      "linkedin": "https://www.linkedin.com/in/muhammad-auwal-aliyu",
+      "email": "info@asabiyyah.com"
+    }
+  },
+  {
+    "id": "sulaiman-sabo",
+    "name": "Sulaiman Sabo",
+    "role": "Co-Founder & Chief Technology Officer (CTO)",
+    "statutory_title": "Shareholder (PSC)",
+    "equity_share": "33.33%",
+    "shares_allotted": 1666666,
+    "monogram": "SS",
+    "credentials": [
+      "Full-Stack Software Architect & Systems Engineer",
+      "Lead Architect: Cross-Platform Mobile & Secure API Infrastructure"
+    ],
+    "summary": "Leads software engineering execution, technical infrastructure scalability, cybersecurity protocols, edge synchronization models, and cross-platform mobile client architecture.",
+    "technical_expertise": "Flutter, NestJS, PostgreSQL, SQLite Edge Sync, REST APIs, Cryptographic Hashing, Mobile UI Systems.",
+    "links": {
+      "github": null,
+      "linkedin": null,
+      "email": "info@asabiyyah.com"
+    }
+  },
+  {
+    "id": "mahmud-rabiu-zakariyya",
+    "name": "Mahmud Rabiu Zakariyya",
+    "role": "Co-Founder & Chief Operating Officer (COO)",
+    "statutory_title": "Shareholder (PSC)",
+    "equity_share": "33.33%",
+    "shares_allotted": 1666667,
+    "monogram": "MRZ",
+    "credentials": [
+      "Field Operations & Community Network Director",
+      "Primary Beneficiary & Applicant: CAC Incorporation & FIRS Stamp Duty"
+    ],
+    "summary": "Leads corporate governance, internal operations, community organizer network expansion, field ambassador teams across Kano and Kaduna, and customer support infrastructure.",
+    "technical_expertise": "Community Field Operations, Cooperative Onboarding, Corporate Compliance, Field Ledger Deployment.",
+    "links": {
+      "github": null,
+      "linkedin": null,
+      "email": "info@asabiyyah.com"
+    }
+  }
+]

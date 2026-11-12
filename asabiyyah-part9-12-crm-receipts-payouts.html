@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASABIYYAH - CRM, Receipts & Payouts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#1B2A4A',
+              dark: '#0D1B3E',
+              light: '#2C3E5F'
+            },
+            gold: {
+              DEFAULT: '#C8A951',
+              light: '#D4B96A',
+              dark: '#A68B3C'
+            },
+            bg: {
+              DEFAULT: '#F7F8FA',
+              warm: '#FAFAF7'
+            },
+            surface: {
+              DEFAULT: '#FFFFFF',
+              alt: '#F0F2F5'
+            },
+            text: {
+              primary: '#1A1D23',
+              secondary: '#5A6070',
+              muted: '#8E95A5',
+              inverse: '#FFFFFF'
+            },
+            status: {
+              success: '#1A8D5F',
+              'success-light': '#E8F5EE',
+              warning: '#D4940A',
+              'warning-light': '#FEF7E0',
+              error: '#C93B3B',
+              'error-light': '#FDECEC',
+              info: '#2B6CB0',
+              'info-light': '#EBF2FA',
+              synced: '#1A8D5F',
+              pending: '#D4940A',
+              syncing: '#2B6CB0',
+              'sync-failed': '#C93B3B'
+            },
+            border: {
+              DEFAULT: '#E2E5EB',
+              light: '#F0F1F4'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .phone-mockup {
+      width: 390px;
+      height: 844px;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 8px solid #1A1D23;
+      position: relative;
+      background: #F7F8FA;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .status-bar {
+      height: 54px;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px 0;
+      flex-shrink: 0;
+      z-index: 50;
+    }
+    
+    .screen-content {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    .receipt-edge {
+      background-image: radial-gradient(#F7F8FA 4px, transparent 0);
+      background-size: 15px 15px;
+      background-position: -5px -5px;
+      height: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-800 text-text-primary antialiased p-8 min-h-screen">
+
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-white mb-2">ASABIYYAH: Parts 9-12</h1>
+    <p class="text-gray-300">CRM, QR Poster, Receipts, and Payout Experience (23 screens)</p>
+  </div>
+
+  <!-- PART 9: ORGANIZER CRM -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gold mb-6 border-b border-gray-600 pb-2">PART 9 — ORGANIZER CRM</h2>
+    <div class="flex overflow-x-auto gap-8 pb-8 hide-scrollbar">
+      
+      <!-- SCREEN 1: Members List -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C14.6 15.4 13.4 15 12 15C10.6 15 9.4 15.4 8.4 16.2L12 21ZM12 3C7.95 3 4.21 4.5 1.2 7L12 21.5L22.8 7C19.79 4.5 16.05 3 12 3Z"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.67 18.25L21.43 17.27C21.8 16.78 21.6 16.09 21.03 15.82C19.45 15.06 17.82 14.54 16.09 14.28C16 14.27 15.91 14.31 15.84 14.38L14.33 15.89C11.51 14.59 9.41 12.49 8.11 9.67L9.62 8.16C9.69 8.09 9.73 8 9.72 7.91C9.46 6.18 8.94 4.55 8.18 2.97C7.91 2.4 7.22 2.2 6.73 2.57L5.75 3.33C5 3.96 4.6 4.96 4.75 5.96C5.55 11.23 9.77 15.45 15.04 16.25C16.04 16.4 17.04 16 17.67 15.25L20.67 18.25Z"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17 4H7C5.9 4 5 4.9 5 6V18C5 19.1 5.9 20 7 20H17C18.1 20 19 19.1 19 18V6C19 4.9 18.1 4 17 4ZM12 18C10.9 18 10 17.1 10 16C10 14.9 10.9 14 12 14C13.1 14 14 14.9 14 16C14 17.1 13.1 18 12 18Z"/></svg>
+          </div>
+        </div>
+        <div class="bg-navy text-white px-6 py-4 flex items-center justify-between">
+          <h1 class="text-xl font-semibold">Members</h1>
+          <div class="flex gap-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+          </div>
+        </div>
+        
+        <div class="bg-navy-dark text-white px-6 py-3 text-sm flex gap-4 border-t border-navy-light">
+          <div>Total: <span class="font-bold">25</span></div>
+          <div>Active: <span class="font-bold text-status-success">22</span></div>
+          <div>Inactive: <span class="font-bold text-status-error">3</span></div>
+        </div>
+        
+        <div class="bg-surface border-b border-border px-6 pt-3 flex gap-6 text-sm font-medium overflow-x-auto hide-scrollbar">
+          <div class="pb-3 border-b-2 border-navy text-navy whitespace-nowrap">All</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Gidan Kasuwa (10)</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Sabon Gari (15)</div>
+        </div>
+
+        <div class="screen-content bg-surface flex">
+          <div class="flex-1 overflow-y-auto pb-6">
+            <!-- Member 1 -->
+            <div class="px-6 py-4 border-b border-border flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">AY</div>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div class="font-semibold text-text-primary">Amina Yusuf</div>
+                  <div class="flex items-center gap-1 text-xs text-status-success bg-status-success-light px-2 py-0.5 rounded-full font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Active
+                  </div>
+                </div>
+                <div class="text-sm text-text-secondary mt-0.5">Stall 4B</div>
+                <div class="text-sm text-text-secondary mt-1 flex items-center gap-1">
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                  93% consistency
+                </div>
+              </div>
+            </div>
+            <!-- Member 2 -->
+            <div class="px-6 py-4 border-b border-border flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">AM</div>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div class="font-semibold text-text-primary">Abdullahi Musa</div>
+                  <div class="flex items-center gap-1 text-xs text-status-success bg-status-success-light px-2 py-0.5 rounded-full font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Active
+                  </div>
+                </div>
+                <div class="text-sm text-text-secondary mt-0.5">Shop 12</div>
+                <div class="text-sm text-text-secondary mt-1 flex items-center gap-1">
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                  100% consistency
+                </div>
+              </div>
+            </div>
+            <!-- Member 3 -->
+            <div class="px-6 py-4 border-b border-border flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">FI</div>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div class="font-semibold text-text-primary">Fatima Ibrahim</div>
+                  <div class="flex items-center gap-1 text-xs text-status-success bg-status-success-light px-2 py-0.5 rounded-full font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Active
+                  </div>
+                </div>
+                <div class="text-sm text-text-secondary mt-0.5">Shop 7</div>
+                <div class="text-sm text-text-secondary mt-1 flex items-center gap-1">
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                  87% consistency
+                </div>
+              </div>
+            </div>
+            <!-- Member 4 -->
+            <div class="px-6 py-4 border-b border-border flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">HG</div>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div class="font-semibold text-text-primary">Hauwa Garba</div>
+                  <div class="flex items-center gap-1 text-xs text-status-success bg-status-success-light px-2 py-0.5 rounded-full font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-status-success"></span> Active
+                  </div>
+                </div>
+                <div class="text-sm text-text-secondary mt-0.5">Stall 9</div>
+                <div class="text-sm text-text-secondary mt-1 flex items-center gap-1">
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                  73% consistency
+                </div>
+              </div>
+            </div>
+            <!-- Member 5 -->
+            <div class="px-6 py-4 border-b border-border flex items-center gap-4 bg-status-error-light bg-opacity-30">
+              <div class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-lg flex-shrink-0">UB</div>
+              <div class="flex-1">
+                <div class="flex justify-between items-start">
+                  <div class="font-semibold text-text-primary">Usman Bello</div>
+                  <div class="flex items-center gap-1 text-xs text-status-error bg-status-error-light px-2 py-0.5 rounded-full font-medium border border-status-error">
+                    ⚠️ 3 days overdue
+                  </div>
+                </div>
+                <div class="text-sm text-text-secondary mt-0.5">Shop 3</div>
+                <div class="text-sm text-text-secondary mt-1 flex items-center gap-1">
+                  <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                  60% consistency
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Alphabet Index -->
+          <div class="w-6 flex flex-col justify-center items-center text-[10px] text-text-muted font-medium py-4">
+            <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: Add Member -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center">
+            <!-- icons -->
+          </div>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center gap-4 border-b border-border shadow-sm z-10">
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <h1 class="text-xl font-semibold text-navy">Add Member</h1>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Full Name*</label>
+              <input type="text" placeholder="e.g. Amina Yusuf" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Phone Number*</label>
+              <div class="flex">
+                <div class="bg-bg border border-border border-r-0 rounded-l-lg px-3 py-3 text-text-secondary flex items-center">
+                  +234
+                </div>
+                <input type="tel" placeholder="801 234 5678" class="w-full border border-border rounded-r-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Location / Stall / Shop</label>
+              <input type="text" placeholder="e.g. Stall 4B" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Community</label>
+              <select class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy bg-white appearance-none">
+                <option>Gidan Kasuwa Adashe</option>
+                <option>Sabon Gari Women Savings</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Payout Position (Optional)</label>
+              <input type="number" placeholder="Auto-assign" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-text-secondary mb-1">Notes (Optional)</label>
+              <textarea placeholder="Any additional information..." rows="2" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy"></textarea>
+            </div>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mb-3">Add Member</button>
+          <button class="w-full bg-surface text-navy border border-navy rounded-xl py-4 font-semibold text-lg">Send Invite Link</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: Member Profile -->
+      <div class="phone-mockup">
+        <div class="status-bar bg-navy text-white">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center">
+            <!-- icons -->
+          </div>
+        </div>
+        <div class="bg-navy text-white px-6 py-4 flex items-center justify-between z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold">Member Profile</h1>
+          </div>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+        </div>
+        
+        <div class="screen-content bg-bg">
+          <div class="bg-navy px-6 pb-8 pt-4 rounded-b-3xl text-center text-white relative">
+            <div class="w-24 h-24 rounded-full bg-surface text-navy flex items-center justify-center font-bold text-4xl mx-auto mb-3 shadow-md border-4 border-navy-light">AY</div>
+            <h2 class="text-2xl font-bold">Amina Yusuf</h2>
+            <p class="text-navy-light text-sm mt-1 mb-2 bg-white bg-opacity-20 inline-block px-3 py-1 rounded-full">Stall 4B, Gidan Kasuwa Market</p>
+            <div class="flex justify-center gap-6 mt-3 text-sm">
+              <div class="flex flex-col items-center">
+                <span class="text-gold opacity-80">Phone</span>
+                <span>+234 801 234 5678</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <span class="text-gold opacity-80">Status</span>
+                <span class="text-status-success font-semibold">Active</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-6 -mt-6 relative z-10">
+            <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-4">
+              <h3 class="text-sm font-bold text-text-secondary uppercase tracking-wider mb-4">Contribution Summary</h3>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="bg-bg rounded-xl p-3">
+                  <div class="text-xs text-text-secondary mb-1">Total Contributed</div>
+                  <div class="text-lg font-bold text-navy">₦43,000</div>
+                </div>
+                <div class="bg-bg rounded-xl p-3">
+                  <div class="text-xs text-text-secondary mb-1">Consistency</div>
+                  <div class="text-lg font-bold text-status-success">93%</div>
+                </div>
+                <div class="bg-bg rounded-xl p-3">
+                  <div class="text-xs text-text-secondary mb-1">Outstanding</div>
+                  <div class="text-lg font-bold text-status-warning">₦1,000</div>
+                </div>
+                <div class="bg-bg rounded-xl p-3">
+                  <div class="text-xs text-text-secondary mb-1">Last Contribution</div>
+                  <div class="text-sm font-bold text-text-primary">1 Oct 2026</div>
+                </div>
+              </div>
+              <button class="w-full text-navy font-semibold text-sm border border-border rounded-lg py-2">View Full History</button>
+            </div>
+            
+            <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+              <h3 class="text-sm font-bold text-text-secondary uppercase tracking-wider mb-3">Communities</h3>
+              <div class="flex items-center justify-between bg-bg p-3 rounded-xl">
+                <div>
+                  <div class="font-semibold text-navy">Gidan Kasuwa Adashe</div>
+                  <div class="text-xs text-text-secondary mt-1">Position #1 • Since Sep 2026</div>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-status-success-light text-status-success flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <button class="bg-navy text-white rounded-xl py-3 font-semibold text-sm shadow-md">Record Contribution</button>
+              <button class="bg-gold text-navy rounded-xl py-3 font-semibold text-sm shadow-md">View Member Card</button>
+              <button class="col-span-2 bg-surface text-navy border border-border rounded-xl py-3 font-semibold text-sm">Add Operational Note</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: Member Contribution History -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Contributions</h1>
+          </div>
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+        </div>
+        
+        <div class="bg-navy text-white px-6 py-4">
+          <div class="text-sm text-navy-light mb-1">Amina Yusuf</div>
+          <div class="flex justify-between items-end">
+            <div>
+              <div class="text-xs opacity-80 mb-1">Total Contributions</div>
+              <div class="text-2xl font-bold">₦43,000</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs opacity-80 mb-1">This cycle</div>
+              <div class="text-lg font-semibold text-gold">₦13,000</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-surface border-b border-border px-6 pt-3 flex gap-6 text-sm font-medium overflow-x-auto hide-scrollbar">
+          <div class="pb-3 border-b-2 border-navy text-navy whitespace-nowrap">All</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Gidan Kasuwa</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">This Month</div>
+        </div>
+
+        <div class="screen-content bg-bg p-6">
+          <!-- Month Group -->
+          <h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">October 2026</h3>
+          <div class="bg-surface rounded-2xl shadow-sm border border-border mb-6 overflow-hidden">
+            <div class="p-4 flex items-center justify-between border-b border-border">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-success-light text-status-success flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦1,000</div>
+                  <div class="text-xs text-text-secondary">1 Oct 2026 • Cash</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-medium text-status-success bg-status-success-light px-2 py-0.5 rounded-full inline-block">Synced</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Month Group -->
+          <h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">September 2026</h3>
+          <div class="bg-surface rounded-2xl shadow-sm border border-border mb-6 overflow-hidden">
+            <div class="p-4 flex items-center justify-between border-b border-border">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-success-light text-status-success flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦12,000</div>
+                  <div class="text-xs text-text-secondary">30 Sep 2026 • Bulk Payment</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-medium text-status-success bg-status-success-light px-2 py-0.5 rounded-full inline-block">Synced</div>
+              </div>
+            </div>
+            <div class="p-4 flex items-center justify-between border-b border-border">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-success-light text-status-success flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦5,000</div>
+                  <div class="text-xs text-text-secondary">15 Sep 2026 • Transfer</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-medium text-status-success bg-status-success-light px-2 py-0.5 rounded-full inline-block">Synced</div>
+              </div>
+            </div>
+            <div class="p-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-success-light text-status-success flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦25,000</div>
+                  <div class="text-xs text-text-secondary">1 Sep 2026 • Cash</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-medium text-status-success bg-status-success-light px-2 py-0.5 rounded-full inline-block">Synced</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: Member Operational Notes -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Notes</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="text-sm text-text-secondary mb-4 text-center">Notes for <span class="font-bold text-navy">Amina Yusuf</span></div>
+          
+          <div class="space-y-4">
+            <!-- Note 1 -->
+            <div class="bg-surface rounded-xl p-4 shadow-sm border border-border">
+              <div class="flex justify-between items-start mb-2">
+                <div class="text-xs font-bold text-navy">Abdullahi Musa</div>
+                <div class="text-xs text-text-muted">2 Oct 2026</div>
+              </div>
+              <p class="text-sm text-text-primary leading-relaxed">Usually available before noon. Best time to collect is around 10 AM.</p>
+            </div>
+            
+            <!-- Note 2 -->
+            <div class="bg-surface rounded-xl p-4 shadow-sm border border-border">
+              <div class="flex justify-between items-start mb-2">
+                <div class="text-xs font-bold text-navy">Abdullahi Musa</div>
+                <div class="text-xs text-text-muted">28 Sep 2026</div>
+              </div>
+              <p class="text-sm text-text-primary leading-relaxed">Requested payout date swap with Fatima Ibrahim for next cycle if possible.</p>
+            </div>
+            
+            <!-- Note 3 -->
+            <div class="bg-surface-alt rounded-xl p-4 border border-border border-dashed">
+              <div class="flex justify-between items-start mb-2">
+                <div class="text-xs font-bold text-text-secondary">System</div>
+                <div class="text-xs text-text-muted">15 Sep 2026</div>
+              </div>
+              <p class="text-sm text-text-secondary italic">Joined from referral by Maryam Aliyu</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-6 bg-surface border-t border-border mt-auto">
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            Add Note
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: Edit Member -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Edit Member</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="flex justify-center mb-6 relative">
+            <div class="w-20 h-20 rounded-full bg-navy text-white flex items-center justify-center font-bold text-2xl shadow-md">AY</div>
+            <div class="absolute bottom-0 right-[140px] w-6 h-6 bg-gold rounded-full flex items-center justify-center border-2 border-bg text-white">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+            </div>
+          </div>
+          
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Full Name*</label>
+              <input type="text" value="Amina Yusuf" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Phone Number*</label>
+              <div class="flex">
+                <div class="bg-bg border border-border border-r-0 rounded-l-lg px-3 py-3 text-text-secondary flex items-center">+234</div>
+                <input type="tel" value="801 234 5678" class="w-full border border-border rounded-r-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Location / Stall / Shop</label>
+              <input type="text" value="Stall 4B" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-1">Community</label>
+              <select class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy bg-white appearance-none">
+                <option selected>Gidan Kasuwa Adashe</option>
+                <option>Sabon Gari Women Savings</option>
+              </select>
+            </div>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mb-6">Save Changes</button>
+          
+          <button class="w-full bg-status-error-light text-status-error border border-status-error rounded-xl py-4 font-semibold text-lg flex justify-center items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            Remove from Community
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- PART 10: QR POSTER -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gold mb-6 border-b border-gray-600 pb-2">PART 10 — QR POSTER</h2>
+    <div class="flex overflow-x-auto gap-8 pb-8 hide-scrollbar">
+      
+      <!-- SCREEN 7: Poster Preview -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Member Poster</h1>
+          </div>
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+        </div>
+        
+        <div class="screen-content bg-navy-light p-6 flex flex-col">
+          <!-- Poster A4 Preview -->
+          <div class="bg-white flex-1 rounded-sm shadow-xl flex flex-col p-6 items-center text-center border-4 border-white mb-6">
+            <div class="flex items-center justify-center gap-2 mb-6">
+              <svg class="w-8 h-8 text-navy" viewBox="0 0 40 40" fill="none">
+                <path d="M20 5C11.7157 5 5 11.7157 5 20C5 28.2843 11.7157 35 20 35C28.2843 35 35 28.2843 35 20C35 11.7157 28.2843 5 20 5ZM20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0Z" fill="#1B2A4A" opacity="0.1"/>
+                <path d="M25 15C22.2386 15 20 17.2386 20 20C20 22.7614 22.2386 25 25 25C27.7614 25 30 22.7614 30 20C30 17.2386 27.7614 15 25 15Z" fill="#C8A951"/>
+                <path d="M15 15C17.7614 15 20 17.2386 20 20C20 22.7614 17.7614 25 15 25C12.2386 25 10 22.7614 10 20C10 17.2386 12.2386 15 15 15Z" fill="#1B2A4A"/>
+              </svg>
+              <span class="text-xl font-bold tracking-widest text-navy">ASABIYYAH</span>
+            </div>
+            
+            <h2 class="text-3xl font-black text-navy uppercase mb-1">Amina Yusuf</h2>
+            <div class="text-sm font-bold text-gold tracking-widest mb-6">ASB-MEM-2026-0001</div>
+            
+            <div class="bg-bg w-full py-3 mb-8">
+              <div class="font-bold text-navy">Gidan Kasuwa Adashe</div>
+              <div class="text-sm text-text-secondary">Stall 4B</div>
+            </div>
+            
+            <!-- QR Code Placeholder -->
+            <div class="w-48 h-48 bg-white border-2 border-navy p-2 flex items-center justify-center mb-6">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=ASB-MEM-2026-0001" alt="QR Code" class="w-full h-full opacity-80" />
+            </div>
+            
+            <p class="text-sm font-medium text-navy px-4 mb-auto">Scan to verify member and record contribution</p>
+            
+            <div class="mt-6 pt-4 border-t border-gray-200 w-full">
+              <p class="text-xs font-bold text-gold uppercase tracking-wider">Ethical Finance. Empowered Communities.</p>
+            </div>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mb-3 shadow-lg border border-navy-dark">Print Poster</button>
+          <button class="w-full bg-white text-navy rounded-xl py-4 font-semibold text-lg">Share as Image</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 8: Poster Customization -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Customize Poster</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="flex justify-center mb-6">
+            <div class="w-32 h-44 bg-white border border-border shadow-md rounded flex flex-col items-center p-2">
+              <div class="w-full h-2 bg-navy mb-2"></div>
+              <div class="w-3/4 h-1 bg-gray-300 mb-1"></div>
+              <div class="w-1/2 h-1 bg-gold mb-3"></div>
+              <div class="w-16 h-16 border border-navy p-1 mb-2">
+                <div class="w-full h-full bg-gray-200"></div>
+              </div>
+              <div class="w-3/4 h-1 bg-gray-300 mt-auto"></div>
+            </div>
+          </div>
+          
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <h3 class="text-sm font-bold text-text-secondary uppercase tracking-wider mb-4">Content Options</h3>
+            
+            <div class="flex items-center justify-between py-3 border-b border-border">
+              <span class="font-medium text-text-primary">Include community logo</span>
+              <div class="w-12 h-6 bg-status-success rounded-full relative">
+                <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 shadow"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-3 border-b border-border">
+              <span class="font-medium text-text-primary">Include stall/location</span>
+              <div class="w-12 h-6 bg-status-success rounded-full relative">
+                <div class="w-5 h-5 bg-white rounded-full absolute right-0.5 top-0.5 shadow"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-3">
+              <span class="font-medium text-text-primary">Include member photo</span>
+              <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                <div class="w-5 h-5 bg-white rounded-full absolute left-0.5 top-0.5 shadow"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-8">
+            <h3 class="text-sm font-bold text-text-secondary uppercase tracking-wider mb-4">Format Settings</h3>
+            
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Poster Size</label>
+              <div class="flex bg-bg rounded-lg p-1">
+                <div class="flex-1 text-center py-2 bg-white rounded shadow-sm text-navy font-semibold text-sm">A4</div>
+                <div class="flex-1 text-center py-2 text-text-secondary font-medium text-sm">A5</div>
+                <div class="flex-1 text-center py-2 text-text-secondary font-medium text-sm">Letter</div>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-text-secondary mb-2">Language</label>
+              <select class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy bg-white appearance-none">
+                <option>English</option>
+                <option>Hausa</option>
+              </select>
+            </div>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mt-auto">Generate Poster</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 9: Export / Print Screen -->
+      <div class="phone-mockup">
+        <!-- Background showing preview slightly blurred -->
+        <div class="absolute inset-0 bg-navy-light p-6 flex flex-col blur-sm opacity-50 z-0">
+          <div class="bg-white flex-1 rounded shadow-xl flex flex-col p-6 items-center text-center"></div>
+        </div>
+        
+        <!-- Bottom Sheet -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-end bg-black bg-opacity-40">
+          <div class="bg-surface rounded-t-3xl pt-2 pb-8 px-6">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
+            
+            <h2 class="text-xl font-bold text-navy mb-6 text-center">Export Poster</h2>
+            
+            <div class="grid grid-cols-4 gap-4 mb-8">
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 bg-bg rounded-full flex items-center justify-center text-navy mb-2 border border-border">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary">Print</span>
+              </div>
+              
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 bg-bg rounded-full flex items-center justify-center text-navy mb-2 border border-border">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary">Save PDF</span>
+              </div>
+              
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white mb-2 shadow-sm">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary">WhatsApp</span>
+              </div>
+              
+              <div class="flex flex-col items-center">
+                <div class="w-14 h-14 bg-bg rounded-full flex items-center justify-center text-navy mb-2 border border-border">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary">More</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg">Done</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- PART 11: CONTRIBUTION & RECEIPT SYSTEM -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gold mb-6 border-b border-gray-600 pb-2">PART 11 — CONTRIBUTION & RECEIPT SYSTEM</h2>
+    <div class="flex overflow-x-auto gap-8 pb-8 hide-scrollbar">
+      
+      <!-- SCREEN 10: Record Contribution -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Record Contribution</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="mb-5 border-b border-border pb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Member</label>
+              <div class="flex items-center justify-between border border-navy rounded-lg p-3 bg-navy-light bg-opacity-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xs">AY</div>
+                  <span class="font-semibold text-navy">Amina Yusuf</span>
+                </div>
+                <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </div>
+              <div class="text-xs text-text-secondary mt-2 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                Gidan Kasuwa Adashe
+              </div>
+            </div>
+            
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Amount</label>
+              <div class="relative">
+                <span class="absolute left-4 top-3 text-lg font-bold text-navy">₦</span>
+                <input type="text" value="1,000" class="w-full border border-border rounded-lg pl-10 pr-4 py-3 text-lg font-bold text-navy focus:outline-none focus:border-navy">
+              </div>
+            </div>
+            
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Payment Method</label>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="bg-navy text-white rounded-lg py-2.5 text-center font-medium text-sm border border-navy shadow-sm">Cash</div>
+                <div class="bg-white text-text-primary rounded-lg py-2.5 text-center font-medium text-sm border border-border">Transfer</div>
+                <div class="bg-white text-text-primary rounded-lg py-2.5 text-center font-medium text-sm border border-border">Mobile Money</div>
+                <div class="bg-white text-text-primary rounded-lg py-2.5 text-center font-medium text-sm border border-border">Other</div>
+              </div>
+            </div>
+            
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Payment Reference (Optional)</label>
+              <input type="text" placeholder="e.g. Teller number" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+            
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Date</label>
+              <div class="flex items-center justify-between border border-border rounded-lg px-4 py-3 bg-bg">
+                <span class="text-text-primary">Today, 2 Oct 2026</span>
+                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-text-secondary mb-2">Notes (Optional)</label>
+              <input type="text" placeholder="Add a note" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mt-auto mb-2">Record Contribution</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 11: Confirm Contribution -->
+      <div class="phone-mockup">
+        <!-- Background showing preview slightly blurred -->
+        <div class="absolute inset-0 bg-bg flex flex-col blur-sm opacity-50 z-0">
+          <div class="status-bar"><span class="text-[15px] font-semibold">9:41</span></div>
+          <div class="p-6 pt-20"><div class="bg-surface h-full rounded-2xl border border-border"></div></div>
+        </div>
+        
+        <!-- Bottom Sheet -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-end bg-black bg-opacity-40">
+          <div class="bg-surface rounded-t-3xl pt-2 pb-8 px-6">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
+            
+            <h2 class="text-xl font-bold text-navy mb-6 text-center">Confirm Contribution</h2>
+            
+            <div class="bg-bg rounded-xl p-5 mb-6 border border-border">
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Member</span>
+                <span class="font-semibold text-navy text-right">Amina Yusuf</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Community</span>
+                <span class="font-medium text-text-primary text-right">Gidan Kasuwa Adashe</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Amount</span>
+                <span class="font-bold text-navy text-lg text-right">₦1,000</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Payment</span>
+                <span class="font-medium text-text-primary text-right">Cash</span>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-text-secondary text-sm">Date</span>
+                <span class="font-medium text-text-primary text-right">2 Oct 2026</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mb-3">Confirm Contribution</button>
+            <button class="w-full bg-white text-text-secondary rounded-xl py-4 font-semibold text-lg">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 12: Contribution Successful -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        
+        <div class="screen-content bg-bg p-6 flex flex-col items-center justify-center text-center">
+          <div class="w-24 h-24 bg-status-success-light rounded-full flex items-center justify-center mb-6">
+            <svg class="w-12 h-12 text-status-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          
+          <h2 class="text-2xl font-bold text-navy mb-2">Contribution Recorded</h2>
+          <div class="text-4xl font-black text-navy mb-6">₦1,000</div>
+          
+          <div class="bg-surface w-full rounded-2xl p-5 shadow-sm border border-border mb-8">
+            <div class="font-semibold text-text-primary mb-1">Amina Yusuf</div>
+            <div class="text-sm text-text-secondary mb-4">Gidan Kasuwa Adashe</div>
+            
+            <div class="bg-bg py-2 px-4 rounded-lg flex justify-between items-center text-sm mb-4">
+              <span class="text-text-secondary">Ref:</span>
+              <span class="font-mono font-medium text-navy">ASB-2026-1002-0005</span>
+            </div>
+            
+            <div class="flex items-center justify-center gap-1.5 text-sm font-medium text-status-success bg-status-success-light py-2 rounded-lg">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Synced
+            </div>
+          </div>
+          
+          <div class="w-full space-y-3 mt-auto">
+            <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share Receipt
+            </button>
+            <button class="w-full bg-surface text-navy border border-navy rounded-xl py-4 font-semibold text-lg">Record Another</button>
+            <button class="w-full text-text-secondary py-3 font-semibold">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 13: Digital Receipt -->
+      <div class="phone-mockup bg-navy-light">
+        <div class="status-bar bg-transparent text-white">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="position: absolute; right: 24px; top: 14px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </div>
+        </div>
+        
+        <div class="screen-content p-6 flex flex-col h-full">
+          <!-- Receipt Card -->
+          <div class="bg-white rounded-t-lg w-full flex-1 relative flex flex-col shadow-2xl mt-4">
+            
+            <div class="text-center p-6 border-b-2 border-dashed border-gray-300">
+              <div class="flex items-center justify-center gap-2 mb-2">
+                 <svg class="w-6 h-6 text-navy" viewBox="0 0 40 40" fill="none">
+                  <path d="M25 15C22.2386 15 20 17.2386 20 20C20 22.7614 22.2386 25 25 25C27.7614 25 30 22.7614 30 20C30 17.2386 27.7614 15 25 15Z" fill="#C8A951"/>
+                  <path d="M15 15C17.7614 15 20 17.2386 20 20C20 22.7614 17.7614 25 15 25C12.2386 25 10 22.7614 10 20C10 17.2386 12.2386 15 15 15Z" fill="#1B2A4A"/>
+                </svg>
+                <span class="text-lg font-bold tracking-widest text-navy">ASABIYYAH</span>
+              </div>
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Official Receipt</div>
+              <div class="text-3xl font-black text-navy mb-1">₦1,000</div>
+              <div class="text-sm font-medium text-status-success flex items-center justify-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Synced Successfully
+              </div>
+            </div>
+            
+            <div class="p-6 flex-1 space-y-4">
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Type</span>
+                <span class="text-sm font-bold text-navy uppercase">Contribution</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Reference</span>
+                <span class="text-sm font-mono font-medium text-navy text-right">ASB-2026-1002-0005</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Date</span>
+                <span class="text-sm font-medium text-navy text-right">2 Oct 2026, 10:15 AM</span>
+              </div>
+              
+              <div class="h-px bg-gray-200 my-4"></div>
+              
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Member</span>
+                <span class="text-sm font-bold text-navy text-right">Amina Yusuf</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Community</span>
+                <span class="text-sm font-medium text-navy text-right">Gidan Kasuwa Adashe</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Progress</span>
+                <span class="text-sm font-medium text-navy text-right">Day 15/30</span>
+              </div>
+              
+              <div class="h-px bg-gray-200 my-4"></div>
+              
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Payment</span>
+                <span class="text-sm font-medium text-navy text-right">Cash</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Recorded by</span>
+                <span class="text-sm font-medium text-navy text-right">Abdullahi Musa</span>
+              </div>
+            </div>
+            
+            <div class="receipt-edge"></div>
+          </div>
+          
+          <div class="flex gap-4 mt-6 mb-2">
+            <button class="flex-1 bg-white text-navy rounded-xl py-4 font-semibold text-sm shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share
+            </button>
+            <button class="flex-1 bg-navy text-white border border-navy-light rounded-xl py-4 font-semibold text-sm shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 14: Share Receipt -->
+      <div class="phone-mockup">
+        <!-- Background showing preview slightly blurred -->
+        <div class="absolute inset-0 bg-navy-light p-6 flex flex-col blur-sm opacity-50 z-0">
+          <div class="bg-white flex-1 rounded shadow-xl mt-4"></div>
+        </div>
+        
+        <!-- Bottom Sheet -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-end bg-black bg-opacity-40">
+          <div class="bg-surface rounded-t-3xl pt-2 pb-8 px-6">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
+            
+            <h2 class="text-xl font-bold text-navy mb-6 text-center">Share Receipt</h2>
+            
+            <!-- Mini Receipt Preview -->
+            <div class="bg-bg border border-border p-4 rounded-lg mb-6 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold text-navy">Contribution Receipt</div>
+                <div class="text-xs text-text-secondary">Amina Yusuf • ₦1,000</div>
+              </div>
+              <div class="w-10 h-14 bg-white border border-gray-200 shadow-sm rounded-sm"></div>
+            </div>
+            
+            <div class="space-y-1 mb-2">
+              <button class="w-full flex items-center gap-4 py-4 border-b border-border text-left">
+                <div class="w-10 h-10 bg-[#25D366] bg-opacity-10 rounded-full flex items-center justify-center text-[#25D366]">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </div>
+                <span class="font-medium text-text-primary">Share via WhatsApp</span>
+              </button>
+              <button class="w-full flex items-center gap-4 py-4 border-b border-border text-left">
+                <div class="w-10 h-10 bg-status-info-light rounded-full flex items-center justify-center text-status-info">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </div>
+                <span class="font-medium text-text-primary">Send as SMS</span>
+              </button>
+              <button class="w-full flex items-center gap-4 py-4 border-b border-border text-left">
+                <div class="w-10 h-10 bg-bg rounded-full flex items-center justify-center text-navy border border-border">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                </div>
+                <span class="font-medium text-text-primary">Copy reference number</span>
+              </button>
+              <button class="w-full flex items-center gap-4 py-4 border-b border-border text-left">
+                <div class="w-10 h-10 bg-bg rounded-full flex items-center justify-center text-navy border border-border">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                </div>
+                <span class="font-medium text-text-primary">Save as image</span>
+              </button>
+              <button class="w-full flex items-center gap-4 py-4 text-left">
+                <div class="w-10 h-10 bg-bg rounded-full flex items-center justify-center text-navy border border-border">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                </div>
+                <span class="font-medium text-text-primary">Print</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 15: Offline Contribution Recorded -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center opacity-50">
+            <!-- No signal icons to indicate offline -->
+            <svg class="w-4 h-4 text-status-error" viewBox="0 0 24 24" fill="currentColor"><path d="M22.8 7C19.79 4.5 16.05 3 12 3C7.95 3 4.21 4.5 1.2 7L12 21.5L14.71 17.87C14.15 17.43 13.68 16.89 13.31 16.27L12 18.04L4.76 8.35C7 6.46 9.4 5.5 12 5.5C14.6 5.5 17 6.46 19.24 8.35L20 9.38C20.76 9.87 21.43 10.46 22 11.13L22.8 7Z"/></svg>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6 flex flex-col items-center justify-center text-center">
+          <div class="w-24 h-24 bg-status-warning-light rounded-full flex items-center justify-center mb-6">
+            <svg class="w-12 h-12 text-status-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          
+          <h2 class="text-2xl font-bold text-navy mb-2">Contribution Saved</h2>
+          <div class="text-4xl font-black text-navy mb-6">₦1,000</div>
+          
+          <div class="bg-surface w-full rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="font-semibold text-text-primary mb-1">Amina Yusuf</div>
+            <div class="text-sm text-text-secondary mb-4">Gidan Kasuwa Adashe</div>
+            
+            <div class="bg-bg py-2 px-4 rounded-lg flex justify-between items-center text-sm mb-4">
+              <span class="text-text-secondary">Ref:</span>
+              <span class="font-mono font-medium text-navy text-xs">ASB-LOCAL-2026-1002-0006</span>
+            </div>
+            
+            <div class="flex items-center justify-center gap-1.5 text-sm font-bold text-status-warning bg-status-warning-light py-2 rounded-lg border border-status-warning border-opacity-30">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Offline — Pending Sync
+            </div>
+          </div>
+          
+          <p class="text-sm text-text-secondary mb-8 px-4">This contribution is saved on your device and will sync automatically when you're back online.</p>
+          
+          <div class="w-full space-y-3 mt-auto">
+            <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share Receipt
+            </button>
+            <button class="w-full bg-surface text-navy border border-navy rounded-xl py-4 font-semibold text-lg">Record Another</button>
+            <button class="w-full text-text-secondary py-3 font-semibold">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 16: Sync Pending State -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Contributions</h1>
+          </div>
+        </div>
+        
+        <div class="bg-status-warning-light border-b border-status-warning border-opacity-30 px-6 py-3 flex items-center justify-between">
+          <div class="flex items-center gap-2 text-status-warning text-sm font-semibold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            3 Pending Sync
+          </div>
+          <button class="text-xs bg-white text-navy font-bold px-3 py-1.5 rounded shadow-sm border border-border">Retry</button>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">Today</h3>
+          
+          <div class="bg-surface rounded-2xl shadow-sm border border-status-warning mb-4 overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-1 h-full bg-status-warning"></div>
+            <div class="p-4 flex items-center justify-between border-b border-border">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-warning-light text-status-warning flex items-center justify-center">
+                  <span class="font-bold text-sm">AY</span>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦1,000</div>
+                  <div class="text-xs text-text-secondary">Amina Yusuf • 10:45 AM</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-bold text-status-warning bg-status-warning-light px-2 py-0.5 rounded-full inline-block border border-status-warning border-opacity-30">Pending</div>
+              </div>
+            </div>
+            <div class="bg-bg px-4 py-2 text-xs text-text-muted font-mono flex justify-between">
+              <span>ASB-LOCAL-2026-1002-0006</span>
+            </div>
+          </div>
+          
+          <div class="bg-surface rounded-2xl shadow-sm border border-status-warning mb-6 overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-1 h-full bg-status-warning"></div>
+            <div class="p-4 flex items-center justify-between border-b border-border">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-status-warning-light text-status-warning flex items-center justify-center">
+                  <span class="font-bold text-sm">UB</span>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦2,000</div>
+                  <div class="text-xs text-text-secondary">Usman Bello • 10:30 AM</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-bold text-status-warning bg-status-warning-light px-2 py-0.5 rounded-full inline-block border border-status-warning border-opacity-30">Pending</div>
+              </div>
+            </div>
+            <div class="bg-bg px-4 py-2 text-xs text-text-muted font-mono flex justify-between">
+              <span>ASB-LOCAL-2026-1002-0005</span>
+            </div>
+          </div>
+          
+          <h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-3">Earlier (Synced)</h3>
+          
+          <div class="bg-surface rounded-2xl shadow-sm border border-border mb-4 overflow-hidden opacity-70">
+            <div class="p-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-navy bg-opacity-10 text-navy flex items-center justify-center">
+                  <span class="font-bold text-sm">FI</span>
+                </div>
+                <div>
+                  <div class="font-semibold text-text-primary">₦1,000</div>
+                  <div class="text-xs text-text-secondary">Fatima Ibrahim • 8:15 AM</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-medium text-status-success bg-status-success-light px-2 py-0.5 rounded-full inline-block">Synced</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 17: Sync Successful -->
+      <div class="phone-mockup">
+        <!-- Overlay on top of screen -->
+        <div class="absolute inset-0 bg-bg opacity-30 z-0"></div>
+        <div class="absolute inset-0 z-10 flex flex-col pt-12 px-4 pointer-events-none">
+          <div class="bg-navy rounded-xl shadow-2xl p-4 animate-bounce">
+            <div class="flex items-center gap-3 mb-3 border-b border-navy-light pb-3">
+              <div class="w-8 h-8 rounded-full bg-status-success flex items-center justify-center text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div class="font-bold text-white text-sm">3 contributions synced successfully</div>
+            </div>
+            
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-white">Amina Yusuf • ₦1,000</span>
+                <svg class="w-4 h-4 text-status-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-white">Usman Bello • ₦2,000</span>
+                <svg class="w-4 h-4 text-status-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-white">Hauwa Garba • ₦1,000</span>
+                <svg class="w-4 h-4 text-status-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- PART 12: PAYOUT EXPERIENCE -->
+  <div class="mb-12">
+    <h2 class="text-2xl font-bold text-gold mb-6 border-b border-gray-600 pb-2">PART 12 — PAYOUT EXPERIENCE</h2>
+    <div class="flex overflow-x-auto gap-8 pb-8 hide-scrollbar">
+      
+      <!-- SCREEN 18: Payout Schedule -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-navy text-white px-6 py-4 flex items-center justify-between z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold">Payout Schedule</h1>
+          </div>
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        </div>
+        
+        <div class="bg-navy-dark text-white px-6 py-3 border-t border-navy-light text-sm font-medium">
+          Gidan Kasuwa Adashe
+        </div>
+        
+        <div class="bg-surface border-b border-border px-6 pt-3 flex gap-6 text-sm font-medium overflow-x-auto hide-scrollbar">
+          <div class="pb-3 border-b-2 border-navy text-navy whitespace-nowrap">All Cycles</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Current</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Upcoming</div>
+          <div class="pb-3 text-text-muted whitespace-nowrap">Completed</div>
+        </div>
+
+        <div class="screen-content bg-bg p-6 space-y-4">
+          <!-- Cycle 1 (Completed) -->
+          <div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex items-center justify-between opacity-70">
+            <div class="flex gap-4 items-center">
+              <div class="text-center font-bold text-navy-light w-10">#1</div>
+              <div>
+                <div class="font-semibold text-text-primary">Amina Yusuf</div>
+                <div class="text-sm font-bold text-navy">₦10,000</div>
+                <div class="text-xs text-text-secondary">1 Sep 2026</div>
+              </div>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-status-success-light flex items-center justify-center text-status-success">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+          </div>
+          
+          <!-- Cycle 2 (Completed) -->
+          <div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex items-center justify-between opacity-70">
+            <div class="flex gap-4 items-center">
+              <div class="text-center font-bold text-navy-light w-10">#2</div>
+              <div>
+                <div class="font-semibold text-text-primary">Abdullahi Musa</div>
+                <div class="text-sm font-bold text-navy">₦10,000</div>
+                <div class="text-xs text-text-secondary">1 Oct 2026</div>
+              </div>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-status-success-light flex items-center justify-center text-status-success">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+          </div>
+          
+          <!-- Cycle 3 (Next) -->
+          <div class="bg-surface rounded-xl p-4 shadow-md border-2 border-navy relative">
+            <div class="absolute -top-3 right-4 bg-navy text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Next Payout</div>
+            <div class="flex gap-4 items-center mb-3 mt-1">
+              <div class="text-center font-bold text-navy w-10 text-xl">#3</div>
+              <div class="flex-1">
+                <div class="font-bold text-lg text-text-primary">Fatima Ibrahim</div>
+                <div class="text-sm font-bold text-navy">₦10,000</div>
+                <div class="text-xs text-status-warning font-medium">Scheduled: 5 Oct 2026</div>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold">FI</div>
+            </div>
+            <div class="bg-bg rounded p-2 text-xs text-text-secondary flex justify-between items-center mt-2">
+              <span>Collection Progress</span>
+              <span class="font-bold text-navy">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+              <div class="bg-navy h-1.5 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+          
+          <!-- Cycle 4 (Upcoming) -->
+          <div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex items-center justify-between">
+            <div class="flex gap-4 items-center">
+              <div class="text-center font-bold text-navy-light w-10">#4</div>
+              <div>
+                <div class="font-semibold text-text-primary">Hauwa Garba</div>
+                <div class="text-sm font-bold text-navy">₦10,000</div>
+                <div class="text-xs text-text-secondary">10 Oct 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 19: Upcoming Payout Detail -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Upcoming Payout</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <div class="bg-surface rounded-2xl p-6 shadow-sm border border-border mb-6 flex flex-col items-center text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-navy"></div>
+            
+            <div class="w-20 h-20 rounded-full bg-navy text-white flex items-center justify-center font-bold text-2xl mb-3 mt-2 shadow-md">FI</div>
+            <h2 class="text-xl font-bold text-text-primary">Fatima Ibrahim</h2>
+            <div class="text-sm text-text-secondary mb-4">Cycle #3 • Gidan Kasuwa Adashe</div>
+            
+            <div class="text-3xl font-black text-navy mb-2">₦10,000</div>
+            
+            <div class="flex items-center gap-1.5 text-xs font-bold text-status-success bg-status-success-light px-3 py-1 rounded-full border border-status-success border-opacity-30">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              Status: On Track
+            </div>
+          </div>
+          
+          <h3 class="text-sm font-bold text-text-secondary uppercase tracking-wider mb-3">Collection Progress</h3>
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="flex justify-between items-end mb-2">
+              <div>
+                <div class="text-xs text-text-secondary">Collected so far</div>
+                <div class="text-xl font-bold text-navy">₦8,000</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-text-secondary">Required</div>
+                <div class="text-sm font-bold text-text-primary">₦10,000</div>
+              </div>
+            </div>
+            
+            <div class="w-full bg-bg rounded-full h-3 mb-3 border border-border">
+              <div class="bg-navy h-3 rounded-full relative" style="width: 80%">
+                <div class="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gold rounded-full border-2 border-white shadow"></div>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-center text-sm border-t border-border pt-3 mt-3">
+              <span class="text-text-secondary">Remaining to collect:</span>
+              <span class="font-bold text-status-warning">₦2,000</span>
+            </div>
+            <div class="flex justify-between items-center text-sm mt-2">
+              <span class="text-text-secondary">Days until payout:</span>
+              <span class="font-bold text-navy">3 days (5 Oct)</span>
+            </div>
+          </div>
+          
+          <button class="w-full bg-gray-300 text-gray-500 rounded-xl py-4 font-semibold text-lg cursor-not-allowed mb-3">Record Payout</button>
+          <p class="text-xs text-center text-text-secondary px-4">Payout will be available to record once the full ₦10,000 has been collected.</p>
+        </div>
+      </div>
+
+      <!-- SCREEN 20: Record Payout -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Record Payout</h1>
+          </div>
+        </div>
+        
+        <div class="screen-content bg-bg p-6">
+          <!-- Assuming collection reached 100% -->
+          <div class="bg-status-success-light border border-status-success rounded-xl p-4 mb-6 flex items-start gap-3">
+            <svg class="w-6 h-6 text-status-success flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              <div class="font-bold text-status-success text-sm">Collection Complete</div>
+              <div class="text-xs text-status-success mt-1 opacity-80">Full amount of ₦10,000 has been collected for this cycle.</div>
+            </div>
+          </div>
+          
+          <div class="bg-surface rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="mb-5 pb-5 border-b border-border">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Recipient</label>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold">FI</div>
+                <div>
+                  <div class="font-bold text-navy">Fatima Ibrahim</div>
+                  <div class="text-xs text-text-secondary">Cycle 3 • Gidan Kasuwa Adashe</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-5 pb-5 border-b border-border">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Payout Amount</label>
+              <div class="text-3xl font-black text-navy">₦10,000</div>
+            </div>
+            
+            <div class="mb-5">
+              <label class="block text-sm font-medium text-text-secondary mb-2">Payment Method</label>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-navy text-white rounded-lg py-3 text-center font-medium text-sm shadow-md border border-navy">Cash</div>
+                <div class="bg-white text-text-primary rounded-lg py-3 text-center font-medium text-sm border border-border">Bank Transfer</div>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-text-secondary mb-2">Reference / Note (Optional)</label>
+              <input type="text" placeholder="e.g. Handed over at meeting" class="w-full border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-navy">
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-3 mb-6 bg-white p-4 rounded-xl border border-border">
+            <div class="w-6 h-6 rounded border border-navy bg-navy flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <p class="text-sm text-text-primary font-medium">I confirm this payout of ₦10,000 has been made to Fatima Ibrahim.</p>
+          </div>
+          
+          <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mt-auto mb-2 shadow-lg">Record Payout</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 21: Payout Confirmation -->
+      <div class="phone-mockup">
+        <!-- Background showing preview slightly blurred -->
+        <div class="absolute inset-0 bg-bg flex flex-col blur-sm opacity-50 z-0">
+          <div class="status-bar"><span class="text-[15px] font-semibold">9:41</span></div>
+          <div class="p-6 pt-20"><div class="bg-surface h-full rounded-2xl border border-border"></div></div>
+        </div>
+        
+        <!-- Bottom Sheet -->
+        <div class="absolute inset-0 z-20 flex flex-col justify-end bg-black bg-opacity-40">
+          <div class="bg-surface rounded-t-3xl pt-2 pb-8 px-6">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
+            
+            <h2 class="text-xl font-bold text-navy mb-6 text-center">Confirm Payout</h2>
+            
+            <div class="bg-bg rounded-xl p-5 mb-6 border border-border">
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">To</span>
+                <span class="font-semibold text-navy text-right">Fatima Ibrahim</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Amount</span>
+                <span class="font-bold text-status-success text-lg text-right">₦10,000</span>
+              </div>
+              <div class="flex justify-between items-center py-3 border-b border-border">
+                <span class="text-text-secondary text-sm">Method</span>
+                <span class="font-medium text-text-primary text-right">Cash</span>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-text-secondary text-sm">Cycle</span>
+                <span class="font-medium text-text-primary text-right">3</span>
+              </div>
+            </div>
+            
+            <button class="w-full bg-navy text-white rounded-xl py-4 font-semibold text-lg mb-3">Confirm</button>
+            <button class="w-full bg-white text-text-secondary rounded-xl py-4 font-semibold text-lg">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 22: Payout Receipt -->
+      <div class="phone-mockup bg-navy-dark">
+        <div class="status-bar bg-transparent text-white">
+          <span class="text-[15px] font-semibold">9:41</span>
+          <div class="flex gap-1.5 items-center">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="position: absolute; right: 24px; top: 14px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </div>
+        </div>
+        
+        <div class="screen-content p-6 flex flex-col h-full">
+          <!-- Payout Receipt Card -->
+          <div class="bg-gold rounded-t-lg w-full flex-1 relative flex flex-col shadow-2xl mt-4 border-2 border-gold-light">
+            
+            <div class="text-center p-6 border-b-2 border-dashed border-navy border-opacity-30 bg-surface rounded-t-lg">
+              <div class="flex items-center justify-center gap-2 mb-2">
+                 <svg class="w-6 h-6 text-navy" viewBox="0 0 40 40" fill="none">
+                  <path d="M25 15C22.2386 15 20 17.2386 20 20C20 22.7614 22.2386 25 25 25C27.7614 25 30 22.7614 30 20C30 17.2386 27.7614 15 25 15Z" fill="#C8A951"/>
+                  <path d="M15 15C17.7614 15 20 17.2386 20 20C20 22.7614 17.7614 25 15 25C12.2386 25 10 22.7614 10 20C10 17.2386 12.2386 15 15 15Z" fill="#1B2A4A"/>
+                </svg>
+                <span class="text-lg font-bold tracking-widest text-navy">ASABIYYAH</span>
+              </div>
+              <div class="text-xs font-bold text-navy bg-gold bg-opacity-20 inline-block px-3 py-1 rounded-full uppercase tracking-widest mb-4">Official Payout</div>
+              <div class="text-3xl font-black text-navy mb-1">₦10,000</div>
+              <div class="text-sm font-medium text-status-success flex items-center justify-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Synced Successfully
+              </div>
+            </div>
+            
+            <div class="p-6 flex-1 space-y-4 bg-surface">
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Reference</span>
+                <span class="text-sm font-mono font-medium text-navy text-right">ASB-PAY-2026-1005-0001</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Date</span>
+                <span class="text-sm font-medium text-navy text-right">5 Oct 2026</span>
+              </div>
+              
+              <div class="h-px bg-gray-200 my-4"></div>
+              
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Recipient</span>
+                <span class="text-sm font-bold text-navy text-right text-lg">Fatima Ibrahim</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Community</span>
+                <span class="text-sm font-medium text-navy text-right">Gidan Kasuwa Adashe</span>
+              </div>
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Cycle</span>
+                <span class="text-sm font-medium text-navy text-right">3</span>
+              </div>
+              
+              <div class="h-px bg-gray-200 my-4"></div>
+              
+              <div class="flex justify-between items-start">
+                <span class="text-sm text-gray-500">Recorded by</span>
+                <span class="text-sm font-medium text-navy text-right">Abdullahi Musa</span>
+              </div>
+            </div>
+            
+            <div class="h-[10px] w-full bg-surface" style="background-image: radial-gradient(#0D1B3E 4px, transparent 0); background-size: 15px 15px; background-position: -5px -5px;"></div>
+          </div>
+          
+          <div class="flex gap-4 mt-6 mb-2">
+            <button class="flex-1 bg-white text-navy rounded-xl py-4 font-semibold text-sm shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share
+            </button>
+            <button class="flex-1 bg-gold text-navy rounded-xl py-4 font-semibold text-sm shadow-md flex justify-center items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCREEN 23: Payout History -->
+      <div class="phone-mockup">
+        <div class="status-bar">
+          <span class="text-[15px] font-semibold">9:41</span>
+        </div>
+        <div class="bg-surface px-6 py-4 flex items-center justify-between border-b border-border z-10">
+          <div class="flex items-center gap-4">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <h1 class="text-xl font-semibold text-navy">Payout History</h1>
+          </div>
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+        </div>
+        
+        <div class="bg-navy text-white p-6 grid grid-cols-2 gap-4">
+          <div>
+            <div class="text-xs text-navy-light mb-1 uppercase tracking-wider">Total Paid Out</div>
+            <div class="text-2xl font-bold text-status-success">₦30,000</div>
+          </div>
+          <div>
+            <div class="text-xs text-navy-light mb-1 uppercase tracking-wider">Total Remaining</div>
+            <div class="text-2xl font-bold text-gold">₦70,000</div>
+          </div>
+        </div>
+
+        <div class="screen-content bg-bg p-6">
+          <div class="space-y-4">
+            
+            <div class="bg-surface rounded-xl p-4 shadow-sm border border-border">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex gap-3 items-center">
+                  <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">FI</div>
+                  <div>
+                    <div class="font-bold text-text-primary">Fatima Ibrahim</div>
+                    <div class="text-xs text-text-secondary">5 Oct 2026 • Cash</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-navy">₦10,000</div>
+                  <div class="text-xs font-medium text-status-success mt-1 flex items-center justify-end gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Completed
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-surface rounded-xl p-4 shadow-sm border border-border">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex gap-3 items-center">
+                  <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">AM</div>
+                  <div>
+                    <div class="font-bold text-text-primary">Abdullahi Musa</div>
+                    <div class="text-xs text-text-secondary">1 Oct 2026 • Bank</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-navy">₦10,000</div>
+                  <div class="text-xs font-medium text-status-success mt-1 flex items-center justify-end gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Completed
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-surface rounded-xl p-4 shadow-sm border border-border">
+              <div class="flex justify-between items-start mb-3">
+                <div class="flex gap-3 items-center">
+                  <div class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">AY</div>
+                  <div>
+                    <div class="font-bold text-text-primary">Amina Yusuf</div>
+                    <div class="text-xs text-text-secondary">1 Sep 2026 • Cash</div>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold text-navy">₦10,000</div>
+                  <div class="text-xs font-medium text-status-success mt-1 flex items-center justify-end gap-1">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Completed
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

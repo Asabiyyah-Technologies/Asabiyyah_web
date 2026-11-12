@@ -1,0 +1,65 @@
+{
+  "legal_name": "ASABIYYAH TECHNOLOGIES LTD",
+  "public_name": "Asabiyyah Technologies Ltd",
+  "short_name": "Asabiyyah",
+  "rc_number": "9918400",
+  "tin": "2621713612761",
+  "incorporation_date": "October 7, 2026",
+  "act": "Companies and Allied Matters Act 2020 (CAMA 2020)",
+  "company_type": "Private Company Limited by Shares",
+  "status": "ACTIVE",
+  "share_capital": "₦5,000,000.00",
+  "share_capital_words": "Five Million Naira",
+  "ordinary_shares_count": 5000000,
+  "registered_address": {
+    "street": "2, Kunya - B Mutum Road",
+    "town": "Babura Town",
+    "state": "Jigawa State",
+    "country": "Nigeria",
+    "post_code": "732104"
+  },
+  "operational_presence": [
+    "Babura, Jigawa State (Registered Headquarters)",
+    "Jos, Plateau State (Engineering Lab)",
+    "Kano Municipal, Kano State (Operations & Commercial Hub)",
+    "Abuja, Federal Capital Territory (Institutional Desk)"
+  ],
+  "contact": {
+    "email": "info@asabiyyah.com",
+    "phone": "+234 806 475 3943",
+    "website": "www.asabiyyah.com",
+    "hours": "Monday – Friday: 08:00 – 17:00 WAT",
+    "sla": "Inquiries reviewed within 24 business hours"
+  },
+  "tagline": "Building Technology That Matters.",
+  "mission": "To engineer practical, resilient, and high-integrity software, applied artificial intelligence systems, and digital platforms that solve complex operational bottlenecks for businesses, institutions, and communities.",
+  "vision": "To become Africa's premier technology house and digital infrastructure partner — recognized globally for engineering resilient, culturally attuned, offline-first, and ethical digital systems.",
+  "philosophy": {
+    "concept": "'Asabiyyah (عصبية)",
+    "scholar": "Ibn Khaldun (1332–1406)",
+    "meaning": "Social cohesion, collective solidarity, mutual responsibility, and shared communal resolve.",
+    "tenet": "Technology should reinforce, rather than disrupt or exploit, natural human trust. We build systems that are code-enforced, mathematically balanced, and transparent by design."
+  },
+  "values": [
+    {
+      "title": "Evidence over Speculation",
+      "description": "We only claim what we have built, tested, and audited. Every architectural blueprint and algorithmic verdict is grounded in verified data."
+    },
+    {
+      "title": "Practicality over Hype",
+      "description": "We reject technology theater. We do not introduce complex microservices or black boxes where clean relational logic delivers a dependable outcome."
+    },
+    {
+      "title": "Ethical Solidarity ('Asabiyyah)",
+      "description": "We align our commercial incentives with the economic well-being of the communities and institutions we serve, refusing extractive models."
+    },
+    {
+      "title": "Resilient Local Relevance",
+      "description": "Designed for Africa's harshest constraints: offline-first architectures, low-bandwidth data sync, and local languages (English & Hausa)."
+    },
+    {
+      "title": "Architectural Rigor",
+      "description": "We write clean, typed, maintainable software engineered for a 10-year lifespan. Technical debt is treated as an existential risk."
+    }
+  ]
+}

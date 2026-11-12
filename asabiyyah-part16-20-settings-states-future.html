@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASABIYYAH - Parts 16-20</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --asb-navy: #1B2A4A;
+      --asb-navy-dark: #0D1B3E;
+      --asb-navy-light: #2C3E5F;
+      --asb-gold: #C8A951;
+      --asb-gold-light: #D4B96A;
+      --asb-bg: #F7F8FA;
+      --asb-surface: #FFFFFF;
+      --asb-surface-alt: #F0F2F5;
+      --asb-text-primary: #1A1D23;
+      --asb-text-secondary: #5A6070;
+      --asb-text-muted: #8E95A5;
+      --asb-success: #1A8D5F;
+      --asb-success-light: #E8F5EE;
+      --asb-warning: #D4940A;
+      --asb-warning-light: #FEF7E0;
+      --asb-error: #C93B3B;
+      --asb-error-light: #FDECEC;
+      --asb-border: #E2E5EB;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #e5e7eb; color: var(--asb-text-primary); margin: 0; padding: 40px; overflow-x: auto; }
+    .scroll-container { display: flex; flex-direction: row; gap: 32px; align-items: flex-start; }
+    .section-header { width: 100%; font-size: 24px; font-weight: bold; margin-bottom: 24px; color: var(--asb-navy); flex-shrink: 0; writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; }
+    .phone-mockup { width: 390px; height: 844px; border-radius: 40px; overflow: hidden; border: 8px solid #1A1D23; position: relative; background: var(--asb-bg); flex-shrink: 0; display: flex; flex-direction: column; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+    .status-bar { height: 54px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px 0 24px; flex-shrink: 0; z-index: 50;}
+    .status-bar.transparent { background: transparent; position: absolute; top: 0; left: 0; right: 0; }
+    .screen-content { flex: 1; overflow-y: auto; display: flex; flex-direction: column; position: relative; }
+    .screen-content::-webkit-scrollbar { display: none; }
+    .bottom-nav { background: #FFFFFF; border-top: 1px solid var(--asb-border); display: flex; justify-content: space-around; padding: 12px 0 24px 0; flex-shrink: 0; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: var(--asb-text-muted); }
+    .nav-item.active { color: var(--asb-navy); }
+    .nav-icon { width: 24px; height: 24px; fill: currentColor; }
+    .blur-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.7); backdrop-filter: blur(4px); z-index: 10; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+    .coming-soon-badge { background: var(--asb-gold); color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; letter-spacing: 0.5px; }
+  </style>
+</head>
+<body>
+  <div class="scroll-container" id="main-container">
+    <!-- Content will be injected by JS to keep the file clean and modular -->
+  </div>
+
+  <script>
+    const svgIcons = {
+      signal: `<svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11H3V8H1V11ZM5 11H7V6H5V11ZM9 11H11V4H9V11ZM13 11H15V2H13V11ZM17 11H19V0H17V11Z" fill="#1A1D23"/></svg>`,
+      wifi: `<svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12C9.10457 12 10 11.1046 10 10C10 8.89543 9.10457 8 8 8C6.89543 8 6 8.89543 6 10C6 11.1046 6.89543 12 8 12Z" fill="#1A1D23"/><path d="M8 5C5.23858 5 3 7.23858 3 10H5C5 8.34315 6.34315 7 8 7C9.65685 7 11 8.34315 11 10H13C13 7.23858 10.7614 5 8 5Z" fill="#1A1D23"/><path d="M8 2C3.58172 2 0 5.58172 0 10H2C2 6.68629 4.68629 4 8 4C11.3137 4 14 6.68629 14 10H16C16 5.58172 12.4183 2 8 2Z" fill="#1A1D23"/></svg>`,
+      battery: `<svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="21" height="11" rx="2.5" stroke="#1A1D23"/><rect x="2" y="2" width="14" height="8" rx="1" fill="#1A1D23"/><path d="M24 4V8" stroke="#1A1D23" stroke-linecap="round"/></svg>`,
+      search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`,
+      filter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>`,
+      chevronLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`,
+      chevronRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>`,
+      x: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
+      home: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`,
+      communities: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+      scan: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="2"></circle></svg>`,
+      sync: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`,
+      profile: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
+      check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+      bell: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`,
+      lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
+      device: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`,
+      help: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+      info: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
+      camera: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>`,
+      fingerprint: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12"></path><path d="M4 15.5C4 15.5 7.5 9.5 12 9.5C16.5 9.5 20 15.5 20 15.5"></path><path d="M7 19C7 19 9.5 14 12 14C14.5 14 17 19 17 19"></path></svg>`,
+      warning: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+      alertCircle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+      ledger: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
+      cloudOff: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`,
+      serverWarning: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>`,
+      bank: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="10" rx="2" ry="2"></rect><path d="M12 2L2 7h20L12 2z"></path><line x1="12" y1="20" x2="12" y2="22"></line></svg>`,
+      creditCard: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>`,
+      pieChart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>`,
+      globe: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+      code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`
+    };
+
+    const asbLogo = `<div class="flex items-center justify-center"><div class="relative w-8 h-8"><div class="absolute inset-0 border-4 border-[var(--asb-navy)] rounded-full clip-half"></div><div class="absolute inset-0 border-4 border-[var(--asb-gold)] rounded-full clip-half-bottom rotate-90"></div></div></div>`;
+
+    function createMockup(content, hasNav = true, activeNav = '') {
+      return `
+        <div class="phone-mockup">
+          <div class="status-bar">
+            <span class="text-[15px] font-semibold">9:41</span>
+            <div class="flex gap-1 items-center">
+              ${svgIcons.signal}
+              ${svgIcons.wifi}
+              ${svgIcons.battery}
+            </div>
+          </div>
+          <div class="screen-content">
+            ${content}
+          </div>
+          ${hasNav ? `
+          <div class="bottom-nav">
+            <div class="nav-item ${activeNav === 'home' ? 'active' : ''}">
+              <div class="nav-icon">${svgIcons.home}</div>
+              <span>Home</span>
+            </div>
+            <div class="nav-item ${activeNav === 'communities' ? 'active' : ''}">
+              <div class="nav-icon">${svgIcons.communities}</div>
+              <span>Communities</span>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon p-2 bg-[var(--asb-navy)] rounded-full text-white -mt-5 shadow-lg">${svgIcons.scan}</div>
+              <span class="mt-1">Scan</span>
+            </div>
+            <div class="nav-item ${activeNav === 'sync' ? 'active' : ''}">
+              <div class="nav-icon relative">${svgIcons.sync}<span class="absolute top-0 right-0 w-2 h-2 bg-[var(--asb-success)] rounded-full"></span></div>
+              <span>Sync</span>
+            </div>
+            <div class="nav-item ${activeNav === 'profile' ? 'active' : ''}">
+              <div class="nav-icon">${svgIcons.profile}</div>
+              <span>Profile</span>
+            </div>
+          </div>` : ''}
+        </div>
+      `;
+    }
+
+      {
+        title: "PART 17 — PROFILE & SETTINGS",
+        screens: [
+          `
+            <div class="bg-[var(--asb-navy)] p-6 pt-8 text-white rounded-b-[40px] shadow-sm">
+              <div class="flex justify-between items-start mb-6">
+                <h1 class="text-xl font-bold">Profile</h1>
+                <div class="w-6 h-6">${svgIcons.bell}</div>
+              </div>
+              <div class="flex flex-col items-center mb-4">
+                <div class="w-24 h-24 rounded-full bg-white text-[var(--asb-navy)] flex items-center justify-center text-3xl font-bold mb-3 border-4 border-[var(--asb-navy-light)]">AM</div>
+                <h2 class="text-2xl font-bold">Abdullahi Musa</h2>
+                <div class="px-3 py-1 bg-[var(--asb-gold)] text-white text-xs font-bold rounded-full mt-2">Organizer</div>
+              </div>
+            </div>
+            <div class="p-4 space-y-4 -mt-4 relative z-10">
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] p-4 shadow-sm flex items-center justify-between">
+                <div>
+                  <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Phone Number</div>
+                  <div class="font-medium">+234 802 345 6789</div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-[var(--asb-bg)] flex items-center justify-center text-[var(--asb-navy)]">${svgIcons.check}</div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-1 bg-white rounded-xl border border-[var(--asb-border)] p-4 shadow-sm">
+                  <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Member Since</div>
+                  <div class="font-medium">Aug 2026</div>
+                </div>
+                <div class="flex-1 bg-white rounded-xl border border-[var(--asb-border)] p-4 shadow-sm">
+                  <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Communities</div>
+                  <div class="font-medium">2 Managed</div>
+                </div>
+              </div>
+              
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden shadow-sm mt-4">
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 text-[var(--asb-text-secondary)]">${svgIcons.globe}</div>
+                    <span class="font-medium">Language</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-sm text-[var(--asb-text-secondary)]">
+                    English <div class="w-4 h-4">${svgIcons.chevronRight}</div>
+                  </div>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 text-[var(--asb-text-secondary)]">${svgIcons.lock}</div>
+                    <span class="font-medium">Security</span>
+                  </div>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 text-[var(--asb-text-secondary)]">${svgIcons.sync}</div>
+                    <span class="font-medium">Data & Sync</span>
+                  </div>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-5 h-5 text-[var(--asb-text-secondary)]">${svgIcons.help}</div>
+                    <span class="font-medium">Help & Support</span>
+                  </div>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+              </div>
+              <button class="w-full py-4 mt-2 bg-transparent text-[var(--asb-navy)] border border-[var(--asb-navy)] rounded-xl font-bold">Edit Profile</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Edit Profile</h1>
+            </div>
+            <div class="p-6 flex flex-col items-center">
+              <div class="relative mb-8">
+                <div class="w-24 h-24 rounded-full bg-[var(--asb-navy)] text-white flex items-center justify-center text-3xl font-bold">AM</div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 bg-[var(--asb-gold)] rounded-full flex items-center justify-center text-white border-2 border-white shadow-sm">${svgIcons.camera}</div>
+              </div>
+              
+              <div class="w-full space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-[var(--asb-text-secondary)] mb-1">Full Name</label>
+                  <input type="text" class="w-full p-3 bg-white border border-[var(--asb-border)] rounded-xl outline-none focus:border-[var(--asb-navy)] font-medium" value="Abdullahi Musa">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[var(--asb-text-secondary)] mb-1">Phone Number (Read-only)</label>
+                  <div class="w-full p-3 bg-[var(--asb-bg)] border border-[var(--asb-border)] rounded-xl text-[var(--asb-text-secondary)] flex items-center gap-2">
+                    <span class="text-[var(--asb-text-muted)]">+234</span>
+                    <span>802 345 6789</span>
+                    <div class="ml-auto w-4 h-4 text-[var(--asb-text-muted)]">${svgIcons.lock}</div>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[var(--asb-text-secondary)] mb-1">Email (Optional)</label>
+                  <input type="email" class="w-full p-3 bg-white border border-[var(--asb-border)] rounded-xl outline-none focus:border-[var(--asb-navy)]" placeholder="Enter your email address">
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto p-4 bg-white border-t border-[var(--asb-border)]">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Save Changes</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Language</h1>
+            </div>
+            <div class="p-4 space-y-3">
+              <div class="bg-[var(--asb-navy-light)] bg-opacity-10 border-2 border-[var(--asb-navy)] rounded-xl p-4 flex justify-between items-center">
+                <div class="font-medium text-[var(--asb-navy)]">English</div>
+                <div class="w-6 h-6 text-[var(--asb-navy)] bg-white rounded-full flex items-center justify-center border border-[var(--asb-navy)]">${svgIcons.check}</div>
+              </div>
+              <div class="bg-white border border-[var(--asb-border)] rounded-xl p-4 flex justify-between items-center">
+                <div class="font-medium">Hausa</div>
+                <div class="w-6 h-6 rounded-full border border-[var(--asb-border)]"></div>
+              </div>
+              
+              <p class="text-sm text-[var(--asb-text-secondary)] mt-6 text-center">The app will restart in the selected language.</p>
+            </div>
+            <div class="mt-auto p-4 bg-white border-t border-[var(--asb-border)]">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold opacity-50" disabled>Save</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Notifications</h1>
+            </div>
+            <div class="p-4 space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <div class="font-medium">Push notifications</div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <p class="text-xs text-[var(--asb-text-secondary)]">Enable to receive alerts on this device.</p>
+              </div>
+              
+              <div class="h-[1px] bg-[var(--asb-border)]"></div>
+              
+              <div class="space-y-5">
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Contribution reminders</div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Payout alerts</div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Overdue notices</div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Community updates</div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                
+                <div class="h-[1px] bg-[var(--asb-border)] mt-2 mb-2"></div>
+                
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Sync notifications</div>
+                  <div class="w-12 h-6 bg-[var(--asb-border)] rounded-full relative"><div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow"></div></div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="font-medium">Marketing & Offers</div>
+                  <div class="w-12 h-6 bg-[var(--asb-border)] rounded-full relative"><div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow"></div></div>
+                </div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Security</h1>
+            </div>
+            <div class="p-4 space-y-4">
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden">
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <span class="font-medium">Change PIN</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div>
+                    <div class="font-medium">Biometric login</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Use fingerprint or face ID</div>
+                  </div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                  <div>
+                    <div class="font-medium">Two-factor auth (2FA)</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Require OTP for login</div>
+                  </div>
+                  <div class="w-12 h-6 bg-[var(--asb-border)] rounded-full relative"><div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow"></div></div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden mt-6">
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <span class="font-medium">Active sessions</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                  <span class="font-medium">Login history</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+            </div>
+            <div class="p-6 flex flex-col items-center h-full">
+              <h1 class="text-2xl font-bold mt-4 mb-2 text-center">Set your PIN</h1>
+              <p class="text-[var(--asb-text-secondary)] text-center mb-12">Create a 4-digit PIN for quick access</p>
+              
+              <div class="flex gap-6 mb-16">
+                <div class="w-4 h-4 rounded-full bg-[var(--asb-navy)]"></div>
+                <div class="w-4 h-4 rounded-full bg-[var(--asb-navy)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-y-8 gap-x-12 mt-auto pb-10">
+                <div class="text-3xl font-medium text-center">1</div>
+                <div class="text-3xl font-medium text-center">2</div>
+                <div class="text-3xl font-medium text-center">3</div>
+                <div class="text-3xl font-medium text-center">4</div>
+                <div class="text-3xl font-medium text-center">5</div>
+                <div class="text-3xl font-medium text-center">6</div>
+                <div class="text-3xl font-medium text-center">7</div>
+                <div class="text-3xl font-medium text-center">8</div>
+                <div class="text-3xl font-medium text-center">9</div>
+                <div class="text-3xl font-medium text-center flex items-center justify-center text-[var(--asb-navy)]">${svgIcons.fingerprint}</div>
+                <div class="text-3xl font-medium text-center">0</div>
+                <div class="text-3xl font-medium text-center flex items-center justify-center text-[var(--asb-text-secondary)]">${svgIcons.x}</div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Active Devices</h1>
+            </div>
+            <div class="p-4 space-y-6">
+              <p class="text-sm text-[var(--asb-text-secondary)]">You're currently logged in on these devices. Remove any device you don't recognize.</p>
+              
+              <div class="space-y-4">
+                <div class="bg-white rounded-xl border-2 border-[var(--asb-success)] p-4 flex gap-4">
+                  <div class="w-10 h-10 rounded-full bg-[var(--asb-success-light)] text-[var(--asb-success)] flex items-center justify-center">${svgIcons.device}</div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="font-bold text-[var(--asb-success)]">This device</span>
+                    </div>
+                    <div class="font-medium mb-1">Samsung Galaxy A14</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Location: Kano, Nigeria</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)]">Active: Just now</div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-[var(--asb-border)] p-4 flex gap-4">
+                  <div class="w-10 h-10 rounded-full bg-[var(--asb-bg)] text-[var(--asb-text-secondary)] flex items-center justify-center">${svgIcons.device}</div>
+                  <div class="flex-1">
+                    <div class="font-medium mb-1">iPhone 12</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mb-3">Last active: 28 Sep 2026</div>
+                    <button class="text-[var(--asb-error)] text-sm font-medium border border-[var(--asb-error)] px-4 py-1.5 rounded-lg">Remove</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Data & Sync</h1>
+            </div>
+            <div class="p-4">
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] p-6 flex flex-col items-center mb-6 shadow-sm">
+                <div class="w-16 h-16 rounded-full bg-[var(--asb-success-light)] text-[var(--asb-success)] flex items-center justify-center mb-3">${svgIcons.sync}</div>
+                <div class="font-bold text-lg mb-1">Connected</div>
+                <div class="text-sm text-[var(--asb-text-secondary)] mb-4">Last synced: 10:30 AM</div>
+                <div class="px-4 py-2 bg-[var(--asb-bg)] rounded-lg text-sm font-medium">0 items pending</div>
+                <button class="w-full mt-6 py-3 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Sync Now</button>
+              </div>
+
+              <div class="bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden">
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div>
+                    <div class="font-medium">Auto-sync</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Sync when connection is available</div>
+                  </div>
+                  <div class="w-12 h-6 bg-[var(--asb-success)] rounded-full relative"><div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div></div>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <div>
+                    <div class="font-medium">Wi-Fi only</div>
+                    <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Save mobile data</div>
+                  </div>
+                  <div class="w-12 h-6 bg-[var(--asb-border)] rounded-full relative"><div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow"></div></div>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <span class="font-medium">Storage used</span>
+                  <span class="text-sm text-[var(--asb-text-secondary)]">12 MB</span>
+                </div>
+                <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                  <span class="font-medium">Clear cache</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                  <span class="font-medium text-[var(--asb-navy)]">Export all data</span>
+                  <div class="w-4 h-4 text-[var(--asb-navy)]">${svgIcons.chevronRight}</div>
+                </div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Help & Support</h1>
+            </div>
+            <div class="p-4 space-y-6">
+              <div>
+                <h3 class="text-sm font-bold text-[var(--asb-text-muted)] uppercase tracking-wider mb-3">FAQ</h3>
+                <div class="bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden">
+                  <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                    <span class="font-medium">How does Adashe work?</span>
+                    <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                  </div>
+                  <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                    <span class="font-medium">How to record contributions</span>
+                    <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                  </div>
+                  <div class="p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+                    <span class="font-medium">What happens when I'm offline?</span>
+                    <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                  </div>
+                  <div class="p-4 flex items-center justify-between">
+                    <span class="font-medium">How are payouts calculated?</span>
+                    <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-bold text-[var(--asb-text-muted)] uppercase tracking-wider mb-3">Contact Us</h3>
+                <div class="space-y-3">
+                  <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)] flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#E8F5EE] text-[#128C7E] rounded-full flex items-center justify-center font-bold">WA</div>
+                    <div class="flex-1">
+                      <div class="font-medium">WhatsApp Support</div>
+                      <div class="text-xs text-[var(--asb-text-secondary)]">Fastest response time</div>
+                    </div>
+                  </div>
+                  <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)] flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[var(--asb-bg)] text-[var(--asb-navy)] rounded-full flex items-center justify-center">${svgIcons.info}</div>
+                    <div class="flex-1">
+                      <div class="font-medium">support@asabiyyah.com</div>
+                      <div class="text-xs text-[var(--asb-text-secondary)]">Email us anytime</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="w-full py-4 mt-4 bg-[var(--asb-error-light)] text-[var(--asb-error)] rounded-xl font-bold">Report a Problem</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">About ASABIYYAH</h1>
+            </div>
+            <div class="p-6 flex flex-col items-center text-center mt-4">
+              <div class="w-20 h-20 bg-[var(--asb-navy)] rounded-2xl flex items-center justify-center mb-4">${asbLogo}</div>
+              <h1 class="text-2xl font-bold text-[var(--asb-navy)] mb-1">ASABIYYAH</h1>
+              <p class="text-[var(--asb-text-secondary)] font-medium mb-6">Version 1.0.0</p>
+              
+              <div class="px-4 py-2 bg-[var(--asb-gold-light)] bg-opacity-20 text-[var(--asb-navy)] font-bold rounded-lg text-sm mb-6 uppercase tracking-wider">Ethical Finance. Empowered Communities.</div>
+              
+              <p class="text-[var(--asb-text-secondary)] mb-10 text-sm leading-relaxed">
+                ASABIYYAH Smart Ledger is an offline-first community finance platform for managing Adashe, rotating savings, daily collections, and organized community finance.
+              </p>
+
+              <div class="w-full bg-white rounded-xl border border-[var(--asb-border)] overflow-hidden text-left mb-10">
+                <div class="p-4 border-b border-[var(--asb-border)] flex justify-between items-center">
+                  <span class="font-medium">Terms of Service</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 border-b border-[var(--asb-border)] flex justify-between items-center">
+                  <span class="font-medium">Privacy Policy</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+                <div class="p-4 flex justify-between items-center">
+                  <span class="font-medium">Licenses</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-secondary)]">${svgIcons.chevronRight}</div>
+                </div>
+              </div>
+              
+              <p class="text-sm text-[var(--asb-gold)] font-medium italic mt-auto">"Before money moves, trust moves first."</p>
+            </div>
+          `
+        ]
+      },
+
+      {
+        title: "PART 18 — SECURITY & TRUST STATES",
+        screens: [
+          `
+            <div class="p-6 flex flex-col items-center h-full bg-white">
+              <div class="mt-12 mb-8 scale-75">${asbLogo}</div>
+              <h1 class="text-xl font-bold mb-8">Enter your PIN</h1>
+              
+              <div class="flex gap-6 mb-16">
+                <div class="w-4 h-4 rounded-full bg-[var(--asb-navy)]"></div>
+                <div class="w-4 h-4 rounded-full bg-[var(--asb-navy)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-y-8 gap-x-12 mt-auto pb-6">
+                <div class="text-3xl font-medium text-center">1</div>
+                <div class="text-3xl font-medium text-center">2</div>
+                <div class="text-3xl font-medium text-center">3</div>
+                <div class="text-3xl font-medium text-center">4</div>
+                <div class="text-3xl font-medium text-center">5</div>
+                <div class="text-3xl font-medium text-center">6</div>
+                <div class="text-3xl font-medium text-center">7</div>
+                <div class="text-3xl font-medium text-center">8</div>
+                <div class="text-3xl font-medium text-center">9</div>
+                <div class="text-3xl font-medium text-center flex items-center justify-center text-[var(--asb-navy)]">${svgIcons.fingerprint}</div>
+                <div class="text-3xl font-medium text-center">0</div>
+                <div class="text-3xl font-medium text-center flex items-center justify-center text-[var(--asb-text-secondary)]">${svgIcons.x}</div>
+              </div>
+              <div class="text-[var(--asb-navy)] font-medium mt-6">Forgot PIN?</div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+            </div>
+            <div class="p-6 flex flex-col items-center h-full">
+              <h1 class="text-2xl font-bold mt-4 mb-2 text-center">Change PIN</h1>
+              <p class="text-[var(--asb-text-secondary)] text-center mb-8">Step 1: Enter current PIN</p>
+              
+              <div class="flex gap-6 mb-16">
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+                <div class="w-4 h-4 rounded-full border-2 border-[var(--asb-border)]"></div>
+              </div>
+              
+              <div class="grid grid-cols-3 gap-y-8 gap-x-12 mt-auto pb-10">
+                <div class="text-3xl font-medium text-center">1</div>
+                <div class="text-3xl font-medium text-center">2</div>
+                <div class="text-3xl font-medium text-center">3</div>
+                <div class="text-3xl font-medium text-center">4</div>
+                <div class="text-3xl font-medium text-center">5</div>
+                <div class="text-3xl font-medium text-center">6</div>
+                <div class="text-3xl font-medium text-center">7</div>
+                <div class="text-3xl font-medium text-center">8</div>
+                <div class="text-3xl font-medium text-center">9</div>
+                <div class="text-3xl font-medium text-center"></div>
+                <div class="text-3xl font-medium text-center">0</div>
+                <div class="text-3xl font-medium text-center flex items-center justify-center text-[var(--asb-text-secondary)]">${svgIcons.x}</div>
+              </div>
+            </div>
+          `,
+          `
+            <div class="p-6 flex flex-col items-center h-full bg-white pt-16">
+              <div class="w-16 h-16 bg-[var(--asb-warning-light)] text-[var(--asb-warning)] rounded-full flex items-center justify-center mb-6">${svgIcons.lock}</div>
+              <h1 class="text-xl font-bold text-center mb-2">New Device Detected</h1>
+              <p class="text-center text-[var(--asb-text-secondary)] mb-8 text-sm px-4">A verification code has been sent to +234 802 *** 6789</p>
+              
+              <div class="flex gap-2 mb-10 w-full justify-center">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-navy)] bg-transparent outline-none" value="4">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-navy)] bg-transparent outline-none" value="9">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-border)] bg-transparent outline-none" placeholder="0">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-border)] bg-transparent outline-none" placeholder="0">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-border)] bg-transparent outline-none" placeholder="0">
+                <input type="text" class="w-10 h-12 text-center text-xl font-bold border-b-2 border-[var(--asb-border)] bg-transparent outline-none" placeholder="0">
+              </div>
+
+              <div class="w-full bg-[var(--asb-bg)] p-4 rounded-xl border border-[var(--asb-border)] mb-8">
+                <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Trying to sign in on</div>
+                <div class="font-medium">Samsung Galaxy A14</div>
+                <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Location: Kano, Nigeria</div>
+              </div>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-6">Verify</button>
+              
+              <div class="text-[var(--asb-error)] font-medium text-sm">This wasn't me</div>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Active Sessions</h1>
+            </div>
+            <div class="p-4 flex flex-col h-[calc(100%-54px-60px)]">
+              <div class="space-y-4">
+                <div class="bg-white rounded-xl border-2 border-[var(--asb-success)] p-4">
+                  <div class="flex justify-between items-start mb-2">
+                    <div class="font-bold text-[var(--asb-success)]">This device</div>
+                    <div class="text-xs bg-[var(--asb-success-light)] text-[var(--asb-success)] px-2 py-1 rounded-full font-bold">Active now</div>
+                  </div>
+                  <div class="font-medium">Samsung Galaxy A14</div>
+                  <div class="text-sm text-[var(--asb-text-secondary)] mt-1">ASABIYYAH Mobile App</div>
+                  <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Kano, Nigeria • IP: 102.168.1.1</div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-[var(--asb-border)] p-4">
+                  <div class="flex justify-between items-start mb-2">
+                    <div class="font-medium">iPhone 12</div>
+                    <div class="text-[var(--asb-error)] text-sm font-medium">End Session</div>
+                  </div>
+                  <div class="text-sm text-[var(--asb-text-secondary)] mt-1">ASABIYYAH Mobile App</div>
+                  <div class="text-xs text-[var(--asb-text-secondary)] mt-1">Last active: 3 days ago</div>
+                  <div class="text-xs text-[var(--asb-text-secondary)]">Lagos, Nigeria • IP: 41.206.1.5</div>
+                </div>
+              </div>
+              
+              <div class="mt-auto">
+                <button class="w-full py-4 bg-transparent border-2 border-[var(--asb-error)] text-[var(--asb-error)] rounded-xl font-bold">End all other sessions</button>
+              </div>
+            </div>
+          `,
+          `
+            <div class="p-6 flex flex-col items-center justify-center h-full bg-[var(--asb-warning-light)]">
+              <div class="w-20 h-20 bg-white text-[var(--asb-warning)] rounded-full flex items-center justify-center mb-6 shadow-sm">${svgIcons.warning}</div>
+              <h1 class="text-xl font-bold text-center mb-4">Unusual Activity Detected</h1>
+              <p class="text-center text-[var(--asb-text-secondary)] mb-6 leading-relaxed">Someone tried to access your account from a new device in Lagos, Nigeria.</p>
+              
+              <div class="w-full bg-white p-4 rounded-xl shadow-sm mb-8">
+                <div class="text-sm font-medium mb-1">Desktop Browser</div>
+                <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Oct 2, 2026 • 2:15 PM</div>
+                <div class="text-xs text-[var(--asb-text-secondary)]">Lagos, Nigeria</div>
+              </div>
+              
+              <p class="text-center text-[var(--asb-text-secondary)] text-sm mb-8">If this wasn't you, please change your PIN immediately to secure your account.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-4">Change PIN</button>
+              <button class="w-full py-4 bg-transparent text-[var(--asb-text-secondary)] font-medium">It was me</button>
+            </div>
+          `,
+          `
+            <div class="bg-[var(--asb-navy)] p-6 pt-8 text-white rounded-b-[40px] shadow-sm opacity-50">
+              <div class="flex justify-between items-start mb-6">
+                <h1 class="text-xl font-bold">Profile</h1>
+              </div>
+              <div class="flex flex-col items-center mb-4">
+                <div class="w-24 h-24 rounded-full bg-white text-[var(--asb-navy)] flex items-center justify-center text-3xl font-bold mb-3 border-4 border-[var(--asb-navy-light)]">AM</div>
+              </div>
+            </div>
+            
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl z-20 flex flex-col p-6">
+              <div class="w-16 h-16 bg-[var(--asb-error-light)] text-[var(--asb-error)] rounded-full flex items-center justify-center mx-auto mb-4">${svgIcons.alertCircle}</div>
+              <h2 class="font-bold text-xl text-center mb-2">Log Out?</h2>
+              <p class="text-center text-[var(--asb-text-secondary)] mb-8 text-sm leading-relaxed">You have <span class="font-bold text-[var(--asb-text-primary)]">0 pending sync items</span>. All your data on this device will be safely kept for when you return.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-error)] text-white rounded-xl font-bold mb-3">Log Out</button>
+              <button class="w-full py-4 bg-[var(--asb-bg)] text-[var(--asb-text-primary)] rounded-xl font-bold">Cancel</button>
+            </div>
+          `
+        ]
+      },
+
+      {
+        title: "PART 19 — EMPTY, ERROR & EDGE STATES",
+        screens: [
+          `
+            <div class="bg-white p-4 flex items-center justify-between border-b border-[var(--asb-border)]">
+              <h1 class="text-xl font-bold">Communities</h1>
+              <div class="text-[var(--asb-navy)] font-medium">+ New</div>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              <div class="w-48 h-48 bg-[#E8EBF0] rounded-full mb-8 relative flex items-center justify-center overflow-hidden">
+                <div class="absolute w-32 h-32 border-4 border-white rounded-full translate-x-4 -translate-y-4"></div>
+                <div class="absolute w-32 h-32 border-4 border-white rounded-full -translate-x-4 translate-y-4"></div>
+              </div>
+              <h2 class="text-xl font-bold mb-2">No communities yet</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8">Create your first community to start managing contributions</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-4">Create Community</button>
+              <button class="w-full py-4 bg-white text-[var(--asb-navy)] border border-[var(--asb-navy)] rounded-xl font-bold">Join a Community</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Members</h1>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              <div class="w-24 h-24 bg-[var(--asb-bg)] text-[var(--asb-text-muted)] rounded-full flex items-center justify-center mb-6">${svgIcons.profile}</div>
+              <h2 class="text-xl font-bold mb-2">No members added</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8 max-w-[250px]">Add members to start recording contributions in this community.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Add Member</button>
+            </div>
+          `,
+          `
+            <div class="bg-[var(--asb-navy)] p-4 text-white flex flex-col pt-8">
+              <div class="text-sm opacity-80 mb-1">Gidan Kasuwa Adashe</div>
+              <div class="text-2xl font-bold">₦0</div>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              <div class="w-24 h-24 bg-[var(--asb-bg)] text-[var(--asb-text-muted)] rounded-full flex items-center justify-center mb-6">${svgIcons.ledger}</div>
+              <h2 class="text-xl font-bold mb-2">No contributions recorded</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8 max-w-[250px]">Start your daily collection to record contributions.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Record Contribution</button>
+            </div>
+          `,
+          `
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center h-full bg-white">
+              <div class="w-24 h-24 bg-[var(--asb-warning-light)] text-[var(--asb-warning)] rounded-full flex items-center justify-center mb-6">${svgIcons.cloudOff}</div>
+              <h2 class="text-xl font-bold mb-4">No Internet Connection</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-6 text-sm leading-relaxed px-4">Don't worry — ASABIYYAH works offline. Your data is safely stored on this device.</p>
+              
+              <div class="px-4 py-2 bg-[var(--asb-bg)] rounded-xl text-sm font-medium text-[var(--asb-text-secondary)] mb-8 flex items-center gap-2">${svgIcons.check} All features are available offline</div>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-4">Retry Connection</button>
+              <p class="text-xs text-[var(--asb-text-muted)]">Last synced: 8:30 AM</p>
+            </div>
+          `,
+          `
+            <div class="p-4 opacity-30 pointer-events-none">\n              <div class="h-20 bg-white rounded-xl border border-[var(--asb-border)] mb-4"></div>\n              <div class="h-20 bg-white rounded-xl border border-[var(--asb-border)] mb-4"></div>\n            </div>
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <div class="absolute inset-0 z-20 flex items-center justify-center p-6">
+              <div class="bg-white w-full rounded-2xl p-6 flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-[var(--asb-error-light)] text-[var(--asb-error)] rounded-full flex items-center justify-center mb-4">${svgIcons.alertCircle}</div>
+                <h2 class="font-bold text-xl mb-2">Action Failed</h2>
+                <p class="text-[var(--asb-text-secondary)] mb-6 text-sm">Unable to record contribution. Please try again.</p>
+                <div class="w-full flex gap-3">
+                  <button class="flex-1 py-3 bg-[var(--asb-bg)] text-[var(--asb-text-primary)] rounded-xl font-bold">Cancel</button>
+                  <button class="flex-1 py-3 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Retry</button>
+                </div>
+                <p class="text-[10px] text-[var(--asb-text-muted)] mt-4 uppercase">Error code: ERR-1001</p>
+              </div>
+            </div>
+          `,
+          `
+            <div class="absolute inset-0 bg-black z-0"></div>
+            <div class="absolute top-0 left-0 right-0 p-4 pt-14 flex justify-between z-10 text-white">
+              <div class="w-8 h-8">${svgIcons.x}</div>
+            </div>
+            <div class="absolute inset-0 z-20 flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+              <div class="bg-white w-full rounded-2xl p-6 flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-[var(--asb-error-light)] text-[var(--asb-error)] rounded-full flex items-center justify-center mb-4">${svgIcons.x}</div>
+                <h2 class="font-bold text-xl mb-2">Invalid QR Code</h2>
+                <p class="text-[var(--asb-text-secondary)] mb-8 text-sm px-2">This QR code is not recognized as an ASABIYYAH member ID.</p>
+                <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-3">Scan Again</button>
+                <button class="w-full py-4 bg-[var(--asb-bg)] text-[var(--asb-text-primary)] rounded-xl font-bold">Enter ID Manually</button>
+              </div>
+            </div>
+          `,
+          `
+            <div class="p-4 bg-white border-b border-[var(--asb-border)] flex items-center gap-3">
+              <div class="text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <div class="flex-1 flex items-center bg-[var(--asb-bg)] rounded-xl px-3 py-2">
+                <div class="text-[var(--asb-text-secondary)] w-5 h-5 mr-2">${svgIcons.search}</div>
+                <input type="text" class="bg-transparent border-none outline-none w-full text-[15px]" value="ASB-MEM-2026-9999">
+              </div>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              <div class="w-20 h-20 bg-[var(--asb-bg)] text-[var(--asb-text-muted)] rounded-full flex items-center justify-center mb-6 relative">${svgIcons.profile}<div class="absolute -bottom-1 -right-1 w-8 h-8 bg-white rounded-full flex items-center justify-center font-bold text-[var(--asb-text-primary)] border border-[var(--asb-border)]">?</div></div>
+              <h2 class="text-xl font-bold mb-2">Member Not Found</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-2 text-sm">No member matches the ID "ASB-MEM-2026-9999"</p>
+              <p class="text-[var(--asb-text-muted)] mb-8 text-sm">Check the ID and try again</p>
+              
+              <button class="px-8 py-3 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Search Members</button>
+            </div>
+          `,
+          `
+            <div class="p-4 opacity-30 pointer-events-none">\n              <div class="h-64 bg-white rounded-xl border border-[var(--asb-border)]"></div>\n            </div>
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <div class="absolute inset-0 z-20 flex items-center justify-center p-6">
+              <div class="bg-white w-full rounded-2xl p-6 flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-[var(--asb-warning-light)] text-[var(--asb-warning)] rounded-full flex items-center justify-center mb-4">${svgIcons.warning}</div>
+                <h2 class="font-bold text-xl mb-2">Possible Duplicate</h2>
+                <p class="text-[var(--asb-text-secondary)] mb-8 text-sm">A contribution of <span class="font-bold text-black">₦1,000</span> was already recorded for <span class="font-bold text-black">Amina Yusuf</span> today at 9:15 AM.</p>
+                <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-3">Cancel</button>
+                <button class="w-full py-4 bg-transparent border border-[var(--asb-border)] text-[var(--asb-text-secondary)] rounded-xl font-bold">Record Anyway</button>
+              </div>
+            </div>
+          `,
+          `
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center h-full bg-white">
+              <div class="w-24 h-24 bg-[var(--asb-error-light)] text-[var(--asb-error)] rounded-full flex items-center justify-center mb-6">${svgIcons.lock}</div>
+              <h2 class="text-xl font-bold mb-4">Permission Required</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8 text-sm leading-relaxed px-4">You don't have permission to edit this ledger. Contact the organizer to request access.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Go Back</button>
+            </div>
+          `,
+          `
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center h-full bg-white">
+              <div class="w-20 h-20 bg-[var(--asb-navy)] rounded-2xl flex items-center justify-center mb-8">${asbLogo}</div>
+              <h2 class="text-xl font-bold mb-4">Session Expired</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8 text-sm leading-relaxed">Your session has expired. Please log in again to continue using ASABIYYAH.</p>
+              
+              <div class="px-4 py-2 bg-[var(--asb-success-light)] rounded-xl text-sm font-medium text-[var(--asb-success)] mb-8 flex items-center gap-2">${svgIcons.check} Your offline data is safe</div>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Log In</button>
+            </div>
+          `,
+          `
+            <div class="flex-1 flex flex-col items-center justify-center p-6 text-center h-full bg-white">
+              <div class="w-24 h-24 bg-[var(--asb-warning-light)] text-[var(--asb-warning)] rounded-full flex items-center justify-center mb-6">${svgIcons.serverWarning}</div>
+              <h2 class="text-xl font-bold mb-4">Service Unavailable</h2>
+              <p class="text-[var(--asb-text-secondary)] mb-8 text-sm leading-relaxed px-2">Our servers are undergoing maintenance. You can continue using ASABIYYAH offline.</p>
+              
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold mb-3">Continue Offline</button>
+              <button class="w-full py-4 bg-[var(--asb-bg)] text-[var(--asb-text-primary)] rounded-xl font-bold">Retry</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.x}</div>
+              <h1 class="text-lg font-bold flex-1">Record Contribution</h1>
+            </div>
+            <div class="p-4 space-y-6">
+              <div>
+                <label class="block text-sm font-medium text-[var(--asb-error)] mb-1">Member *</label>
+                <div class="w-full p-3 bg-white border-2 border-[var(--asb-error)] rounded-xl flex justify-between items-center bg-[var(--asb-error-light)] bg-opacity-30">
+                  <span class="text-[var(--asb-text-muted)]">Select a member</span>
+                  <div class="w-4 h-4 text-[var(--asb-text-muted)]">${svgIcons.chevronRight}</div>
+                </div>
+                <p class="text-xs text-[var(--asb-error)] mt-1.5 flex items-center gap-1">${svgIcons.alertCircle} Please select a member</p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-[var(--asb-error)] mb-1">Amount *</label>
+                <div class="flex items-center bg-white border-2 border-[var(--asb-error)] rounded-xl px-3 bg-[var(--asb-error-light)] bg-opacity-30">
+                  <span class="text-[var(--asb-text-primary)] font-bold text-lg">₦</span>
+                  <input type="number" class="w-full p-3 bg-transparent outline-none text-lg font-bold" placeholder="0">
+                </div>
+                <p class="text-xs text-[var(--asb-error)] mt-1.5 flex items-center gap-1">${svgIcons.alertCircle} Amount is required</p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-[var(--asb-text-secondary)] mb-1">Date</label>
+                <div class="w-full p-3 bg-white border border-[var(--asb-border)] rounded-xl flex justify-between items-center">
+                  <span class="font-medium">Today, 2 Oct</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-auto p-4 bg-white border-t border-[var(--asb-border)]">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold opacity-30 cursor-not-allowed" disabled>Record Contribution</button>
+            </div>
+          `
+        ]
+      },
+
+      {
+        title: "PART 20 — FUTURE PLATFORM SCREENS",
+        screens: [
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Open Banking</h1>
+            </div>
+            <div class="relative flex-1 p-4 overflow-hidden">
+              <div class="blur-overlay">
+                <div class="coming-soon-badge mb-4">COMING SOON</div>
+                <h2 class="text-xl font-bold text-[var(--asb-navy)] text-center px-4">Automate with your Bank</h2>
+              </div>
+              <div class="opacity-40 pointer-events-none space-y-6 mt-4">
+                <div class="bg-white p-6 rounded-xl border border-[var(--asb-border)] text-center">
+                  <div class="w-16 h-16 bg-[var(--asb-bg)] rounded-full flex items-center justify-center mx-auto mb-4">${svgIcons.bank}</div>
+                  <h3 class="font-bold mb-2">Connect your bank account</h3>
+                  <p class="text-sm text-[var(--asb-text-secondary)] mb-6">Link your account for automatic reconciliation and instant payouts.</p>
+                  <div class="flex justify-center gap-2 mb-6">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                    <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex gap-3 items-center"><div class="w-2 h-2 bg-[var(--asb-navy)] rounded-full"></div><span class="font-medium">Auto-verify transfers</span></div>
+                  <div class="flex gap-3 items-center"><div class="w-2 h-2 bg-[var(--asb-navy)] rounded-full"></div><span class="font-medium">Bank statements import</span></div>
+                  <div class="flex gap-3 items-center"><div class="w-2 h-2 bg-[var(--asb-navy)] rounded-full"></div><span class="font-medium">Instant member payouts</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border-t border-[var(--asb-border)] relative z-20">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Notify Me When Available</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Virtual Account</h1>
+            </div>
+            <div class="relative flex-1 p-4 overflow-hidden">
+              <div class="blur-overlay">
+                <div class="coming-soon-badge mb-4">COMING SOON</div>
+                <h2 class="text-xl font-bold text-[var(--asb-navy)] text-center px-4">Dedicated Community Accounts</h2>
+              </div>
+              <div class="opacity-40 pointer-events-none space-y-6 mt-4">
+                <p class="text-center text-[var(--asb-text-secondary)]">Each community gets a dedicated virtual account for direct collection.</p>
+                
+                <div class="bg-[var(--asb-navy)] p-6 rounded-2xl text-white">
+                  <div class="flex justify-between items-start mb-8">
+                    <div class="font-bold">ASABIYYAH</div>
+                    <div class="w-8 h-8">${svgIcons.creditCard}</div>
+                  </div>
+                  <div class="text-2xl tracking-widest font-mono mb-2">**** **** 1234</div>
+                  <div class="text-xs opacity-70 mb-6">Wema Bank • Gidan Kasuwa Adashe</div>
+                  <div class="text-xl font-bold">₦0.00</div>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)] flex items-center gap-3">
+                    <div class="w-8 h-8 bg-[var(--asb-bg)] rounded-full"></div>
+                    <span class="font-medium">Direct deposits</span>
+                  </div>
+                  <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)] flex items-center gap-3">
+                    <div class="w-8 h-8 bg-[var(--asb-bg)] rounded-full"></div>
+                    <span class="font-medium">Auto-reconciliation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border-t border-[var(--asb-border)] relative z-20">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Notify Me</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Organization Dashboard</h1>
+            </div>
+            <div class="relative flex-1 p-4 overflow-hidden">
+              <div class="blur-overlay">
+                <div class="coming-soon-badge mb-4">COMING SOON</div>
+                <h2 class="text-xl font-bold text-[var(--asb-navy)] text-center px-4 mb-2">For Large Organizations</h2>
+                <p class="text-center text-sm font-medium">Manage multiple communities at scale</p>
+              </div>
+              <div class="opacity-40 pointer-events-none mt-2">
+                <div class="flex gap-3 mb-4">
+                  <div class="flex-1 bg-white p-3 rounded-xl border border-[var(--asb-border)]">
+                    <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Total Volume</div>
+                    <div class="font-bold">₦1.2M</div>
+                  </div>
+                  <div class="flex-1 bg-white p-3 rounded-xl border border-[var(--asb-border)]">
+                    <div class="text-xs text-[var(--asb-text-secondary)] mb-1">Communities</div>
+                    <div class="font-bold">12</div>
+                  </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)] mb-4">
+                  <div class="flex items-center gap-2 mb-4 font-bold">${svgIcons.pieChart} Aggregate Reporting</div>
+                  <div class="h-24 bg-[var(--asb-bg)] rounded-lg w-full flex items-end gap-2 p-2">
+                    <div class="w-full bg-[var(--asb-navy-light)] h-1/2 rounded-t-sm"></div>
+                    <div class="w-full bg-[var(--asb-navy)] h-full rounded-t-sm"></div>
+                    <div class="w-full bg-[var(--asb-gold)] h-3/4 rounded-t-sm"></div>
+                    <div class="w-full bg-[var(--asb-border)] h-1/4 rounded-t-sm"></div>
+                  </div>
+                </div>
+                
+                <div class="space-y-2">
+                  <div class="bg-white p-3 rounded-xl border border-[var(--asb-border)] font-medium text-sm">Team Management</div>
+                  <div class="bg-white p-3 rounded-xl border border-[var(--asb-border)] font-medium text-sm">Compliance Tools</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border-t border-[var(--asb-border)] relative z-20">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Learn More</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Islamic Finance</h1>
+            </div>
+            <div class="relative flex-1 p-4 overflow-hidden">
+              <div class="blur-overlay">
+                <div class="coming-soon-badge mb-4">COMING SOON</div>
+                <h2 class="text-xl font-bold text-[var(--asb-navy)] text-center px-4">Shariah-Compliant Products</h2>
+              </div>
+              <div class="opacity-40 pointer-events-none mt-4 space-y-4">
+                <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)]">
+                  <h3 class="font-bold text-[var(--asb-navy)] mb-1">Mudarabah</h3>
+                  <p class="text-sm text-[var(--asb-text-secondary)]">Partnership savings and profit-sharing communities</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)]">
+                  <h3 class="font-bold text-[var(--asb-navy)] mb-1">Musharakah</h3>
+                  <p class="text-sm text-[var(--asb-text-secondary)]">Cooperative joint venture investments</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)]">
+                  <h3 class="font-bold text-[var(--asb-navy)] mb-1">Qard Hasan</h3>
+                  <p class="text-sm text-[var(--asb-text-secondary)]">Interest-free community lending</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-[var(--asb-border)]">
+                  <h3 class="font-bold text-[var(--asb-navy)] mb-1">Shariah Reporting</h3>
+                  <p class="text-sm text-[var(--asb-text-secondary)]">Compliant audit trails and contract generation</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border-t border-[var(--asb-border)] relative z-20">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Notify Me</button>
+            </div>
+          `,
+          `
+            <div class="bg-white p-4 flex items-center gap-4 border-b border-[var(--asb-border)]">
+              <div class="w-6 h-6 text-[var(--asb-text-secondary)]">${svgIcons.chevronLeft}</div>
+              <h1 class="text-lg font-bold flex-1">Community Finance API</h1>
+            </div>
+            <div class="relative flex-1 p-4 overflow-hidden">
+              <div class="blur-overlay">
+                <div class="coming-soon-badge mb-4">COMING SOON</div>
+                <h2 class="text-xl font-bold text-[var(--asb-navy)] text-center px-4 mb-2">Build on ASABIYYAH</h2>
+                <p class="text-center text-sm font-medium">Developer APIs and Webhooks</p>
+              </div>
+              <div class="opacity-40 pointer-events-none mt-2">
+                <div class="bg-[var(--asb-navy-dark)] rounded-xl p-4 text-xs font-mono text-green-400 mb-6 overflow-hidden">
+                  <div>POST /v1/contributions</div>
+                  <div class="text-white opacity-80 mt-2">{</div>
+                  <div class="text-white opacity-80 ml-4">"member_id": "MEM-2026",</div>
+                  <div class="text-white opacity-80 ml-4">"amount": 1000,</div>
+                  <div class="text-white opacity-80 ml-4">"currency": "NGN"</div>
+                  <div class="text-white opacity-80">}</div>
+                </div>
+                
+                <div class="space-y-4">
+                  <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-[var(--asb-border)]">
+                    <div class="w-8 h-8 bg-[var(--asb-bg)] rounded-lg flex items-center justify-center">${svgIcons.code}</div>
+                    <span class="font-medium text-sm">RESTful API Endpoints</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-[var(--asb-border)]">
+                    <div class="w-8 h-8 bg-[var(--asb-bg)] rounded-lg flex items-center justify-center">${svgIcons.code}</div>
+                    <span class="font-medium text-sm">Real-time Webhooks</span>
+                  </div>
+                  <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-[var(--asb-border)]">
+                    <div class="w-8 h-8 bg-[var(--asb-bg)] rounded-lg flex items-center justify-center">${svgIcons.code}</div>
+                    <span class="font-medium text-sm">Mobile & Web SDKs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white border-t border-[var(--asb-border)] relative z-20">
+              <button class="w-full py-4 bg-[var(--asb-navy)] text-white rounded-xl font-bold">Join Waitlist</button>
+            </div>
+          `
+        ]
+      }
+    ];
+
+    const container = document.getElementById('main-container');
+    
+    sections.forEach(section => {
+      const header = document.createElement('div');
+      header.className = 'section-header';
+      header.textContent = section.title;
+      container.appendChild(header);
+      
+      section.screens.forEach(screenContent => {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = createMockup(screenContent, false, '');
+        container.appendChild(wrapper.firstElementChild);
+      });
+    });
+  </script>
+</body>
+</html>

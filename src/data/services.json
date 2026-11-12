@@ -1,0 +1,103 @@
+[
+  {
+    "id": "custom-software",
+    "slug": "custom-software",
+    "title": "Custom Enterprise Software Engineering",
+    "tagline": "Bespoke Web, Mobile & API Systems Engineered for High Concurrency",
+    "description": "We design, build, and deploy production-ready web platforms, cross-platform mobile applications, and resilient backend APIs tailored to your organization's unique operational requirements.",
+    "icon": "code",
+    "problems_solved": [
+      "Off-the-shelf software failing to match specific African business workflows.",
+      "Sluggish applications that fail on budget smartphones and erratic cellular networks.",
+      "Vulnerable, poorly documented codebases that cannot pass institutional compliance audits."
+    ],
+    "deliverables": [
+      "Full-Stack Web Applications (React, TypeScript, Tailwind CSS)",
+      "Cross-Platform Mobile Applications (Flutter for iOS & Android)",
+      "High-Throughput RESTful APIs with OpenAPI Documentation (FastAPI, NestJS)",
+      "Production Deployment Runbooks & Architecture Specifications"
+    ],
+    "ideal_clients": [
+      "Commercial mid-market enterprises digitizing internal workflows",
+      "Financial service organizations needing secure integration middleware",
+      "High-growth technology ventures requiring institutional MVP-to-production engineering"
+    ],
+    "technologies": ["Python", "TypeScript", "FastAPI", "React", "Flutter", "NestJS", "PostgreSQL", "Docker"]
+  },
+  {
+    "id": "applied-ai",
+    "slug": "applied-ai",
+    "title": "Applied AI & Intelligent Systems",
+    "tagline": "Grounded Artificial Intelligence Built on Deterministic Guardrails",
+    "description": "We engineer practical artificial intelligence solutions that automate complex information processing without unpredictable hallucinations, using grounded RAG and local language models.",
+    "icon": "cpu",
+    "problems_solved": [
+      "Commercial risk of generic LLMs hallucinating false data or exposing sensitive secrets.",
+      "Inability to verify real-time claims and suspicious links against authoritative sources.",
+      "Vulnerability to prompt injection attacks in public-facing AI interfaces.",
+      "Exclusion of non-English dominant populations from modern intelligent tools."
+    ],
+    "deliverables": [
+      "Curated RAG Pipelines Grounded in Institutional Knowledge (PostgreSQL tsvector)",
+      "Structured LLM Indicator Extraction Engines with Fallback Heuristics",
+      "Automated WhatsApp & Messaging Verification Bots with Rate Limiting",
+      "Multilingual Natural Language Interfaces (English & Hausa Voice NLP)"
+    ],
+    "ideal_clients": [
+      "Fact-checking organizations, civic institutions, and electoral observer groups",
+      "Customer support operations requiring reliable document analysis",
+      "Educational institutions seeking curriculum-grounded automated tutoring"
+    ],
+    "technologies": ["Quantized Qwen 2.5B", "RAG", "PostgreSQL tsvector", "WhatsApp Cloud API", "N-ATLAS Speech", "Prompt Defense Nonces"]
+  },
+  {
+    "id": "process-automation",
+    "slug": "process-automation",
+    "title": "Business Process Automation & Digital Ledgers",
+    "tagline": "Converting Manual Fragmentation into Code-Enforced Digital Accountability",
+    "description": "We systematically convert manual, paper-based, or spreadsheet-driven business processes into code-enforced, tamper-evident digital workflows and automated accounting ledgers.",
+    "icon": "check-circle",
+    "problems_solved": [
+      "Discrepancies and fraud caused by manual paper ledgers and fragmented WhatsApp handoffs.",
+      "Severe administrative burnout spent reconciling accounts and chasing approvals.",
+      "Lack of verifiable, auditable transaction histories for credit-building or external audits."
+    ],
+    "deliverables": [
+      "Zero-Dependency Relational Double-Entry Accounting Engines (SQLite / PostgreSQL)",
+      "Automated Collection Scheduling, Reminders, and Receipt Dispatch",
+      "Printable High-Contrast QR Tracking Posters for Physical Cash Reconciliation",
+      "Role-Based Administrative Portals with Real-Time Discrepancy Alerts"
+    ],
+    "ideal_clients": [
+      "Registered Multi-Purpose Cooperative Societies and thrift credit unions",
+      "Trade associations, market clusters, and agricultural aggregators",
+      "Enterprise logistics networks managing distributed field collections"
+    ],
+    "technologies": ["Double-Entry Accounting Logic", "Relational Constraints", "QR Code Bridges", "Automated Schedulers", "Cryptographic Audit Trails"]
+  },
+  {
+    "id": "digital-infrastructure",
+    "slug": "digital-infrastructure",
+    "title": "Data Engineering & Resilient Infrastructure",
+    "tagline": "Digital Systems Engineered to Thrive in Erratic Network Environments",
+    "description": "We design, deploy, and maintain high-availability database systems, containerized cloud infrastructure, and offline-first edge synchronization networks built to withstand harsh connectivity constraints.",
+    "icon": "database",
+    "problems_solved": [
+      "Complete software failure when cellular data networks drop in rural or congested hubs.",
+      "Cloud infrastructure misconfigurations, vulnerable open ports, and unencrypted traffic.",
+      "Degraded application performance and slow query bottlenecks as datasets scale."
+    ],
+    "deliverables": [
+      "Offline-First Edge Synchronization Engines (Local SQLite syncing to Cloud PostgreSQL)",
+      "Containerized Production Blueprints (Hardened Docker & Docker Compose)",
+      "Automated TLS & Reverse Proxy Architectures (Caddy with Let's Encrypt)",
+      "NDPR-Compliant Logging Infrastructure with Automated PII Masking"
+    ],
+    "ideal_clients": [
+      "Commercial organizations operating branches across semi-urban and rural Nigeria",
+      "Enterprises handling sensitive customer records requiring strict NDPR compliance",
+      "Institutions deploying Computer-Based Testing (CBT) and local area networks"
+    ],
+    "technologies": ["PostgreSQL 16", "SQLite 3", "Docker", "Caddy TLS", "Alembic Migrations", "PII Redaction"]
+  }
+]

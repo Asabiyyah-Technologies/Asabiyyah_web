@@ -1,0 +1,23 @@
+{
+  "palette": {
+    "navy_dark": "#0D1B3E",
+    "navy": "#1B2A4A",
+    "navy_light": "#2C3E5F",
+    "gold_dark": "#A68B3C",
+    "gold": "#C8A951",
+    "gold_light": "#D4B96A",
+    "bg": "#F7F8FA",
+    "surface": "#FFFFFF",
+    "text_primary": "#1A1D23",
+    "text_secondary": "#5A6070"
+  },
+  "application": {
+    "primary_mark": "#1B2A4A",
+    "wordmark": "#1B2A4A",
+    "accent_divider_and_tagline": "#C8A951",
+    "dark_background": "#0D1B3E",
+    "reversed_mark": "#FFFFFF"
+  },
+  "typography": "The DILA wordmark remains an editable geometric-sans approximation; supporting copy follows the system sans stack. The source system defines H1 28px bold, H2 24px semibold, H3 20px semibold, H4 17px semibold, body 15px regular, caption 12px, overline 11px uppercase.",
+  "source": "Asabiyyah Smart Ledger design-system HTML supplied by the user."
+}

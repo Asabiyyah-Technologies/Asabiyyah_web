@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASABIYYAH Part 2 - Setup Wizard</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --asb-navy: #1B2A4A;
+      --asb-navy-dark: #0D1B3E;
+      --asb-navy-light: #2C3E5F;
+      --asb-gold: #C8A951;
+      --asb-gold-light: #D4B96A;
+      --asb-gold-dark: #A68B3C;
+      --asb-bg: #F7F8FA;
+      --asb-bg-warm: #FAFAF7;
+      --asb-surface: #FFFFFF;
+      --asb-surface-alt: #F0F2F5;
+      --asb-text-primary: #1A1D23;
+      --asb-text-secondary: #5A6070;
+      --asb-text-muted: #8E95A5;
+      --asb-text-inverse: #FFFFFF;
+      --asb-success: #1A8D5F;
+      --asb-success-light: #E8F5EE;
+      --asb-warning: #D4940A;
+      --asb-warning-light: #FEF7E0;
+      --asb-error: #C93B3B;
+      --asb-error-light: #FDECEC;
+      --asb-info: #2B6CB0;
+      --asb-info-light: #EBF2FA;
+      --asb-border: #E2E5EB;
+      --asb-border-light: #F0F1F4;
+      --asb-synced: #1A8D5F;
+      --asb-pending: #D4940A;
+      --asb-syncing: #2B6CB0;
+      --asb-sync-failed: #C93B3B;
+    }
+
+    body {
+      background-color: #2D3748;
+      color: #E2E8F0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .mockup-container {
+      width: 390px;
+      height: 844px;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 8px solid #1A1D23;
+      position: relative;
+      background: var(--asb-bg);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      color: var(--asb-text-primary);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .status-bar {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px 0;
+      font-size: 15px;
+      font-weight: 600;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+    
+    .status-bar.dark-bg {
+      color: var(--asb-text-inverse);
+    }
+    .status-bar.light-bg {
+      color: var(--asb-text-primary);
+    }
+
+    .header-nav {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      flex-shrink: 0;
+    }
+
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 24px;
+      scrollbar-width: none;
+    }
+    .content-area::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bottom-action {
+      padding: 16px 24px 32px;
+      background: var(--asb-surface);
+      border-top: 1px solid var(--asb-border);
+    }
+
+    /* Custom utilities */
+    .bg-navy { background-color: var(--asb-navy); }
+    .text-navy { color: var(--asb-navy); }
+    .bg-gold { background-color: var(--asb-gold); }
+    .text-gold { color: var(--asb-gold); }
+    .border-navy { border-color: var(--asb-navy); }
+    .border-gold { border-color: var(--asb-gold); }
+    
+    .btn-primary {
+      background-color: var(--asb-navy);
+      color: white;
+      border-radius: 12px;
+      padding: 16px;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+      display: block;
+      transition: background-color 0.2s;
+    }
+    .btn-primary:active {
+      background-color: var(--asb-navy-dark);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--asb-navy);
+      border: 1px solid var(--asb-navy);
+      border-radius: 12px;
+      padding: 16px;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+
+    .progress-bar-container {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      width: 100%;
+    }
+    .progress-bar-container.light {
+      background: var(--asb-border);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--asb-gold);
+      transition: width 0.3s ease;
+    }
+
+    .card {
+      background: var(--asb-surface);
+      border: 1px solid var(--asb-border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .card-selectable {
+      background: var(--asb-surface);
+      border: 2px solid transparent;
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card-selectable.selected {
+      border-color: var(--asb-navy);
+      background: var(--asb-surface-alt);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--asb-border);
+      border-radius: 12px;
+      font-size: 16px;
+      color: var(--asb-text-primary);
+      background: var(--asb-surface);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--asb-navy);
+    }
+    
+    .amount-input {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--asb-navy);
+      border: none;
+      background: transparent;
+      text-align: center;
+      width: 100%;
+    }
+    .amount-input:focus {
+      outline: none;
+    }
+
+    .toggle {
+      width: 50px;
+      height: 28px;
+      border-radius: 14px;
+      background: var(--asb-border);
+      position: relative;
+    }
+    .toggle.active {
+      background: var(--asb-success);
+    }
+    .toggle-knob {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: left 0.2s;
+    }
+    .toggle.active .toggle-knob {
+      left: 24px;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-white mb-2">Part 2 &mdash; Smart Setup Wizard</h1>
+    <p class="text-gray-400">Horizontal scroll to view all 12 screens.</p>
+  </div>
+
+  <div class="flex gap-8 overflow-x-auto pb-12 w-full" style="scrollbar-width: auto;">
+
+    <!-- SCREEN 1: Create Your First Community -->
+    <div class="mockup-container">
+      <div class="bg-navy" style="height: 45%;">
+        <div class="status-bar dark-bg">
+          <span>9:41</span>
+          <div class="flex gap-1.5 items-center">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+            <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" style="width: 10%;"></div>
+        </div>
+        <div class="header-nav text-white">
+          <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="flex-1 text-center font-semibold text-sm opacity-80">Step 1 of 10</div>
+          <div class="w-10"></div>
+        </div>
+        
+        <div class="flex flex-col items-center justify-center h-full pb-8">
+          <div class="w-32 h-32 rounded-full flex items-center justify-center relative mb-4">
+            <div class="absolute inset-0 border-4 border-dashed rounded-full" style="border-color: var(--asb-navy-light)"></div>
+            <div class="w-24 h-24 bg-gold rounded-full flex items-center justify-center">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <!-- decorative circles -->
+            <div class="absolute w-6 h-6 bg-white rounded-full flex items-center justify-center top-0 right-2 shadow"><span style="color:var(--asb-navy); font-size:10px; font-weight:bold;">1</span></div>
+            <div class="absolute w-6 h-6 bg-white rounded-full flex items-center justify-center bottom-2 left-0 shadow"><span style="color:var(--asb-navy); font-size:10px; font-weight:bold;">2</span></div>
+            <div class="absolute w-6 h-6 bg-white rounded-full flex items-center justify-center bottom-4 right-0 shadow"><span style="color:var(--asb-navy); font-size:10px; font-weight:bold;">3</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content-area flex flex-col px-6 pt-10" style="background: var(--asb-bg); border-top-left-radius: 24px; border-top-right-radius: 24px; margin-top: -24px;">
+        <h2 class="text-3xl font-bold text-center mb-4" style="color: var(--asb-text-primary)">Create Your First Community</h2>
+        <p class="text-center text-lg mb-8" style="color: var(--asb-text-secondary)">Set up your Adashe, savings group, or collection in minutes.</p>
+        
+        <div class="space-y-4 mb-auto">
+          <div class="flex items-start gap-3">
+            <div class="mt-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--asb-success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            <p style="color: var(--asb-text-secondary)">Define custom rules</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="mt-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--asb-success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            <p style="color: var(--asb-text-secondary)">Invite members easily</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="mt-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--asb-success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+            <p style="color: var(--asb-text-secondary)">Track payments offline</p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-action">
+        <button class="btn-primary">Let's Begin</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: Choose Finance Type -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 20%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 2 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4 pb-8">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--asb-navy)">What type of community finance?</h2>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">📦</div>
+            <h3 class="font-bold text-sm">Daily Street Collection</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Collect fixed amounts daily from members</p>
+          </div>
+          
+          <div class="card-selectable selected flex flex-col gap-2 relative">
+            <div class="absolute top-2 right-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--asb-navy)" stroke="var(--asb-navy)"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" fill="none" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="text-2xl">🔄</div>
+            <h3 class="font-bold text-sm">Fixed Adashe / ROSCA</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Rotating savings with scheduled payouts</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">🏛️</div>
+            <h3 class="font-bold text-sm">Union Dues</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Regular member contributions to a union</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">💰</div>
+            <h3 class="font-bold text-sm">Treasury</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Central fund with managed disbursements</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">🤝</div>
+            <h3 class="font-bold text-sm">Cooperative</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Shared savings and loan group</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">🎯</div>
+            <h3 class="font-bold text-sm">Goal Savings</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Save together toward a specific goal</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">📋</div>
+            <h3 class="font-bold text-sm">Material Contribution</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Non-cash contributions tracking</p>
+          </div>
+          
+          <div class="card-selectable flex flex-col gap-2">
+            <div class="text-2xl">⚙️</div>
+            <h3 class="font-bold text-sm">Custom Rules</h3>
+            <p class="text-xs" style="color: var(--asb-text-secondary)">Define your own structure</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: Community Name -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 30%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 3 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4">
+        <h2 class="text-2xl font-bold mb-8" style="color: var(--asb-navy)">Name your community</h2>
+        
+        <div class="mb-6">
+          <label class="block text-sm font-semibold mb-2" style="color: var(--asb-text-primary)">Community Name</label>
+          <input type="text" class="form-input" value="Gidan Kasuwa Adashe" placeholder="e.g., Gidan Kasuwa Adashe">
+          <p class="text-xs mt-2" style="color: var(--asb-text-secondary)">This name will be visible to all members</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2" style="color: var(--asb-text-primary)">Description <span style="color: var(--asb-text-muted)">(Optional)</span></label>
+          <textarea class="form-input h-32 resize-none" placeholder="What is the purpose of this community?"></textarea>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: Contribution Amount -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 40%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 4 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4 flex flex-col">
+        <h2 class="text-2xl font-bold mb-10 text-center" style="color: var(--asb-navy)">How much will each member contribute?</h2>
+        
+        <div class="mb-10 text-center">
+          <div class="flex items-center justify-center">
+            <span class="text-4xl font-bold text-navy mr-1">₦</span>
+            <input type="text" class="amount-input" value="1,000" style="width: 140px;">
+          </div>
+          <div class="h-0.5 bg-navy mx-auto w-48 mt-2 opacity-20"></div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-8">
+          <button class="py-3 px-4 rounded-xl border border-gray-200 font-semibold" style="color: var(--asb-text-primary)">₦500</button>
+          <button class="py-3 px-4 rounded-xl font-semibold bg-navy text-white shadow-sm border border-navy">₦1,000</button>
+          <button class="py-3 px-4 rounded-xl border border-gray-200 font-semibold" style="color: var(--asb-text-primary)">₦2,000</button>
+          <button class="py-3 px-4 rounded-xl border border-gray-200 font-semibold" style="color: var(--asb-text-primary)">₦5,000</button>
+        </div>
+
+        <div class="flex gap-3 bg-blue-50 p-4 rounded-xl mt-auto">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--asb-info)" stroke-width="2" class="flex-shrink-0"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <p class="text-sm" style="color: var(--asb-info)">All members contribute the same fixed amount per cycle.</p>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 5: Contribution Frequency -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 50%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 5 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--asb-navy)">How often do members contribute?</h2>
+        
+        <div class="space-y-3">
+          <!-- Option 1 -->
+          <div class="card-selectable selected flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Daily</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Every day</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border-4 border-navy flex items-center justify-center"></div>
+          </div>
+          
+          <!-- Option 2 -->
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Weekly</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Once a week</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <!-- Option 3 -->
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Bi-weekly</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Every two weeks</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <!-- Option 4 -->
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Monthly</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Once a month</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 6: Cycle Duration -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 60%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 6 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4">
+        <h2 class="text-2xl font-bold mb-2" style="color: var(--asb-navy)">How long is each cycle?</h2>
+        <p class="text-sm mb-6" style="color: var(--asb-text-secondary)">A cycle completes when every member has received a payout</p>
+        
+        <div class="space-y-3 mb-8">
+          <div class="card-selectable selected flex items-center justify-between">
+            <h3 class="font-bold text-base">30 days</h3>
+            <div class="w-5 h-5 rounded-full border-4 border-navy flex items-center justify-center"></div>
+          </div>
+          
+          <div class="card-selectable flex items-center justify-between">
+            <h3 class="font-bold text-base">60 days</h3>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <div class="card-selectable flex items-center justify-between">
+            <h3 class="font-bold text-base">90 days</h3>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <div class="card-selectable flex items-center justify-between">
+            <h3 class="font-bold text-base">Custom</h3>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+        </div>
+
+        <div class="card bg-gray-50 border-gray-200 p-4">
+          <div class="flex items-start gap-3">
+            <div class="mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--asb-navy)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
+            <p class="text-sm font-medium" style="color: var(--asb-navy)">With 10 members contributing ₦1,000 daily, each member receives ₦10,000.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 7: Number of Members -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 70%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 7 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4 flex flex-col">
+        <h2 class="text-2xl font-bold mb-10 text-center" style="color: var(--asb-navy)">How many members?</h2>
+        
+        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-2xl p-4 mb-10">
+          <button class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-navy font-bold text-xl hover:bg-gray-200">−</button>
+          <div class="text-5xl font-bold text-navy">10</div>
+          <button class="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl hover:bg-opacity-90">+</button>
+        </div>
+
+        <div class="mt-auto">
+          <div class="card flex flex-col items-center justify-center p-6 bg-navy text-white border-0 shadow-lg">
+            <p class="text-sm opacity-80 mb-1">Cycle Payout</p>
+            <h3 class="text-3xl font-bold text-gold mb-2">₦10,000</h3>
+            <p class="text-xs opacity-90 text-center">10 members × ₦1,000</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 8: Payout Order -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 80%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 8 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--asb-navy)">How are payouts ordered?</h2>
+        
+        <div class="space-y-3">
+          <div class="card-selectable selected flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Fixed order</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Set manually by organizer</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border-4 border-navy flex items-center justify-center"></div>
+          </div>
+          
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Randomized</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Drawn randomly each cycle</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">By registration date</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">First to join, first to get paid</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+
+          <div class="card-selectable flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-base">Members choose</h3>
+              <p class="text-sm" style="color: var(--asb-text-secondary)">Members select their payout slot</p>
+            </div>
+            <div class="w-5 h-5 rounded-full border border-gray-300"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 9: Rules & Late Payment -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 90%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 9 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--asb-navy)">Set your rules</h2>
+        
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-semibold text-base">Allow late payments</h3>
+              <p class="text-xs" style="color: var(--asb-text-secondary)">Members can pay after the due date</p>
+            </div>
+            <div class="toggle active">
+              <div class="toggle-knob shadow-sm"></div>
+            </div>
+          </div>
+          
+          <div class="pl-4 border-l-2 border-gray-200 space-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium">Grace period (days)</h3>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded bg-gray-100 flex items-center justify-center font-bold">−</button>
+                <span class="font-semibold">3</span>
+                <button class="w-8 h-8 rounded bg-gray-100 flex items-center justify-center font-bold">+</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium">Late penalty</h3>
+              <div class="flex items-center bg-gray-100 rounded-lg px-3 py-1.5 w-24">
+                <span class="text-sm font-bold mr-1">₦</span>
+                <input type="text" value="200" class="bg-transparent border-none outline-none w-full text-sm font-semibold">
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-gray-200">
+
+          <div class="flex items-center justify-between">
+            <div class="pr-4">
+              <h3 class="font-semibold text-base">Require all to pay</h3>
+              <p class="text-xs" style="color: var(--asb-text-secondary)">No payout until every member has paid for the cycle</p>
+            </div>
+            <div class="toggle">
+              <div class="toggle-knob shadow-sm"></div>
+            </div>
+          </div>
+
+          <hr class="border-gray-200">
+
+          <div class="flex items-center justify-between">
+            <div class="pr-4">
+              <h3 class="font-semibold text-base">Organizer can pay</h3>
+              <p class="text-xs" style="color: var(--asb-text-secondary)">Allow organizer to record cash payments on behalf of members</p>
+            </div>
+            <div class="toggle active">
+              <div class="toggle-knob shadow-sm"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Continue</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 10: Add First Members -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="progress-bar-container light">
+        <div class="progress-bar-fill" style="width: 95%;"></div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1 text-center font-semibold text-sm" style="color: var(--asb-text-secondary)">Step 10 of 10</div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-4 flex flex-col">
+        <h2 class="text-2xl font-bold mb-2" style="color: var(--asb-navy)">Add your first members</h2>
+        <p class="text-sm mb-6" style="color: var(--asb-text-secondary)">You can add more members later from the dashboard.</p>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-xl shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">AY</div>
+              <div>
+                <h4 class="font-semibold text-sm">Amina Yusuf</h4>
+                <p class="text-xs text-gray-500">+234 801 234 5678</p>
+              </div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--asb-success)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          
+          <div class="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-xl shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">AM</div>
+              <div>
+                <h4 class="font-semibold text-sm">Abdullahi Musa</h4>
+                <p class="text-xs text-gray-500">+234 802 345 6789</p>
+              </div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--asb-success)" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+
+        <button class="btn-secondary flex items-center justify-center gap-2 mb-4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Add Member
+        </button>
+
+        <div class="text-center mt-auto">
+          <button class="text-navy font-semibold text-sm">Share invite link instead</button>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Review Setup</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 11: Review Configuration -->
+    <div class="mockup-container">
+      <div class="status-bar light-bg" style="background: var(--asb-bg);">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      <div class="header-nav">
+        <button class="p-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="flex-1"></div>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="content-area px-6 pt-2">
+        <h2 class="text-2xl font-bold mb-6" style="color: var(--asb-navy)">Review your setup</h2>
+        
+        <div class="card space-y-4">
+          <div class="flex justify-between items-start pb-4 border-b border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Community Name</p>
+              <h4 class="font-bold text-sm">Gidan Kasuwa Adashe</h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+
+          <div class="flex justify-between items-start pb-4 border-b border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Type</p>
+              <h4 class="font-bold text-sm flex items-center gap-1"><span class="text-lg">🔄</span> Fixed Adashe / ROSCA</h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+
+          <div class="flex justify-between items-start pb-4 border-b border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Contribution</p>
+              <h4 class="font-bold text-sm">₦1,000 <span class="font-normal text-gray-500">• Daily</span></h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+
+          <div class="flex justify-between items-start pb-4 border-b border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Members</p>
+              <h4 class="font-bold text-sm">10 members <span class="font-normal text-gray-500">• ₦10,000 cycle payout</span></h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+
+          <div class="flex justify-between items-start pb-4 border-b border-gray-100">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Payout Order</p>
+              <h4 class="font-bold text-sm">Fixed</h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Rules</p>
+              <h4 class="font-bold text-sm">Late allowed (3 days) • ₦200 penalty</h4>
+            </div>
+            <button class="text-navy text-xs font-semibold">Edit</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottom-action">
+        <button class="btn-primary">Create Community</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 12: Community Created -->
+    <div class="mockup-container bg-navy text-white" style="background: var(--asb-navy);">
+      <div class="status-bar dark-bg">
+        <span>9:41</span>
+        <div class="flex gap-1.5 items-center">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><path d="M11.97 10.392H1.054a1.05 1.05 0 0 1-1.05-1.048V1.696a1.05 1.05 0 0 1 1.05-1.048h10.916a1.05 1.05 0 0 1 1.05 1.048v7.648a1.05 1.05 0 0 1-1.05 1.048Z"/><path d="M15.424 7.648L13.02 5.952l2.404-1.696v3.392Z"/></svg>
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 11l7.5-10H0z"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor"/><rect x="2" y="2" width="15" height="8" rx="2" fill="currentColor"/><path d="M24 4v4" stroke="currentColor" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+      
+      <div class="content-area flex flex-col items-center justify-center px-6 text-center relative">
+        <!-- Sync Status -->
+        <div class="absolute top-4 right-6 flex items-center gap-1.5 bg-white bg-opacity-20 px-2 py-1 rounded-full">
+          <div class="w-2 h-2 rounded-full" style="background-color: var(--asb-synced)"></div>
+          <span class="text-xs font-medium">Synced</span>
+        </div>
+
+        <div class="w-32 h-32 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-8 relative">
+          <!-- Animated Check -->
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--asb-gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          
+          <!-- Subtle confetti -->
+          <div class="absolute w-2 h-2 bg-gold rounded-full -top-4 right-4"></div>
+          <div class="absolute w-2 h-2 bg-gold rounded-full bottom-4 -left-6"></div>
+          <div class="absolute w-3 h-3 bg-white opacity-50 rounded-full top-8 -right-8"></div>
+          <div class="absolute w-1.5 h-1.5 bg-white opacity-50 rounded-full -bottom-8 right-12"></div>
+        </div>
+        
+        <h2 class="text-3xl font-bold mb-3">Gidan Kasuwa Adashe is ready!</h2>
+        <p class="text-lg opacity-80 mb-12">10 members &bull; ₦1,000 daily &bull; Fixed Adashe</p>
+
+        <div class="w-full space-y-4 mt-8">
+          <button class="bg-gold text-white font-bold py-4 px-6 rounded-xl w-full text-center text-lg hover:bg-opacity-90">
+            Go to Dashboard
+          </button>
+          <button class="bg-transparent border border-white border-opacity-30 text-white font-bold py-4 px-6 rounded-xl w-full text-center text-lg hover:bg-white hover:bg-opacity-10">
+            Add More Members
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

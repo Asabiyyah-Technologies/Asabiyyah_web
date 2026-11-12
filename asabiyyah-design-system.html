@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASABIYYAH Smart Ledger - Design System</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <style>
+        :root {
+            /* Primary */
+            --asb-navy: #1B2A4A;
+            --asb-navy-dark: #0D1B3E;
+            --asb-navy-light: #2C3E5F;
+
+            /* Gold Accent */
+            --asb-gold: #C8A951;
+            --asb-gold-light: #D4B96A;
+            --asb-gold-dark: #A68B3C;
+
+            /* Backgrounds */
+            --asb-bg: #F7F8FA;
+            --asb-bg-warm: #FAFAF7;
+            --asb-surface: #FFFFFF;
+            --asb-surface-alt: #F0F2F5;
+
+            /* Text */
+            --asb-text-primary: #1A1D23;
+            --asb-text-secondary: #5A6070;
+            --asb-text-muted: #8E95A5;
+            --asb-text-inverse: #FFFFFF;
+
+            /* Status */
+            --asb-success: #1A8D5F;
+            --asb-success-light: #E8F5EE;
+            --asb-warning: #D4940A;
+            --asb-warning-light: #FEF7E0;
+            --asb-error: #C93B3B;
+            --asb-error-light: #FDECEC;
+            --asb-info: #2B6CB0;
+            --asb-info-light: #EBF2FA;
+
+            /* Borders */
+            --asb-border: #E2E5EB;
+            --asb-border-light: #F0F1F4;
+
+            /* Sync Status */
+            --asb-synced: #1A8D5F;
+            --asb-pending: #D4940A;
+            --asb-syncing: #2B6CB0;
+            --asb-sync-failed: #C93B3B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--asb-bg);
+            color: var(--asb-text-primary);
+        }
+
+        .section-header {
+            color: var(--asb-navy);
+            border-bottom: 4px solid var(--asb-gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 4rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        
+        .component-container {
+            background-color: var(--asb-surface);
+            border: 1px dashed var(--asb-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .swatch {
+            width: 100%;
+            height: 100px;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Chart */
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            height: 150px;
+            padding-top: 20px;
+            border-bottom: 1px solid var(--asb-border);
+        }
+        .bar {
+            flex: 1;
+            background-color: var(--asb-navy);
+            border-radius: 4px 4px 0 0;
+            min-width: 20px;
+        }
+        .bar:nth-child(2) { height: 60%; background-color: var(--asb-navy-light); }
+        .bar:nth-child(3) { height: 40%; }
+        .bar:nth-child(4) { height: 80%; background-color: var(--asb-navy-light); }
+        .bar:nth-child(5) { height: 50%; }
+        .bar:nth-child(6) { height: 90%; background-color: var(--asb-gold); }
+        .bar:nth-child(7) { height: 30%; }
+        
+        .circular-progress {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(var(--asb-navy) 75%, var(--asb-border) 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circular-progress::after {
+            content: "75%";
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="p-8 max-w-5xl mx-auto">
+
+    <header class="text-center py-12 mb-8 bg-[#FFFFFF] rounded-3xl shadow-sm border border-[#E2E5EB]">
+        <h1 class="text-4xl font-bold text-[#1B2A4A] mb-4">ASABIYYAH Smart Ledger</h1>
+        <p class="text-xl text-[#5A6070]">Design System & Component Library</p>
+        <p class="text-sm font-semibold tracking-wider text-[#C8A951] mt-4 uppercase">Ethical Finance. Empowered Communities.</p>
+    </header>
+
+    <!-- 1. BRAND OVERVIEW -->
+    <h2 class="section-header">1. Brand Overview (Colors)</h2>
+    <div class="component-container">
+        <h3 class="font-semibold text-lg mb-4">Primary Navy Palette</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-navy-dark)"></div>
+                <div class="font-semibold text-sm">Navy Dark</div>
+                <div class="text-xs text-[#5A6070]">#0D1B3E / --asb-navy-dark</div>
+            </div>
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-navy)"></div>
+                <div class="font-semibold text-sm">Navy Base</div>
+                <div class="text-xs text-[#5A6070]">#1B2A4A / --asb-navy</div>
+            </div>
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-navy-light)"></div>
+                <div class="font-semibold text-sm">Navy Light</div>
+                <div class="text-xs text-[#5A6070]">#2C3E5F / --asb-navy-light</div>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Gold Accent Palette</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-gold-dark)"></div>
+                <div class="font-semibold text-sm">Gold Dark</div>
+                <div class="text-xs text-[#5A6070]">#A68B3C / --asb-gold-dark</div>
+            </div>
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-gold)"></div>
+                <div class="font-semibold text-sm">Gold Base</div>
+                <div class="text-xs text-[#5A6070]">#C8A951 / --asb-gold</div>
+            </div>
+            <div>
+                <div class="swatch mb-2" style="background-color: var(--asb-gold-light)"></div>
+                <div class="font-semibold text-sm">Gold Light</div>
+                <div class="text-xs text-[#5A6070]">#D4B96A / --asb-gold-light</div>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Background & Surface Colors</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+                <div class="swatch mb-2 border border-[#E2E5EB]" style="background-color: var(--asb-bg)"></div>
+                <div class="font-semibold text-sm">Background Base</div>
+                <div class="text-xs text-[#5A6070]">#F7F8FA</div>
+            </div>
+            <div>
+                <div class="swatch mb-2 border border-[#E2E5EB]" style="background-color: var(--asb-bg-warm)"></div>
+                <div class="font-semibold text-sm">Background Warm</div>
+                <div class="text-xs text-[#5A6070]">#FAFAF7</div>
+            </div>
+            <div>
+                <div class="swatch mb-2 border border-[#E2E5EB]" style="background-color: var(--asb-surface)"></div>
+                <div class="font-semibold text-sm">Surface Default</div>
+                <div class="text-xs text-[#5A6070]">#FFFFFF</div>
+            </div>
+            <div>
+                <div class="swatch mb-2 border border-[#E2E5EB]" style="background-color: var(--asb-surface-alt)"></div>
+                <div class="font-semibold text-sm">Surface Alt</div>
+                <div class="text-xs text-[#5A6070]">#F0F2F5</div>
+            </div>
+        </div>
+        
+        <h3 class="font-semibold text-lg mb-4">Text Colors</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div class="p-4 bg-white rounded-xl border border-[#E2E5EB]">
+                <div class="font-bold text-2xl mb-1" style="color: var(--asb-text-primary)">Aa</div>
+                <div class="font-semibold text-sm">Primary Text</div>
+                <div class="text-xs text-[#5A6070]">#1A1D23</div>
+            </div>
+            <div class="p-4 bg-white rounded-xl border border-[#E2E5EB]">
+                <div class="font-bold text-2xl mb-1" style="color: var(--asb-text-secondary)">Aa</div>
+                <div class="font-semibold text-sm">Secondary Text</div>
+                <div class="text-xs text-[#5A6070]">#5A6070</div>
+            </div>
+            <div class="p-4 bg-white rounded-xl border border-[#E2E5EB]">
+                <div class="font-bold text-2xl mb-1" style="color: var(--asb-text-muted)">Aa</div>
+                <div class="font-semibold text-sm">Muted Text</div>
+                <div class="text-xs text-[#5A6070]">#8E95A5</div>
+            </div>
+            <div class="p-4 bg-[#1B2A4A] rounded-xl border border-[#1B2A4A]">
+                <div class="font-bold text-2xl mb-1" style="color: var(--asb-text-inverse)">Aa</div>
+                <div class="font-semibold text-sm text-white">Inverse Text</div>
+                <div class="text-xs text-[#8E95A5]">#FFFFFF</div>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Status & Semantic Colors</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            <div class="flex flex-col">
+                <div class="swatch h-16 rounded-b-none" style="background-color: var(--asb-success)"></div>
+                <div class="swatch h-8 rounded-t-none mb-2" style="background-color: var(--asb-success-light)"></div>
+                <div class="font-semibold text-sm">Success</div>
+                <div class="text-xs text-[#5A6070]">#1A8D5F</div>
+            </div>
+            <div class="flex flex-col">
+                <div class="swatch h-16 rounded-b-none" style="background-color: var(--asb-warning)"></div>
+                <div class="swatch h-8 rounded-t-none mb-2" style="background-color: var(--asb-warning-light)"></div>
+                <div class="font-semibold text-sm">Warning</div>
+                <div class="text-xs text-[#5A6070]">#D4940A</div>
+            </div>
+            <div class="flex flex-col">
+                <div class="swatch h-16 rounded-b-none" style="background-color: var(--asb-error)"></div>
+                <div class="swatch h-8 rounded-t-none mb-2" style="background-color: var(--asb-error-light)"></div>
+                <div class="font-semibold text-sm">Error</div>
+                <div class="text-xs text-[#5A6070]">#C93B3B</div>
+            </div>
+            <div class="flex flex-col">
+                <div class="swatch h-16 rounded-b-none" style="background-color: var(--asb-info)"></div>
+                <div class="swatch h-8 rounded-t-none mb-2" style="background-color: var(--asb-info-light)"></div>
+                <div class="font-semibold text-sm">Info / Syncing</div>
+                <div class="text-xs text-[#5A6070]">#2B6CB0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. TYPOGRAPHY -->
+    <h2 class="section-header">2. Typography</h2>
+    <div class="component-container">
+        <div class="space-y-6">
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">H1 / 28px / Bold</div>
+                <h1 class="text-[28px] font-bold leading-tight" style="color: var(--asb-navy)">Gidan Kasuwa Adashe</h1>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">H2 / 24px / Semibold</div>
+                <h2 class="text-[24px] font-semibold leading-tight" style="color: var(--asb-text-primary)">Total Contributions</h2>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">H3 / 20px / Semibold</div>
+                <h3 class="text-[20px] font-semibold leading-snug" style="color: var(--asb-text-primary)">Recent Transactions</h3>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">H4 / 17px / Semibold</div>
+                <h4 class="text-[17px] font-semibold leading-snug" style="color: var(--asb-text-primary)">Amina Yusuf</h4>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">Body / 15px / Regular</div>
+                <p class="text-[15px] font-normal leading-relaxed" style="color: var(--asb-text-secondary)">
+                    The community fund has grown by 12% this month. Please ensure your October contribution is logged before the next meeting.
+                </p>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">Body Small / 13px / Regular</div>
+                <p class="text-[13px] font-normal" style="color: var(--asb-text-secondary)">Sync completed 2 minutes ago</p>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">Caption / 12px / Regular</div>
+                <p class="text-[12px] font-normal" style="color: var(--asb-text-muted)">Requires active internet connection.</p>
+            </div>
+            <div>
+                <div class="text-xs text-[#8E95A5] mb-1">Overline / 11px / Uppercase / Tracking-wider</div>
+                <p class="text-[11px] font-bold uppercase tracking-wider" style="color: var(--asb-text-secondary)">October Cycle</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. BUTTONS -->
+    <h2 class="section-header">3. Buttons</h2>
+    <div class="component-container">
+        <h3 class="font-semibold text-lg mb-4">Variants</h3>
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button class="bg-[#1B2A4A] text-white px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center">Primary Button</button>
+            <button class="border border-[#1B2A4A] text-[#1B2A4A] bg-white px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center">Secondary Button</button>
+            <button class="bg-[#C8A951] text-[#1A1D23] px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center">Gold Accent</button>
+            <button class="bg-[#C93B3B] text-white px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center">Danger Button</button>
+            <button class="bg-transparent text-[#1B2A4A] px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center hover:bg-[#F0F2F5]">Ghost Button</button>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Disabled States</h3>
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button disabled class="bg-[#8E95A5] text-white px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center opacity-50 cursor-not-allowed">Primary Disabled</button>
+            <button disabled class="border border-[#E2E5EB] text-[#8E95A5] bg-[#F7F8FA] px-6 py-3 rounded-xl font-semibold h-[48px] inline-flex items-center justify-center cursor-not-allowed">Secondary Disabled</button>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Sizes</h3>
+        <div class="flex flex-col gap-4 max-w-sm">
+            <button class="bg-[#1B2A4A] text-white w-full rounded-xl font-semibold h-[56px] flex items-center justify-center text-lg">Large (56px)</button>
+            <button class="bg-[#1B2A4A] text-white w-full rounded-xl font-semibold h-[48px] flex items-center justify-center">Medium (48px)</button>
+            <button class="bg-[#1B2A4A] text-white w-full rounded-xl font-semibold h-[36px] flex items-center justify-center text-sm max-w-xs">Small (36px)</button>
+        </div>
+    </div>
+
+    <!-- 4. INPUT FIELDS -->
+    <h2 class="section-header">4. Input Fields</h2>
+    <div class="component-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+            <!-- Default -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Default Input</label>
+                <input type="text" placeholder="Enter member name" class="w-full h-[52px] px-4 rounded-xl border border-[#E2E5EB] bg-white text-[#1A1D23] outline-none placeholder:text-[#8E95A5]">
+            </div>
+            
+            <!-- Focused -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Focused Input</label>
+                <input type="text" value="Amina Yusuf" class="w-full h-[52px] px-4 rounded-xl border-2 border-[#1B2A4A] bg-white text-[#1A1D23] outline-none">
+            </div>
+
+            <!-- Error -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Error Input</label>
+                <input type="text" value="Invalid format" class="w-full h-[52px] px-4 rounded-xl border border-[#C93B3B] bg-[#FDECEC] text-[#C93B3B] outline-none">
+                <span class="text-[12px] text-[#C93B3B]">Please enter a valid number.</span>
+            </div>
+
+            <!-- Prefix Amount -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Amount Input</label>
+                <div class="relative flex items-center">
+                    <span class="absolute left-4 text-[#5A6070] font-semibold">₦</span>
+                    <input type="text" value="5,000" class="w-full h-[52px] pl-10 pr-4 rounded-xl border border-[#E2E5EB] bg-white text-[#1A1D23] font-semibold outline-none">
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Phone Number</label>
+                <div class="flex items-center gap-2">
+                    <div class="h-[52px] px-3 flex items-center justify-center rounded-xl border border-[#E2E5EB] bg-[#F7F8FA] text-[#5A6070] font-semibold">
+                        +234
+                    </div>
+                    <input type="tel" placeholder="801 234 5678" class="flex-1 h-[52px] px-4 rounded-xl border border-[#E2E5EB] bg-white text-[#1A1D23] outline-none">
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Search</label>
+                <div class="relative flex items-center">
+                    <svg class="absolute left-4 w-5 h-5 text-[#8E95A5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" placeholder="Search members..." class="w-full h-[52px] pl-11 pr-4 rounded-xl border border-[#E2E5EB] bg-[#F7F8FA] text-[#1A1D23] outline-none">
+                </div>
+            </div>
+
+            <!-- OTP -->
+            <div class="flex flex-col gap-1.5 md:col-span-2">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">OTP Input</label>
+                <div class="flex gap-3">
+                    <input type="text" value="4" class="w-[52px] h-[52px] text-center rounded-xl border border-[#E2E5EB] bg-white text-xl font-bold text-[#1A1D23] outline-none" maxlength="1">
+                    <input type="text" value="2" class="w-[52px] h-[52px] text-center rounded-xl border border-[#E2E5EB] bg-white text-xl font-bold text-[#1A1D23] outline-none" maxlength="1">
+                    <input type="text" value="" class="w-[52px] h-[52px] text-center rounded-xl border-2 border-[#1B2A4A] bg-white text-xl font-bold text-[#1A1D23] outline-none" maxlength="1">
+                    <input type="text" value="" class="w-[52px] h-[52px] text-center rounded-xl border border-[#E2E5EB] bg-[#F7F8FA] text-xl font-bold text-[#1A1D23] outline-none" maxlength="1">
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="flex flex-col gap-1.5 md:col-span-2">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Textarea</label>
+                <textarea placeholder="Add notes (optional)" class="w-full h-[100px] p-4 rounded-xl border border-[#E2E5EB] bg-white text-[#1A1D23] outline-none resize-none"></textarea>
+            </div>
+            
+            <!-- Select -->
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[13px] font-semibold text-[#1A1D23]">Select Dropdown</label>
+                <div class="relative">
+                    <select class="w-full h-[52px] px-4 appearance-none rounded-xl border border-[#E2E5EB] bg-white text-[#1A1D23] outline-none">
+                        <option>Monthly Contribution</option>
+                        <option>Weekly Adashe</option>
+                        <option>Emergency Fund</option>
+                    </select>
+                    <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#5A6070] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. CARDS -->
+    <h2 class="section-header">5. Cards</h2>
+    <div class="component-container bg-[#F0F2F5]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+            
+            <!-- Ledger Card -->
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-[#E2E5EB]">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="w-10 h-10 rounded-full bg-[#1B2A4A] flex items-center justify-center text-white font-bold">GK</div>
+                    <span class="px-2 py-1 bg-[#F0F2F5] text-[#5A6070] text-[11px] font-bold uppercase rounded-md">Adashe</span>
+                </div>
+                <h3 class="text-[17px] font-semibold text-[#1A1D23] mb-1">Gidan Kasuwa Adashe</h3>
+                <p class="text-[13px] text-[#5A6070] mb-4">24 Members</p>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <div class="text-[11px] uppercase text-[#8E95A5] font-semibold mb-1">Collection Target</div>
+                        <div class="text-[20px] font-bold text-[#1B2A4A]">₦120,000</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[13px] text-[#1A8D5F] font-semibold mb-1">₦90,000</div>
+                        <div class="w-24 h-1.5 bg-[#E2E5EB] rounded-full overflow-hidden">
+                            <div class="h-full bg-[#1B2A4A] w-[75%] rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Card -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB] flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-[#F0F2F5] flex items-center justify-center text-[#1B2A4A] font-bold text-lg">
+                    AY
+                </div>
+                <div class="flex-1">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[15px] font-semibold text-[#1A1D23]">Amina Yusuf</h4>
+                        <span class="px-2 py-0.5 bg-[#E8F5EE] text-[#1A8D5F] text-[12px] font-semibold rounded-full border border-[#1A8D5F]/20">Active</span>
+                    </div>
+                    <p class="text-[13px] text-[#5A6070]">Treasurer • +234 801 ***</p>
+                </div>
+            </div>
+
+            <!-- Contribution Card -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB]">
+                <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-[#FAFAF7] border border-[#E2E5EB] flex items-center justify-center text-[#5A6070] text-xs font-bold">SM</div>
+                        <span class="text-[15px] font-semibold text-[#1A1D23]">Sulaiman Sabo</span>
+                    </div>
+                    <span class="px-2 py-0.5 bg-[#FEF7E0] text-[#D4940A] text-[12px] font-semibold rounded-full border border-[#D4940A]/20">Pending</span>
+                </div>
+                <div class="flex justify-between items-center mt-3 pt-3 border-t border-[#F0F1F4]">
+                    <span class="text-[13px] text-[#8E95A5]">Oct 12, 2026</span>
+                    <span class="text-[15px] font-bold text-[#1A1D23]">₦5,000</span>
+                </div>
+            </div>
+
+            <!-- Stats Card -->
+            <div class="bg-[#1B2A4A] p-5 rounded-2xl shadow-md border border-[#0D1B3E]">
+                <div class="flex items-center gap-2 mb-2">
+                    <svg class="w-5 h-5 text-[#C8A951]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-[13px] text-[#FFFFFF]/70 font-semibold uppercase tracking-wider">Total Balance</span>
+                </div>
+                <div class="text-[28px] font-bold text-white mb-1">₦450,000</div>
+                <div class="text-[13px] text-[#C8A951] flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                    ₦50,000 collected this week
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 6. STATUS BADGES -->
+    <h2 class="section-header">6. Status Badges</h2>
+    <div class="component-container">
+        <div class="flex flex-wrap gap-6 items-center">
+            <span class="px-3 py-1 bg-[#E8F5EE] text-[#1A8D5F] text-[13px] font-semibold rounded-full border border-[#1A8D5F]/20">Paid</span>
+            <span class="px-3 py-1 bg-[#FEF7E0] text-[#D4940A] text-[13px] font-semibold rounded-full border border-[#D4940A]/20">Pending</span>
+            <span class="px-3 py-1 bg-[#FDECEC] text-[#C93B3B] text-[13px] font-semibold rounded-full border border-[#C93B3B]/20">Overdue</span>
+            <span class="px-3 py-1 bg-[#F0F2F5] text-[#5A6070] text-[13px] font-semibold rounded-full border border-[#E2E5EB]">Upcoming</span>
+            <span class="px-3 py-1 bg-white text-[#1A8D5F] text-[13px] font-semibold rounded-full border border-[#1A8D5F]">Active</span>
+            <span class="px-3 py-1 bg-white text-[#8E95A5] text-[13px] font-semibold rounded-full border border-[#E2E5EB]">Inactive</span>
+            
+            <!-- Small size -->
+            <span class="px-2 py-0.5 bg-[#E8F5EE] text-[#1A8D5F] text-[11px] font-bold uppercase rounded-md border border-[#1A8D5F]/20">Paid</span>
+        </div>
+    </div>
+
+    <!-- 7. SYNC STATUS INDICATORS -->
+    <h2 class="section-header">7. Sync Status Indicators</h2>
+    <div class="component-container">
+        <div class="flex flex-col gap-6">
+            <!-- Inline -->
+            <div class="flex gap-6 flex-wrap">
+                <div class="flex items-center gap-1.5 text-[12px] font-medium text-[#5A6070]">
+                    <div class="w-2 h-2 rounded-full bg-[#1A8D5F]"></div>
+                    Synced
+                </div>
+                <div class="flex items-center gap-1.5 text-[12px] font-medium text-[#D4940A]">
+                    <div class="w-2 h-2 rounded-full bg-[#D4940A]"></div>
+                    Offline - pending sync
+                </div>
+                <div class="flex items-center gap-1.5 text-[12px] font-medium text-[#2B6CB0]">
+                    <div class="w-2 h-2 rounded-full bg-[#2B6CB0] animate-pulse"></div>
+                    Syncing...
+                </div>
+                <div class="flex items-center gap-1.5 text-[12px] font-medium text-[#C93B3B]">
+                    <div class="w-2 h-2 rounded-full bg-[#C93B3B]"></div>
+                    Sync failed
+                </div>
+            </div>
+
+            <!-- Banner / Bar variant -->
+            <div class="bg-[#FEF7E0] border border-[#D4940A]/30 px-4 py-2 rounded-lg flex items-center gap-3 text-[13px] text-[#D4940A] font-medium max-w-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                <span>You are offline. 3 changes pending sync.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. NAVIGATION -->
+    <h2 class="section-header">8. Navigation</h2>
+    <div class="component-container bg-[#F0F2F5]">
+        
+        <h3 class="font-semibold text-lg mb-4 text-[#5A6070]">Top Bar</h3>
+        <div class="bg-white h-[56px] px-4 flex items-center justify-between border-b border-[#E2E5EB] max-w-md mx-auto mb-8 rounded-t-xl">
+            <button class="p-2 text-[#1B2A4A]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <h1 class="text-[17px] font-semibold text-[#1B2A4A]">Ledger Details</h1>
+            <button class="p-2 text-[#1B2A4A]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
+            </button>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4 text-[#5A6070]">Bottom Nav - Member</h3>
+        <div class="bg-white border-t border-[#E2E5EB] flex justify-between items-center px-6 py-3 pb-6 max-w-md mx-auto rounded-b-xl mb-8">
+            <div class="flex flex-col items-center gap-1 text-[#1B2A4A]">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span class="text-[10px] font-semibold">Home</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-[#8E95A5]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                <span class="text-[10px] font-medium">Community</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-[#8E95A5]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span class="text-[10px] font-medium">Receipts</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-[#8E95A5]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                <span class="text-[10px] font-medium">Profile</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. TABS -->
+    <h2 class="section-header">9. Tabs</h2>
+    <div class="component-container">
+        <h3 class="font-semibold text-lg mb-4 text-[#5A6070]">Pill Tabs</h3>
+        <div class="flex gap-2 overflow-x-auto pb-2 mb-6">
+            <button class="px-4 py-2 bg-[#1B2A4A] text-white text-[14px] font-semibold rounded-full whitespace-nowrap">All Members</button>
+            <button class="px-4 py-2 bg-[#F0F2F5] text-[#5A6070] text-[14px] font-medium rounded-full whitespace-nowrap border border-[#E2E5EB]">Paid (18)</button>
+            <button class="px-4 py-2 bg-[#F0F2F5] text-[#5A6070] text-[14px] font-medium rounded-full whitespace-nowrap border border-[#E2E5EB]">Pending (6)</button>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4 text-[#5A6070]">Underline Tabs</h3>
+        <div class="flex border-b border-[#E2E5EB] max-w-sm">
+            <button class="flex-1 py-3 text-[14px] font-semibold text-[#1B2A4A] border-b-2 border-[#1B2A4A]">Active Cycle</button>
+            <button class="flex-1 py-3 text-[14px] font-medium text-[#5A6070] border-b-2 border-transparent">History</button>
+        </div>
+    </div>
+
+    <!-- 10. PROGRESS INDICATORS -->
+    <h2 class="section-header">10. Progress Indicators</h2>
+    <div class="component-container">
+        
+        <h3 class="font-semibold text-lg mb-4">Linear Progress</h3>
+        <div class="max-w-md mb-8">
+            <div class="flex justify-between text-[13px] mb-1">
+                <span class="text-[#5A6070]">Collection Progress</span>
+                <span class="font-semibold text-[#1B2A4A]">75%</span>
+            </div>
+            <div class="w-full h-2 bg-[#E2E5EB] rounded-full overflow-hidden">
+                <div class="h-full bg-[#1B2A4A] w-[75%] rounded-full"></div>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Circular Progress</h3>
+        <div class="mb-8">
+            <div class="circular-progress"></div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Step Indicator</h3>
+        <div class="flex items-center max-w-md mb-8">
+            <div class="w-8 h-8 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center font-bold text-sm">1</div>
+            <div class="flex-1 h-0.5 bg-[#1B2A4A]"></div>
+            <div class="w-8 h-8 rounded-full border-2 border-[#1B2A4A] bg-white text-[#1B2A4A] flex items-center justify-center font-bold text-sm">2</div>
+            <div class="flex-1 h-0.5 bg-[#E2E5EB]"></div>
+            <div class="w-8 h-8 rounded-full border-2 border-[#E2E5EB] bg-white text-[#8E95A5] flex items-center justify-center font-bold text-sm">3</div>
+        </div>
+    </div>
+
+    <!-- 11. LISTS & TABLES -->
+    <h2 class="section-header">11. Lists & Tables</h2>
+    <div class="component-container">
+        <h3 class="font-semibold text-lg mb-4">List Items</h3>
+        <div class="bg-white rounded-xl border border-[#E2E5EB] divide-y divide-[#F0F1F4] max-w-md mb-8">
+            <!-- Simple -->
+            <div class="p-4 flex items-center justify-between hover:bg-[#FAFAF7] cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#F0F2F5] flex items-center justify-center text-[#5A6070]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="text-[15px] font-semibold text-[#1A1D23]">Withdrawal</div>
+                        <div class="text-[13px] text-[#5A6070]">Oct 14, 2026</div>
+                    </div>
+                </div>
+                <div class="text-[15px] font-bold text-[#C93B3B]">-₦20,000</div>
+            </div>
+            
+            <!-- Member List -->
+            <div class="p-4 flex items-center justify-between hover:bg-[#FAFAF7] cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center font-bold text-sm">
+                        HA
+                    </div>
+                    <div>
+                        <div class="text-[15px] font-semibold text-[#1A1D23]">Hauwa Ali</div>
+                        <div class="text-[13px] text-[#5A6070]">Member</div>
+                    </div>
+                </div>
+                <svg class="w-5 h-5 text-[#8E95A5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">Data Table</h3>
+        <div class="bg-white rounded-xl border border-[#E2E5EB] overflow-hidden max-w-2xl">
+            <table class="w-full text-left text-[14px]">
+                <thead class="bg-[#F7F8FA] text-[#5A6070] text-[12px] uppercase font-semibold border-b border-[#E2E5EB]">
+                    <tr>
+                        <th class="px-4 py-3">Member</th>
+                        <th class="px-4 py-3">Date</th>
+                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3 text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#F0F1F4]">
+                    <tr>
+                        <td class="px-4 py-3 font-medium text-[#1A1D23]">Fatima Ibrahim</td>
+                        <td class="px-4 py-3 text-[#5A6070]">Oct 15</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 bg-[#E8F5EE] text-[#1A8D5F] text-[11px] font-bold rounded-md">PAID</span></td>
+                        <td class="px-4 py-3 text-right font-semibold text-[#1A1D23]">₦5,000</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3 font-medium text-[#1A1D23]">Musa Danladi</td>
+                        <td class="px-4 py-3 text-[#5A6070]">-</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 bg-[#FEF7E0] text-[#D4940A] text-[11px] font-bold rounded-md">PENDING</span></td>
+                        <td class="px-4 py-3 text-right font-semibold text-[#1A1D23]">₦5,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 12. DIALOGS & SHEETS -->
+    <h2 class="section-header">12. Dialogs & Sheets</h2>
+    <div class="component-container bg-[#000000]/20 p-8 flex flex-col gap-8">
+        
+        <!-- Dialog -->
+        <div class="bg-white p-6 rounded-2xl w-full max-w-sm mx-auto shadow-xl">
+            <div class="w-12 h-12 rounded-full bg-[#FDECEC] text-[#C93B3B] flex items-center justify-center mb-4 mx-auto">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
+            <h3 class="text-center text-[17px] font-bold text-[#1A1D23] mb-2">Remove Member?</h3>
+            <p class="text-center text-[14px] text-[#5A6070] mb-6">Are you sure you want to remove Musa from this ledger? This action cannot be undone.</p>
+            <div class="flex gap-3">
+                <button class="flex-1 py-3 bg-[#F0F2F5] text-[#1A1D23] font-semibold rounded-xl">Cancel</button>
+                <button class="flex-1 py-3 bg-[#C93B3B] text-white font-semibold rounded-xl">Remove</button>
+            </div>
+        </div>
+
+        <!-- Bottom Sheet -->
+        <div class="bg-white pt-3 pb-8 px-6 rounded-t-[32px] w-full max-w-md mx-auto shadow-xl mt-auto">
+            <div class="w-12 h-1.5 bg-[#E2E5EB] rounded-full mx-auto mb-6"></div>
+            <h3 class="text-[20px] font-bold text-[#1B2A4A] mb-4">Record Collection</h3>
+            
+            <div class="space-y-4 mb-6">
+                <div class="flex justify-between items-center py-2 border-b border-[#F0F1F4]">
+                    <span class="text-[#5A6070]">Member</span>
+                    <span class="font-semibold text-[#1A1D23]">Zainab Mohammed</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-[#F0F1F4]">
+                    <span class="text-[#5A6070]">Expected Amount</span>
+                    <span class="font-semibold text-[#1A1D23]">₦2,000</span>
+                </div>
+            </div>
+            <button class="w-full py-4 bg-[#1B2A4A] text-white font-semibold rounded-xl text-[16px]">Confirm Payment</button>
+        </div>
+
+        <!-- Toast -->
+        <div class="bg-[#1A1D23] text-white px-4 py-3 rounded-xl flex items-center justify-between w-full max-w-sm mx-auto shadow-lg">
+            <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-[#1A8D5F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-[14px] font-medium">Payment recorded successfully</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. EMPTY STATES -->
+    <h2 class="section-header">13. Empty States</h2>
+    <div class="component-container">
+        <div class="bg-white p-8 rounded-2xl border border-[#E2E5EB] flex flex-col items-center text-center max-w-md mx-auto">
+            <div class="w-24 h-24 bg-[#F0F2F5] rounded-full flex items-center justify-center mb-4">
+                <svg class="w-10 h-10 text-[#8E95A5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </div>
+            <h3 class="text-[20px] font-bold text-[#1B2A4A] mb-2">No communities yet</h3>
+            <p class="text-[14px] text-[#5A6070] mb-6">Create your first community to start managing contributions and members.</p>
+            <button class="bg-[#1B2A4A] text-white px-6 py-3 rounded-xl font-semibold inline-flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                Create Community
+            </button>
+        </div>
+    </div>
+
+    <!-- 14. OFFLINE STATES -->
+    <h2 class="section-header">14. Offline States</h2>
+    <div class="component-container">
+        <!-- Banner -->
+        <div class="bg-[#D4940A] text-white px-4 py-2 flex items-center justify-center gap-2 text-[13px] font-semibold mb-6 rounded-lg max-w-md">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+            Working Offline. Changes will sync when connected.
+        </div>
+
+        <!-- Badges -->
+        <div class="flex gap-4">
+            <div class="flex items-center gap-1.5 text-[12px] bg-[#F7F8FA] px-2 py-1 rounded border border-[#E2E5EB] text-[#5A6070]">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Saved to device
+            </div>
+            <div class="flex items-center gap-1.5 text-[12px] bg-[#FEF7E0] px-2 py-1 rounded border border-[#D4940A]/30 text-[#D4940A]">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Pending sync
+            </div>
+        </div>
+    </div>
+
+    <!-- 15. CONTRIBUTION GRID -->
+    <h2 class="section-header">15. Contribution Grid (Digital Card)</h2>
+    <div class="component-container">
+        <div class="bg-white p-5 rounded-2xl border border-[#E2E5EB] max-w-sm">
+            <h3 class="text-[15px] font-semibold text-[#1B2A4A] mb-4">October 2026 Tracking</h3>
+            <div class="grid grid-cols-7 gap-2">
+                <!-- Row 1 -->
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">1</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">2</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">3</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">4</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">5</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">6</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">7</div>
+                
+                <!-- Row 2 -->
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">8</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">9</div>
+                <div class="aspect-square rounded-md bg-[#1A8D5F] text-white flex items-center justify-center text-[11px] font-bold">10</div>
+                <div class="aspect-square rounded-md bg-[#D4940A] text-white flex items-center justify-center text-[11px] font-bold">11</div>
+                <div class="aspect-square rounded-md bg-[#C93B3B] text-white flex items-center justify-center text-[11px] font-bold">12</div>
+                <div class="aspect-square rounded-md bg-[#F0F2F5] text-[#5A6070] flex items-center justify-center text-[11px] font-medium border border-[#E2E5EB]">13</div>
+                <div class="aspect-square rounded-md bg-[#F0F2F5] text-[#5A6070] flex items-center justify-center text-[11px] font-medium border border-[#E2E5EB]">14</div>
+            </div>
+            
+            <div class="flex gap-4 mt-4 pt-4 border-t border-[#F0F1F4] text-[11px] font-medium text-[#5A6070] justify-center">
+                <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-[#1A8D5F]"></div> Paid</div>
+                <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-[#D4940A]"></div> Partial</div>
+                <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-[#C93B3B]"></div> Missed</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16. CHARTS -->
+    <h2 class="section-header">16. Simple Charts</h2>
+    <div class="component-container">
+        
+        <h3 class="font-semibold text-lg mb-4">Stats Row</h3>
+        <div class="grid grid-cols-3 gap-4 mb-10 max-w-2xl">
+            <div class="bg-white p-4 rounded-xl border border-[#E2E5EB]">
+                <div class="text-[12px] text-[#5A6070] mb-1">Total Members</div>
+                <div class="text-[24px] font-bold text-[#1B2A4A]">42</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-[#E2E5EB]">
+                <div class="text-[12px] text-[#5A6070] mb-1">Active Ledgers</div>
+                <div class="text-[24px] font-bold text-[#1B2A4A]">3</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-[#E2E5EB]">
+                <div class="text-[12px] text-[#5A6070] mb-1">Collection Rate</div>
+                <div class="text-[24px] font-bold text-[#1A8D5F]">94%</div>
+            </div>
+        </div>
+
+        <h3 class="font-semibold text-lg mb-4">CSS Bar Chart (Last 7 Days)</h3>
+        <div class="bg-white p-6 rounded-2xl border border-[#E2E5EB] max-w-md">
+            <div class="flex justify-between items-center mb-6">
+                <h4 class="font-semibold text-[#1A1D23]">Weekly Collections</h4>
+                <span class="text-[13px] font-bold text-[#1B2A4A]">₦145,000</span>
+            </div>
+            <div class="bar-chart">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-[11px] text-[#8E95A5] font-medium px-1">
+                <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

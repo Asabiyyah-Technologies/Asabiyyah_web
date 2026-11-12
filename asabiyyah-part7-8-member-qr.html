@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASABIYYAH - Parts 7 & 8</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    :root {
+      --asb-navy: #1B2A4A;
+      --asb-navy-dark: #0D1B3E;
+      --asb-navy-light: #2C3E5F;
+      --asb-gold: #C8A951;
+      --asb-gold-light: #D4B96A;
+      --asb-gold-dark: #A68B3C;
+      --asb-bg: #F7F8FA;
+      --asb-surface: #FFFFFF;
+      --asb-surface-alt: #F0F2F5;
+      --asb-text-primary: #1A1D23;
+      --asb-text-secondary: #5A6070;
+      --asb-text-muted: #8E95A5;
+      --asb-success: #1A8D5F;
+      --asb-warning: #D4940A;
+      --asb-error: #C93B3B;
+      --asb-info: #2B6CB0;
+    }
+    body { background-color: #E5E7EB; color: var(--asb-text-primary); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    .phone-mockup {
+      width: 390px;
+      height: 844px;
+      border-radius: 40px;
+      border: 8px solid #1A1D23;
+      background: var(--asb-bg);
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .status-bar {
+      height: 54px;
+      padding: 14px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      background: transparent;
+      z-index: 10;
+    }
+    .status-bar.dark { color: #FFFFFF; }
+    .nav-bottom {
+      height: 83px;
+      background: var(--asb-surface);
+      border-top: 1px solid #E2E5EB;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 20px 24px;
+      margin-top: auto;
+    }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; color: var(--asb-text-muted); }
+    .nav-item.active { color: var(--asb-navy); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<div class="flex gap-12 overflow-x-auto hide-scrollbar pb-12 items-center">
+
+  <!-- PART 7 HEADER -->
+  <div class="shrink-0 flex items-center justify-center bg-[#1B2A4A] text-white rounded-3xl p-12 h-64 shadow-xl">
+    <h1 class="text-4xl font-bold tracking-wider">PART 7<br><span class="text-[#C8A951]">MEMBER EXPERIENCE</span></h1>
+  </div>
+
+  <!-- SCREEN 1: Member Home Dashboard -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C16.6 14.9 17 13.5 17 12C17 9.2 14.8 7 12 7C9.2 7 7 9.2 7 12C7 13.5 7.4 14.9 8.4 16.2L12 21Z"/></svg>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 2.7 5.1 0 8.3L12 21L24 8.3C21.3 5.1 17 3 12 3Z"/></svg>
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17 4H7C5.3 4 4 5.3 4 7V17C4 18.7 5.3 20 7 20H17C18.7 20 20 18.7 20 17V7C20 5.3 18.7 4 17 4Z"/></svg>
+      </div>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA] hide-scrollbar">
+      <div class="bg-white px-6 pb-4 rounded-b-3xl shadow-sm">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <div class="text-[11px] font-bold tracking-widest text-[#1B2A4A]">ASABIYYAH</div>
+            <div class="flex items-center gap-1.5 mt-1">
+              <div class="w-2 h-2 rounded-full bg-[#1A8D5F]"></div>
+              <span class="text-xs text-[#1A8D5F] font-medium">Synced</span>
+            </div>
+          </div>
+          <div class="relative">
+            <svg class="w-6 h-6 text-[#1B2A4A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            <div class="absolute top-0 right-0 w-2.5 h-2.5 bg-[#C93B3B] rounded-full border-2 border-white"></div>
+          </div>
+        </div>
+        
+        <h1 class="text-2xl font-bold text-[#1A1D23]">Hello, Amina</h1>
+        <p class="text-sm text-[#5A6070]">2 October 2026</p>
+        
+        <!-- Owe Card -->
+        <div class="mt-6 bg-[#1B2A4A] rounded-2xl p-5 text-white relative overflow-hidden shadow-md">
+          <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full"></div>
+          <div class="text-xs text-[#8E95A5] mb-1 uppercase tracking-wider">Next Contribution</div>
+          <div class="text-3xl font-bold text-[#C8A951]">₦1,000</div>
+          <div class="flex justify-between items-end mt-4">
+            <div>
+              <div class="text-sm font-medium">Due: Today</div>
+              <div class="text-xs text-[#8E95A5] mt-0.5">Gidan Kasuwa Adashe</div>
+            </div>
+            <button class="bg-[#2C3E5F] text-xs px-4 py-2 rounded-lg font-medium">View Details</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="px-6 py-6 space-y-6">
+        <!-- Progress & Payout Grid -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB]">
+            <h3 class="text-xs font-bold text-[#5A6070] uppercase">My Progress</h3>
+            <div class="mt-2 text-sm font-bold">Cycle 3 • Day 15/30</div>
+            <div class="h-1.5 bg-[#F0F2F5] rounded-full mt-3 overflow-hidden">
+              <div class="h-full bg-[#1A8D5F] w-1/2"></div>
+            </div>
+            <div class="text-[10px] text-[#5A6070] mt-2">Contributed: ₦13,000 / ₦30,000</div>
+          </div>
+          <div class="bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB]">
+            <h3 class="text-xs font-bold text-[#5A6070] uppercase">My Payout</h3>
+            <div class="mt-2 text-sm font-bold text-[#1A8D5F]">Received</div>
+            <div class="text-[10px] text-[#5A6070] mt-2">Cycles 1 & 2</div>
+            <div class="text-[10px] text-[#5A6070] mt-1 border-t border-[#F0F2F5] pt-1">Next: After all members in Cycle 3</div>
+          </div>
+        </div>
+        
+        <!-- My Communities -->
+        <div>
+          <div class="flex justify-between items-end mb-3">
+            <h2 class="font-bold text-[#1A1D23]">My Communities</h2>
+          </div>
+          <div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-6 px-6 pb-2">
+            <div class="w-64 shrink-0 bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB] flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center font-bold">GK</div>
+              <div>
+                <div class="text-sm font-bold">Gidan Kasuwa Adashe</div>
+                <div class="text-xs text-[#5A6070]">₦1,000/day • Day 15/30</div>
+              </div>
+            </div>
+            <div class="w-64 shrink-0 bg-white p-4 rounded-2xl shadow-sm border border-[#E2E5EB] flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#C8A951] text-white flex items-center justify-center font-bold">SG</div>
+              <div>
+                <div class="text-sm font-bold">Sabon Gari Women</div>
+                <div class="text-xs text-[#5A6070]">₦2,000/week • Wk 6/15</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div>
+          <h2 class="font-bold text-[#1A1D23] mb-3">Recent Activity</h2>
+          <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] divide-y divide-[#F0F2F5]">
+            <div class="p-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#E8F5EE] flex items-center justify-center text-[#1A8D5F]">✓</div>
+                <div>
+                  <div class="text-sm font-medium">Contribution recorded</div>
+                  <div class="text-xs text-[#5A6070]">1 Oct 2026 • Gidan Kasuwa</div>
+                </div>
+              </div>
+              <div class="text-sm font-bold">₦1,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="nav-bottom">
+      <div class="nav-item active"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L4 9V21H9V14H15V21H20V9L12 3Z"/></svg>Home</div>
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>Comms</div>
+      <div class="nav-item">
+        <div class="w-12 h-12 bg-[#1B2A4A] rounded-full flex items-center justify-center text-[#C8A951] -mt-5 shadow-lg border-4 border-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </div>
+      </div>
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Receipts</div>
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>Profile</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: My Communities -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C16.6 14.9 17 13.5 17 12C17 9.2 14.8 7 12 7C9.2 7 7 9.2 7 12C7 13.5 7.4 14.9 8.4 16.2L12 21Z"/></svg>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 2.7 5.1 0 8.3L12 21L24 8.3C21.3 5.1 17 3 12 3Z"/></svg>
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17 4H7C5.3 4 4 5.3 4 7V17C4 18.7 5.3 20 7 20H17C18.7 20 20 18.7 20 17V7C20 5.3 18.7 4 17 4Z"/></svg>
+      </div>
+    </div>
+    
+    <div class="bg-white px-6 py-4 flex items-center shadow-sm border-b border-[#E2E5EB]">
+      <h1 class="text-xl font-bold text-[#1A1D23]">My Communities</h1>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto px-6 py-6 space-y-4">
+      <!-- Community Card 1 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] p-5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-16 h-16 bg-[#1B2A4A] rounded-bl-full -mr-4 -mt-4 opacity-5"></div>
+        <div class="flex justify-between items-start mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center font-bold text-lg shadow-inner">GK</div>
+            <div>
+              <h3 class="font-bold text-base text-[#1A1D23]">Gidan Kasuwa Adashe</h3>
+              <p class="text-xs text-[#5A6070]">Fixed Adashe • 10 members</p>
+            </div>
+          </div>
+          <span class="bg-[#E8F5EE] text-[#1A8D5F] text-[10px] font-bold px-2 py-1 rounded">ACTIVE</span>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 mt-4 p-3 bg-[#F7F8FA] rounded-xl">
+          <div>
+            <div class="text-xs text-[#5A6070]">Your Position</div>
+            <div class="text-sm font-bold text-[#1B2A4A]">#1</div>
+          </div>
+          <div>
+            <div class="text-xs text-[#5A6070]">Contribution</div>
+            <div class="text-sm font-bold text-[#1B2A4A]">₦1,000/day</div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="w-full mt-6 bg-white border-2 border-dashed border-[#C8A951] text-[#C8A951] font-bold py-4 rounded-xl flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        Join Community
+      </button>
+    </div>
+    
+    <div class="nav-bottom">
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Home</div>
+      <div class="nav-item active"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>Comms</div>
+      <div class="nav-item">
+        <div class="w-12 h-12 bg-[#1B2A4A] rounded-full flex items-center justify-center text-[#C8A951] -mt-5 shadow-lg border-4 border-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </div>
+      </div>
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Receipts</div>
+      <div class="nav-item"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>Profile</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: Community Detail (Member View) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C16.6 14.9 17 13.5 17 12C17 9.2 14.8 7 12 7C9.2 7 7 9.2 7 12C7 13.5 7.4 14.9 8.4 16.2L12 21Z"/></svg>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 2.7 5.1 0 8.3L12 21L24 8.3C21.3 5.1 17 3 12 3Z"/></svg>
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17 4H7C5.3 4 4 5.3 4 7V17C4 18.7 5.3 20 7 20H17C18.7 20 20 18.7 20 17V7C20 5.3 18.7 4 17 4Z"/></svg>
+      </div>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center shadow-sm relative z-10">
+      <button class="p-2 mr-2">
+        <svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <h1 class="text-lg font-bold text-[#1A1D23] truncate">Gidan Kasuwa Adashe</h1>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA]">
+      <div class="bg-white px-6 pb-6 pt-4 rounded-b-3xl shadow-sm border-b border-[#E2E5EB]">
+        <div class="flex gap-4 items-start mb-6">
+          <div class="w-14 h-14 rounded-xl bg-[#1B2A4A] text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-inner">GK</div>
+          <div class="w-full">
+            <div class="text-sm font-medium text-[#1A1D23]">Fixed Adashe / ROSCA</div>
+            <div class="text-xs text-[#5A6070] mt-1 flex items-center gap-1">
+              <span>Org: Abdullahi Musa</span>
+            </div>
+            <div class="flex justify-between items-center mt-3 bg-[#F7F8FA] p-2.5 rounded-lg">
+              <div class="text-center w-full">
+                <div class="text-[10px] text-[#5A6070] uppercase font-bold">Members</div>
+                <div class="text-sm font-bold text-[#1B2A4A]">10</div>
+              </div>
+              <div class="w-px h-6 bg-[#E2E5EB]"></div>
+              <div class="text-center w-full">
+                <div class="text-[10px] text-[#5A6070] uppercase font-bold">Contribution</div>
+                <div class="text-sm font-bold text-[#1B2A4A]">₦1,000<span class="text-[10px] font-normal">/day</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tabs -->
+      <div class="flex border-b border-[#E2E5EB] bg-white sticky top-0 z-10 px-2 overflow-x-auto hide-scrollbar">
+        <button class="px-4 py-3 font-bold text-sm text-[#1B2A4A] border-b-2 border-[#1B2A4A] whitespace-nowrap">Overview</button>
+        <button class="px-4 py-3 font-medium text-sm text-[#5A6070] whitespace-nowrap">My Card</button>
+        <button class="px-4 py-3 font-medium text-sm text-[#5A6070] whitespace-nowrap">Payouts</button>
+      </div>
+      
+      <div class="p-6 space-y-6">
+        <!-- Your Status Card -->
+        <div>
+          <h2 class="text-sm font-bold text-[#1A1D23] mb-3">Your Status</h2>
+          <div class="bg-gradient-to-br from-[#1B2A4A] to-[#2C3E5F] rounded-2xl p-5 text-white shadow-md relative overflow-hidden">
+            <div class="absolute right-0 top-0 w-32 h-32 bg-white opacity-[0.03] rounded-full translate-x-10 -translate-y-10"></div>
+            
+            <div class="flex justify-between items-start mb-6 relative z-10">
+              <div>
+                <div class="text-xs text-[#8E95A5] mb-1">Your Position</div>
+                <div class="text-3xl font-bold text-white">#1</div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-[#8E95A5] mb-1">Payout Status</div>
+                <div class="text-sm font-bold text-[#1A8D5F] bg-[#1A8D5F]/20 px-2.5 py-1 rounded-full">Received (C1 & C2)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Payout Schedule Preview -->
+        <div>
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="text-sm font-bold text-[#1A1D23]">Upcoming Payouts</h2>
+            <button class="text-xs text-[#1B2A4A] font-bold">See All</button>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] p-1 divide-y divide-[#F0F2F5]">
+            <div class="flex items-center justify-between p-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#EBF2FA] text-[#2B6CB0] flex items-center justify-center text-xs font-bold">#3</div>
+                <div>
+                  <div class="text-sm font-bold">Fatima Ibrahim</div>
+                  <div class="text-xs text-[#5A6070]">Cycle 3 • 5 Oct</div>
+                </div>
+              </div>
+              <div class="text-sm font-bold">₦10,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: My Contribution Card -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-[#1B2A4A] dark">
+      <span>9:41</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21L15.6 16.2C16.6 14.9 17 13.5 17 12C17 9.2 14.8 7 12 7C9.2 7 7 9.2 7 12C7 13.5 7.4 14.9 8.4 16.2L12 21Z"/></svg>
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 2.7 5.1 0 8.3L12 21L24 8.3C21.3 5.1 17 3 12 3Z"/></svg>
+      </div>
+    </div>
+    
+    <div class="bg-[#1B2A4A] text-white px-4 py-3 flex items-center z-10 border-b border-[#2C3E5F]">
+      <button class="p-2 mr-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <h1 class="text-lg font-bold truncate">My Card • Cycle 3</h1>
+    </div>
+    
+    <div class="flex-1 bg-[#1B2A4A] overflow-y-auto px-6 py-6 pb-12">
+      <!-- Digital Card header -->
+      <div class="bg-[#C8A951] rounded-t-2xl p-5 text-[#1A1D23] flex justify-between items-center shadow-lg border-b-2 border-dashed border-[#A68B3C]">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider opacity-80">Member Card</div>
+          <div class="text-lg font-bold mt-1">Amina Yusuf</div>
+          <div class="text-xs mt-1 font-medium">Gidan Kasuwa Adashe</div>
+        </div>
+      </div>
+      
+      <!-- 30 Day Grid -->
+      <div class="bg-white rounded-b-2xl shadow-lg p-5">
+        <div class="flex justify-between items-end border-b border-[#E2E5EB] pb-3 mb-4">
+          <div>
+            <div class="text-xs text-[#5A6070] font-bold">Contribution</div>
+            <div class="text-lg font-bold text-[#1A1D23]">₦1,000 <span class="text-xs font-normal">/ day</span></div>
+          </div>
+          <div class="text-right">
+            <div class="text-xs text-[#5A6070] font-bold">October 2026</div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-5 gap-2 gap-y-3">
+          <!-- Paid Days -->
+          <div class="aspect-square bg-[#E8F5EE] border-2 border-[#1A8D5F] text-[#1A8D5F] flex flex-col items-center justify-center rounded-lg font-bold relative"><span class="text-[10px] absolute top-0.5 right-1">1</span><svg class="w-4 h-4 mt-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div class="aspect-square bg-[#E8F5EE] border-2 border-[#1A8D5F] text-[#1A8D5F] flex flex-col items-center justify-center rounded-lg font-bold relative"><span class="text-[10px] absolute top-0.5 right-1">2</span><svg class="w-4 h-4 mt-2" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+          <!-- Pending Today -->
+          <div class="aspect-square bg-[#FEF7E0] border-2 border-[#D4940A] text-[#D4940A] flex flex-col items-center justify-center rounded-lg font-bold relative shadow-[0_0_0_2px_#D4940A]"><span class="text-[10px] absolute top-0.5 right-1">14</span><svg class="w-4 h-4 mt-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <!-- Upcoming -->
+          <div class="aspect-square bg-[#F7F8FA] border border-[#E2E5EB] text-[#8E95A5] flex flex-col items-center justify-center rounded-lg text-sm font-bold">15</div>
+          <div class="aspect-square bg-[#F7F8FA] border border-[#E2E5EB] text-[#8E95A5] flex flex-col items-center justify-center rounded-lg text-sm font-bold">30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 5: Contribution History (Member) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center shadow-sm relative z-10 border-b border-[#E2E5EB]">
+      <button class="p-2 mr-2"><svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+      <h1 class="text-lg font-bold text-[#1A1D23]">My Contributions</h1>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA] p-4 space-y-6">
+      <!-- TODAY -->
+      <div>
+        <h2 class="text-xs font-bold text-[#8E95A5] mb-3 ml-2 tracking-wider">TODAY</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] divide-y divide-[#F0F2F5]">
+          <div class="p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#FEF7E0] text-[#D4940A] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-[#1A1D23]">Gidan Kasuwa</div>
+                <div class="text-xs font-medium text-[#D4940A] mt-0.5">Pending • Unpaid</div>
+              </div>
+            </div>
+            <div class="font-bold text-sm text-[#1A1D23]">₦1,000</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- YESTERDAY -->
+      <div>
+        <h2 class="text-xs font-bold text-[#8E95A5] mb-3 ml-2 tracking-wider">YESTERDAY</h2>
+        <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] divide-y divide-[#F0F2F5]">
+          <div class="p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center font-bold text-xs">GK</div>
+              <div>
+                <div class="font-bold text-sm text-[#1A1D23]">Gidan Kasuwa</div>
+                <div class="flex items-center gap-1.5 mt-0.5">
+                  <div class="w-1.5 h-1.5 bg-[#1A8D5F] rounded-full"></div>
+                  <div class="text-[10px] font-medium text-[#1A8D5F]">Paid</div>
+                  <div class="text-[10px] text-[#8E95A5] border-l border-[#E2E5EB] pl-1.5">Ref: ASB-1001-01</div>
+                </div>
+              </div>
+            </div>
+            <div class="font-bold text-sm text-[#1A1D23]">₦1,000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 6: Cycle Progress (Member) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center shadow-sm relative z-10">
+      <button class="p-2 mr-2"><svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+      <h1 class="text-lg font-bold text-[#1A1D23]">Cycle Progress</h1>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA] p-6">
+      
+      <!-- Circular Progress -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-[#E2E5EB] flex flex-col items-center justify-center mb-6">
+        <div class="relative w-48 h-48 flex items-center justify-center">
+          <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+            <!-- Background circle -->
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#F0F2F5" stroke-width="8"></circle>
+            <!-- Progress circle -->
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#1B2A4A" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="141.5"></circle>
+          </svg>
+          <div class="absolute text-center">
+            <div class="text-4xl font-bold text-[#1B2A4A]">50%</div>
+            <div class="text-xs text-[#5A6070] font-bold mt-1">Day 15 of 30</div>
+          </div>
+        </div>
+        
+        <div class="w-full grid grid-cols-2 gap-4 mt-8 border-t border-[#E2E5EB] pt-6">
+          <div class="text-center">
+            <div class="text-xs text-[#5A6070] mb-1 font-bold">Total This Cycle</div>
+            <div class="text-lg font-bold text-[#1A1D23]">₦13,000</div>
+          </div>
+          <div class="text-center border-l border-[#E2E5EB]">
+            <div class="text-xs text-[#5A6070] mb-1 font-bold">Contribution Rate</div>
+            <div class="text-lg font-bold text-[#1A8D5F]">93%</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Stats breakdown -->
+      <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] p-5">
+        <h3 class="text-sm font-bold text-[#1A1D23] mb-4">Cycle 3 Breakdown</h3>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#1A8D5F]"></div>
+              <span class="text-sm font-medium text-[#5A6070]">Days Paid</span>
+            </div>
+            <span class="font-bold text-[#1A1D23]">13 days</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#C93B3B]"></div>
+              <span class="text-sm font-medium text-[#5A6070]">Days Missed</span>
+            </div>
+            <span class="font-bold text-[#1A1D23]">1 day</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 7: Payout Schedule (Member View) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center justify-between shadow-sm relative z-10">
+      <div class="flex items-center">
+        <button class="p-2 mr-2"><svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+        <h1 class="text-lg font-bold text-[#1A1D23]">Payout Schedule</h1>
+      </div>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA] p-6 relative">
+      <!-- Your total received -->
+      <div class="bg-[#1B2A4A] text-white p-5 rounded-2xl shadow-md mb-8 flex justify-between items-center">
+        <div>
+          <div class="text-xs text-[#8E95A5] uppercase tracking-wider mb-1 font-bold">Total Received</div>
+          <div class="text-2xl font-bold text-[#C8A951]">₦20,000</div>
+        </div>
+      </div>
+      
+      <!-- Timeline Line -->
+      <div class="absolute left-[39px] top-[140px] bottom-10 w-0.5 bg-[#E2E5EB] z-0"></div>
+      
+      <div class="space-y-6 relative z-10">
+        
+        <!-- Cycle 1 (You) -->
+        <div class="flex gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#1A8D5F] flex items-center justify-center shrink-0 border-4 border-[#F7F8FA]">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div class="bg-white p-4 rounded-xl shadow-sm border border-[#1A8D5F] flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <div class="text-xs font-bold text-[#1A8D5F]">CYCLE 1 • 1 SEP</div>
+              <div class="text-[10px] font-bold bg-[#E8F5EE] text-[#1A8D5F] px-2 py-0.5 rounded">YOU RECEIVED</div>
+            </div>
+            <div class="text-sm font-bold text-[#1A1D23]">₦10,000</div>
+          </div>
+        </div>
+        
+        <!-- Cycle 3 (Next) -->
+        <div class="flex gap-4">
+          <div class="w-8 h-8 rounded-full bg-[#2B6CB0] flex items-center justify-center shrink-0 border-4 border-[#F7F8FA] animate-pulse">
+            <div class="w-2.5 h-2.5 bg-white rounded-full"></div>
+          </div>
+          <div class="bg-white p-4 rounded-xl shadow-sm border-2 border-[#2B6CB0] flex-1">
+            <div class="flex justify-between items-start mb-1">
+              <div class="text-xs font-bold text-[#2B6CB0]">CYCLE 3 • 5 OCT (NEXT)</div>
+            </div>
+            <div class="text-base font-bold text-[#1A1D23]">Fatima Ibrahim</div>
+            <div class="text-xs font-medium text-[#5A6070] mt-1">₦10,000</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 8: Digital Member ID -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-[#1B2A4A] dark">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-[#1B2A4A] text-white px-4 py-3 flex items-center justify-between shadow-sm relative z-10">
+      <button class="p-2 mr-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+      <h1 class="text-lg font-bold">Digital ID</h1>
+      <div class="w-9"></div>
+    </div>
+    
+    <div class="flex-1 bg-[#F7F8FA] flex flex-col items-center justify-center p-6">
+      
+      <!-- ID Card -->
+      <div class="w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-[#E2E5EB] relative">
+        <!-- Header -->
+        <div class="bg-[#1B2A4A] p-6 pb-12 relative text-center border-b-4 border-[#C8A951]">
+          <!-- Abstract brand motif -->
+          <div class="absolute inset-0 opacity-10">
+            <svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="10" stroke-dasharray="80 120"></circle></svg>
+          </div>
+          <div class="text-sm font-bold tracking-[0.2em] text-[#C8A951] mb-2 relative z-10">ASABIYYAH</div>
+          <div class="text-[10px] text-white/70 uppercase tracking-widest relative z-10">Member Identification</div>
+        </div>
+        
+        <!-- Avatar overlapping header -->
+        <div class="absolute top-[80px] left-1/2 -translate-x-1/2 w-20 h-20 bg-white rounded-full p-1 shadow-md">
+          <div class="w-full h-full bg-[#EBF2FA] text-[#1B2A4A] rounded-full flex items-center justify-center text-2xl font-bold border-2 border-[#E2E5EB]">AY</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="pt-14 pb-6 px-6 text-center">
+          <h2 class="text-2xl font-bold text-[#1A1D23]">Amina Yusuf</h2>
+          <div class="text-sm font-bold text-[#5A6070] mt-1">ASB-MEM-2026-0001</div>
+          
+          <div class="inline-flex items-center gap-1.5 mt-3 bg-[#E8F5EE] text-[#1A8D5F] px-3 py-1 rounded-full text-xs font-bold border border-[#1A8D5F]/20">
+            <div class="w-2 h-2 rounded-full bg-[#1A8D5F]"></div>
+            Active Member
+          </div>
+          
+          <div class="mt-6 grid grid-cols-2 gap-4 text-left border-t border-[#F0F2F5] pt-4">
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Community</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5 truncate">Gidan Kasuwa Adashe</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Role</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5">Member</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Phone</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5">+234 801 *** 5678</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Joined</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5">1 Sep 2026</div>
+            </div>
+          </div>
+          
+          <!-- QR Code Preview -->
+          <button class="mt-6 border-t border-[#F0F2F5] pt-6 w-full flex flex-col items-center">
+            <div class="text-[10px] text-[#8E95A5] uppercase font-bold mb-3">Tap to expand QR</div>
+            <div class="w-24 h-24 bg-white border border-[#E2E5EB] p-2 rounded-lg shadow-sm">
+              <!-- Placeholder QR -->
+              <svg viewBox="0 0 100 100" class="w-full h-full text-black"><path fill="currentColor" d="M10 10h25v25H10zm5 5v15h15V15zM65 10h25v25H65zm5 5v15h15V15zM10 65h25v25H10zm5 5v15h15V15zM45 45h10v10H45zM45 10h10v10H45zM45 80h10v10H45zM80 45h10v10H80zM10 45h10v10H10zM30 45h10v10H30zM60 45h10v10H60zM45 60h10v10H45zM65 65h10v10H65zM80 65h10v10H80zM65 80h10v10H65zM80 80h10v10H80z"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 9: QR Code (Full Screen) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-[#1B2A4A] dark">
+      <span>9:41</span>
+    </div>
+    
+    <div class="flex-1 bg-[#1B2A4A] flex flex-col items-center justify-between p-8 relative">
+      <button class="absolute top-4 left-4 p-2 bg-white/10 rounded-full text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      
+      <div class="flex flex-col items-center mt-12 w-full text-center">
+        <div class="flex items-center gap-2 text-white/70 mb-4 bg-white/10 px-4 py-1.5 rounded-full text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          Max Brightness On
+        </div>
+        
+        <div class="bg-white p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.2)] w-full aspect-square flex items-center justify-center">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-black"><path fill="currentColor" d="M10 10h25v25H10zm5 5v15h15V15zM65 10h25v25H65zm5 5v15h15V15zM10 65h25v25H10zm5 5v15h15V15zM45 45h10v10H45zM45 10h10v10H45zM45 80h10v10H45zM80 45h10v10H80zM10 45h10v10H10zM30 45h10v10H30zM60 45h10v10H60zM45 60h10v10H45zM65 65h10v10H65zM80 65h10v10H80zM65 80h10v10H65zM80 80h10v10H80z"/></svg>
+        </div>
+        
+        <h2 class="text-3xl font-bold text-white mt-8">Amina Yusuf</h2>
+        <div class="text-sm font-bold text-[#C8A951] mt-2 tracking-wider">ASB-MEM-2026-0001</div>
+        <p class="text-white/70 text-sm mt-8">Show this to your organizer to record your contribution</p>
+      </div>
+      
+      <div class="text-[10px] text-white/40 text-center pb-4">
+        This QR contains only your safe identifier.
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 7 / 8 Divider -->
+  <div class="shrink-0 flex items-center justify-center bg-[#1A1D23] text-white rounded-3xl p-12 h-64 shadow-xl ml-8">
+    <h1 class="text-4xl font-bold tracking-wider">PART 8<br><span class="text-[#1A8D5F]">DIGITAL ID / QR SYSTEM</span></h1>
+  </div>
+
+  <!-- SCREEN 14: Digital ID (Organizer View) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center justify-between shadow-sm relative z-10 border-b border-[#E2E5EB]">
+      <div class="flex items-center">
+        <button class="p-2 mr-2"><svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+        <h1 class="text-lg font-bold text-[#1A1D23]">Member Profile</h1>
+      </div>
+    </div>
+    
+    <div class="flex-1 bg-[#F7F8FA] flex flex-col p-6">
+      
+      <!-- Card showing Verified Member badge -->
+      <div class="w-full bg-white rounded-3xl shadow-sm border border-[#E2E5EB] overflow-hidden relative">
+        <!-- Header -->
+        <div class="bg-[#1B2A4A] h-24 relative">
+          <div class="absolute right-4 top-4 bg-[#1A8D5F] text-white text-[10px] font-bold px-2 py-1 rounded flex items-center gap-1 shadow-md">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            VERIFIED
+          </div>
+        </div>
+        
+        <!-- Avatar -->
+        <div class="absolute top-[40px] left-6 w-16 h-16 bg-white rounded-xl p-1 shadow-sm">
+          <div class="w-full h-full bg-[#EBF2FA] text-[#1B2A4A] rounded-lg flex items-center justify-center text-xl font-bold border border-[#E2E5EB]">AY</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="pt-10 pb-6 px-6">
+          <h2 class="text-xl font-bold text-[#1A1D23]">Amina Yusuf</h2>
+          <div class="text-xs font-bold text-[#5A6070] mt-1">ASB-MEM-2026-0001</div>
+          
+          <div class="mt-4 grid grid-cols-2 gap-4 text-left border-t border-[#F0F2F5] pt-4">
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Community</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5 truncate">Gidan Kasuwa Adashe</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Role</div>
+              <div class="text-sm font-bold text-[#1A1D23] mt-0.5">Member</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Action for Organizer -->
+      <div class="mt-8 space-y-4">
+        <button class="w-full bg-[#1B2A4A] text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-md">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+          Record Contribution
+        </button>
+        <button class="w-full bg-white border-2 border-[#1B2A4A] text-[#1B2A4A] font-bold py-4 rounded-xl flex items-center justify-center gap-2">
+          View Payout History
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 16: Organizer Scan Screen -->
+  <div class="phone-mockup bg-black">
+    <div class="status-bar dark bg-transparent">
+      <span>9:41</span>
+    </div>
+    
+    <div class="flex-1 flex flex-col relative">
+      <!-- Camera Background Mock -->
+      <div class="absolute inset-0 bg-[#1A1D23] z-0 overflow-hidden">
+        <!-- faint blurry objects for camera effect -->
+        <div class="absolute w-[500px] h-[500px] bg-white/5 rounded-full blur-[50px] -top-20 -left-20"></div>
+        <div class="absolute w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[60px] bottom-10 right-10"></div>
+      </div>
+      
+      <div class="relative z-10 flex justify-between items-center px-4 py-4">
+        <button class="p-2 text-white bg-black/30 rounded-full backdrop-blur-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="text-white font-bold text-lg">Scan Member QR</div>
+        <button class="p-2 text-white bg-black/30 rounded-full backdrop-blur-md">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </button>
+      </div>
+      
+      <div class="flex-1 flex flex-col items-center justify-center relative z-10">
+        <!-- Viewfinder brackets -->
+        <div class="w-64 h-64 relative">
+          <div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-[#C8A951] rounded-tl-xl"></div>
+          <div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-[#C8A951] rounded-tr-xl"></div>
+          <div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-[#C8A951] rounded-bl-xl"></div>
+          <div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-[#C8A951] rounded-br-xl"></div>
+          
+          <!-- Scanning line animation mock -->
+          <div class="absolute top-1/2 left-0 w-full h-0.5 bg-[#C8A951] shadow-[0_0_10px_#C8A951] opacity-60"></div>
+        </div>
+        
+        <div class="mt-8 bg-black/50 backdrop-blur-md px-6 py-3 rounded-full text-white text-sm font-medium">
+          Point camera at member's QR code
+        </div>
+        
+        <button class="mt-6 text-[#C8A951] text-sm font-bold underline decoration-[#C8A951]/50 underline-offset-4">
+          Enter member ID manually
+        </button>
+      </div>
+      
+      <!-- Recent Scans Bottom Sheet -->
+      <div class="bg-white rounded-t-3xl p-6 relative z-10 pb-10">
+        <div class="w-12 h-1 bg-[#E2E5EB] rounded-full mx-auto mb-6"></div>
+        <h3 class="text-sm font-bold text-[#1A1D23] mb-4">Recent Scans</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 p-3 bg-[#F7F8FA] rounded-xl border border-[#E2E5EB]">
+            <div class="w-10 h-10 bg-[#1B2A4A] text-white rounded-full flex items-center justify-center font-bold text-xs">SI</div>
+            <div class="flex-1">
+              <div class="text-sm font-bold text-[#1A1D23]">Sulaiman Ibrahim</div>
+              <div class="text-xs text-[#5A6070]">2 mins ago</div>
+            </div>
+            <svg class="w-5 h-5 text-[#1A8D5F]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 17: Member Verification (After Scan) -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-[#F7F8FA]">
+      <span>9:41</span>
+    </div>
+    
+    <div class="flex-1 bg-[#F7F8FA] p-6 flex flex-col">
+      <div class="flex justify-between items-center mb-8">
+        <button class="text-[#5A6070] text-sm font-bold">Cancel</button>
+        <h1 class="text-lg font-bold text-[#1A1D23]">Member Found</h1>
+        <div class="w-10"></div>
+      </div>
+      
+      <div class="bg-white rounded-3xl p-6 shadow-xl border border-[#E2E5EB] flex flex-col items-center text-center relative overflow-hidden">
+        <div class="absolute top-0 w-full h-2 bg-[#1A8D5F] left-0"></div>
+        
+        <div class="w-20 h-20 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center text-3xl font-bold mt-4 shadow-md relative">
+          AY
+          <div class="absolute bottom-0 right-0 w-6 h-6 bg-[#1A8D5F] rounded-full border-2 border-white flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-[#1A1D23] mt-4">Amina Yusuf</h2>
+        <div class="text-sm font-bold text-[#5A6070] mt-1 bg-[#F0F2F5] px-3 py-1 rounded-full">ASB-MEM-2026-0001</div>
+        
+        <div class="w-full bg-[#F7F8FA] rounded-xl p-4 mt-6 grid grid-cols-2 gap-4 text-left border border-[#E2E5EB]">
+          <div>
+            <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Community</div>
+            <div class="text-sm font-bold text-[#1A1D23] mt-0.5 truncate">Gidan Kasuwa Adashe</div>
+          </div>
+          <div>
+            <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Status</div>
+            <div class="text-sm font-bold text-[#1A8D5F] mt-0.5">Active ✅</div>
+          </div>
+          <div>
+            <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Last Contribution</div>
+            <div class="text-sm font-bold text-[#1A1D23] mt-0.5">1 Oct 2026</div>
+          </div>
+          <div>
+            <div class="text-[10px] text-[#8E95A5] uppercase font-bold">Contribution Rate</div>
+            <div class="text-sm font-bold text-[#1B2A4A] mt-0.5">93%</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-auto space-y-4 pb-8">
+        <button class="w-full bg-[#1B2A4A] text-white font-bold py-4 rounded-xl shadow-md text-lg">
+          Record Contribution
+        </button>
+        <button class="w-full bg-white border-2 border-[#E2E5EB] text-[#5A6070] font-bold py-4 rounded-xl">
+          View Profile
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 18: Record Contribution After Scan -->
+  <div class="phone-mockup">
+    <div class="status-bar bg-white">
+      <span>9:41</span>
+    </div>
+    
+    <div class="bg-white px-4 py-3 flex items-center shadow-sm relative z-10 border-b border-[#E2E5EB]">
+      <button class="p-2 mr-2"><svg class="w-5 h-5 text-[#1A1D23]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+      <h1 class="text-lg font-bold text-[#1A1D23]">Record Contribution</h1>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto bg-[#F7F8FA] p-6 flex flex-col">
+      <!-- Verified Member Badge -->
+      <div class="bg-[#E8F5EE] border border-[#1A8D5F]/30 rounded-xl p-4 flex items-center gap-4 mb-6">
+        <div class="w-10 h-10 rounded-full bg-[#1A8D5F] text-white flex items-center justify-center font-bold">AY</div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h3 class="font-bold text-[#1A1D23]">Amina Yusuf</h3>
+            <svg class="w-4 h-4 text-[#1A8D5F]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div class="text-xs text-[#1A8D5F] font-bold">Verified via QR Scan</div>
+        </div>
+      </div>
+      
+      <!-- Pre-filled Form -->
+      <div class="bg-white rounded-2xl shadow-sm border border-[#E2E5EB] p-5 space-y-6">
+        <div>
+          <label class="text-xs font-bold text-[#8E95A5] uppercase tracking-wider mb-2 block">Community</label>
+          <div class="bg-[#F0F2F5] px-4 py-3 rounded-xl text-[#1A1D23] font-bold border border-[#E2E5EB]">
+            Gidan Kasuwa Adashe
+          </div>
+        </div>
+        
+        <div>
+          <label class="text-xs font-bold text-[#8E95A5] uppercase tracking-wider mb-2 block">Amount</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <span class="text-xl font-bold text-[#1A1D23]">₦</span>
+            </div>
+            <input type="text" value="1,000" class="w-full bg-[#F0F2F5] pl-10 pr-4 py-4 rounded-xl text-2xl font-bold text-[#1B2A4A] border border-[#E2E5EB] focus:outline-none focus:border-[#C8A951] focus:ring-1 focus:ring-[#C8A951]">
+          </div>
+          <p class="text-[10px] text-[#5A6070] mt-2">Default daily contribution amount</p>
+        </div>
+        
+        <div>
+          <label class="text-xs font-bold text-[#8E95A5] uppercase tracking-wider mb-2 block">Payment Method</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="bg-[#1B2A4A] text-white font-bold py-3 rounded-xl border-2 border-[#1B2A4A]">Cash</button>
+            <button class="bg-white text-[#5A6070] font-bold py-3 rounded-xl border-2 border-[#E2E5EB]">Transfer</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-auto pt-8">
+        <button class="w-full bg-[#1A8D5F] text-white font-bold py-4 rounded-xl shadow-md text-lg flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Confirm & Record
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
