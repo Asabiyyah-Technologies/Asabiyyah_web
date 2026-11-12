@@ -1,0 +1,11 @@
+{
+  "name": "asabiyyah-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Asabiyyah Technologies Ltd Corporate Website",
+  "scripts": {
+    "build": "bash build.sh || python3 build.py || python build.py"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

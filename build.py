@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Asabiyyah Technologies Ltd — Static Site Compiler
 Builds the production static site into `dist/` from Python page templates and JSON datasets.
