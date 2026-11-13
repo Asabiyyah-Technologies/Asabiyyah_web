@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <!-- Background Shield / Rounded Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5" />
+  
+  <!-- Subtle Internal Glow Grid Line -->
+  <line x1="8" y1="20" x2="56" y2="20" stroke="#334155" stroke-width="0.5" stroke-opacity="0.4" />
+  <line x1="8" y1="44" x2="56" y2="44" stroke="#334155" stroke-width="0.5" stroke-opacity="0.4" />
+
+  <!-- Monogram MA Typography -->
+  <!-- Letter M -->
+  <path d="M 14 44 L 14 20 L 22 34 L 30 20 L 30 44" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Letter A -->
+  <path d="M 34 44 L 43 20 L 52 44" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="38" y1="36" x2="48" y2="36" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Dynamic Active Node / Accent Dot -->
+  <circle cx="52" cy="18" r="3.5" fill="url(#accentGrad)" stroke="#FFFFFF" stroke-width="1" />
+</svg>

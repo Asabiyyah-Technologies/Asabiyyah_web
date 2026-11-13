@@ -14,7 +14,7 @@ import {
 export const personalIdentity = {
   fullName: "Muhammad Auwal Aliyu",
   publicName: "Abu Mus'ab",
-  title: "Full-Stack AI Engineer & Technology Founder",
+  title: "Full-Stack AI Engineer | Technology Founder | Educator",
   headline: "Engineering intelligent systems. Building technology that matters.",
   supportingIntro: "I build intelligent software systems at the intersection of AI, engineering, and human-centred innovation. My work focuses on applied AI, agentic systems, and accessible digital solutions designed for real-world conditions — including environments where connectivity, computing resources, and language can be limiting factors.",
   credibilityLine: "Computer Science | Applied AI | Software Engineering | Entrepreneurship",
@@ -293,7 +293,7 @@ export const featuredProjects: Project[] = [
     name: "ClassGPT-N Framework",
     tagline: "Offline-First Hausa–English Multilingual Agentic AI Tutoring for SS1 ICT",
     category: "Applied AI | Educational Technology | Offline-First Systems",
-    status: "Working Prototype",
+    status: "Working Prototype (NERDC 2025 ICT)",
     statusBadgeColor: "emerald",
     problem: "Secondary school students in Hausa-dominant communities face significant barriers when learning computer science and ICT: educational AI tutors are overwhelmingly English-only, depend on high-speed internet that is frequently unavailable or prohibitively expensive, and assume access to high-end laptops.",
     solution: "Designed and built an offline-first multilingual tutoring framework grounded directly in the Nigerian Educational Research and Development Council (NERDC 2025) SS1 ICT curriculum. The architecture runs a quantised Qwen2.5B language model locally on consumer hardware, integrates N-ATLAS speech recognition for voice interactions in Hausa and English, and tracks student mastery through an agent-agnostic state machine.",
@@ -316,43 +316,43 @@ export const featuredProjects: Project[] = [
     name: "ResolveIQ",
     tagline: "Multi-Agent Autonomous Transaction Investigation Platform",
     category: "Agentic AI | Financial Technology",
-    status: "Hackathon Prototype",
+    status: "Hackathon Prototype (Zenith Bank Zecathon 6.0)",
     statusBadgeColor: "blue",
     problem: "Modern financial institutions process millions of daily transactions. When transaction discrepancies, failed transfers, or reversals occur, manual support investigations create severe backlogs, customer frustration, and high operational expenditure.",
-    solution: "Built for the prestigious Zenith Bank Zecathon 6.0, ResolveIQ coordinates specialised AI agents into an automated investigative workflow. Rather than relying on a single prompt, the system separates concerns into specialized agents: a Complaint Parser, an Evidence Collector, a Root-Cause Diagnostic Agent, and a Resolution Formulation Agent.",
+    solution: "Developed as a competition prototype for the prestigious Zenith Bank Zecathon 6.0, ResolveIQ coordinates specialised AI agents into an automated investigative workflow. Rather than relying on a single prompt, the prototype separates concerns into specialized agents: an Evidence Agent, a Root-Cause Diagnostic Agent, and a Resolution Formulation Agent.",
     specificContribution: "Designed the multi-agent orchestration architecture, structured financial data evaluation routines, tool/function calling contracts, and automated resolution generation based on banking operational constraints.",
     coreMessage: "Exploring how coordinated AI agents can improve complex financial investigation workflows.",
     technologies: ["Python", "Multi-Agent Frameworks", "Function Calling", "Tool Calling", "Financial Schema Modeling", "FastAPI", "PostgreSQL"],
     keyArchitectureComponents: [
-      "Evidence Agent: Programmatically calls banking APIs and ledger records to reconstruct transactional chronologies.",
+      "Evidence Agent: Programmatically calls simulated banking APIs and ledger records to reconstruct transactional chronologies.",
       "Root-Cause Agent: Compares reconstructed logs against known failure modes (switch timeout, insufficient balance, token desync).",
       "Resolution Agent: Generates compliant customer explanations and drafts actionable reversal/escalation tickets.",
       "Structured Audit Trail: Logs every agent decision step to satisfy strict banking regulatory and audit standards."
     ],
     featured: true,
-    contextNote: "Developed as a competition prototype for Zenith Bank Zecathon 6.0."
+    contextNote: "Developed as an investigative prototype for Zenith Bank Zecathon 6.0; not a deployed banking production system."
   },
   {
     id: "amana-shield",
     name: "Amana Shield",
-    tagline: "Automated Electoral Scam & WhatsApp Phishing Detection Intelligence",
+    tagline: "AI-Assisted WhatsApp Scam & Phishing Detection System",
     category: "Applied AI | Cybersecurity | Digital Safety",
-    status: "Ongoing Security System",
+    status: "Active Security Architecture",
     statusBadgeColor: "purple",
-    problem: "Vulnerable citizens and job seekers in Nigeria are relentlessly targeted by fraudulent WhatsApp forward messages, fake empowerment schemes, and impersonation domains designed to harvest personal information or steal funds.",
-    solution: "Engineered an automated scam and phishing link detection intelligence system (AI4Elections 2026). The platform ingests forwarded WhatsApp messages, parses URLs, extracts domain metadata via DNS and RDAP queries, checks against trusted and untrusted registries, and produces structured LLM-assisted verdicts explaining threats in plain language.",
-    specificContribution: "Authored the core FastAPI backend, designed the relational database schema for campaign tracking, implemented DNS/RDAP network enrichment modules, and authored procedural RAG prompts for electoral fact verification.",
+    problem: "Everyday users, job seekers, and communities in Nigeria are relentlessly targeted by fraudulent WhatsApp forwarded messages, fake empowerment schemes, and deceptive links designed to harvest personal credentials or extort money.",
+    solution: "An AI-assisted scam and phishing detection system. The platform ingests forwarded WhatsApp messages, parses URLs, extracts domain metadata via DNS and RDAP queries, checks against trusted and untrusted registries, and produces structured LLM-assisted verdicts explaining threats in plain language.",
+    specificContribution: "Authored the core FastAPI backend, designed the relational database schema for threat tracking, implemented DNS/RDAP network enrichment modules, and authored structured LLM evaluation prompts that produce actionable safety advice.",
     coreMessage: "Making digital safety more accessible to everyday users.",
-    technologies: ["FastAPI", "Python", "WhatsApp Cloud API", "PostgreSQL", "RDAP/DNS Intelligence", "Structured LLM Verification", "Procedural RAG", "Alembic"],
+    technologies: ["FastAPI", "Python", "WhatsApp Cloud API", "PostgreSQL", "RDAP/DNS Intelligence", "Structured LLMs", "SQLite", "Alembic"],
     keyArchitectureComponents: [
       "WhatsApp Ingestion Engine: Receives suspicious forward messages directly from user mobile chats via webhooks.",
       "Network Domain Intelligence: Performs real-time RDAP registration age checks, DNS record validation, and registrar reputation scoring.",
-      "Procedural RAG Against Verified Sources: Compares claims against official government and electoral databases.",
-      "Structured Risk Scoring: Emits unambiguous risk classifications (Safe, Suspicious, Confirmed Threat) with plain-language rationales."
+      "Structured LLM Threat Assessment: Employs structured schemas to evaluate deceptive claims, social engineering tactics, and phishing patterns.",
+      "Plain-Language Rationales: Emits unambiguous risk classifications (Safe, Suspicious, Confirmed Threat) with straightforward explanations."
     ],
     diagramAsset: "/assets/projects/amana-shield-architecture.svg",
     diagramType: "svg",
-    diagramTitle: "Amana Shield Entity Relationship & Threat Assessment Architecture",
+    diagramTitle: "Amana Shield Threat Assessment & Verification Architecture",
     featured: true,
     contextNote: "Authentic system ER diagram available for technical inspection."
   },
@@ -361,10 +361,10 @@ export const featuredProjects: Project[] = [
     name: "Dila (by Asabiyyah Technologies Ltd)",
     tagline: "Zero-Dependency Double-Entry Infrastructure for Community Savings Groups",
     category: "Fintech | Community Technology | Digital Inclusion",
-    status: "Active Product Development",
+    status: "Active Product Development (Asabiyyah)",
     statusBadgeColor: "amber",
     problem: "Over 48 million Nigerian adults save in informal rotating community pools (Adashe, Esusu, Ajo). Reliance on physical notebooks and cash handoffs leads to ledger errors, lack of transparency, disputes, and zero legal or institutional recourse.",
-    solution: "Dila (formerly Adashe) is a flagship product under Asabiyyah Technologies Ltd. It digitizes traditional community savings groups using zero-dependency, double-entry ledger principles on SQLite, custom printed QR collection posters, non-interest financial workflows, and accessible multilingual interfaces tailored to local community realities.",
+    solution: "Dila (formerly Adashe) is a flagship product being developed under Asabiyyah Technologies Ltd. It digitizes traditional community savings groups using zero-dependency, double-entry ledger principles on SQLite, custom printed QR collection posters, non-interest financial workflows, and accessible multilingual interfaces tailored to local community realities.",
     specificContribution: "As CEO & Co-Founder of Asabiyyah Technologies, led the strategic product direction, designed the double-entry accounting ledger schemas, formulated the offline-resilient edge sync strategy, and guided the brand architecture.",
     coreMessage: "Building practical digital infrastructure for community-based financial activities.",
     technologies: ["SQLite", "Double-Entry Bookkeeping", "Offline-First Sync", "FastAPI / NestJS", "QR Verification", "Multilingual UX (Hausa/English)", "Tailwind CSS"],
@@ -372,23 +372,23 @@ export const featuredProjects: Project[] = [
       "Strict Double-Entry Ledger: Code-enforced mathematical balance ensuring every contribution and payout has auditable debit/credit pairs.",
       "Offline-Resilient Edge Storage: Uses SQLite with localized caching so group leaders can record collections without network connectivity.",
       "Physical QR Collection Sheets: Bridges the physical and digital divide with scannable QR tokens for illiterate and informal savers.",
-      "Non-Interest & Culturally Rooted Workflows: Built around ethical communal principles respecting Islamic finance and local traditions."
+      "Non-Interest & Culturally Rooted Workflows: Built around ethical communal principles respecting local community traditions."
     ],
     diagramAsset: "/assets/brand/dila-primary.svg",
     diagramType: "svg",
     diagramTitle: "Dila Official Product Identity & Brand Architecture (Asabiyyah Technologies Ltd)",
     featured: true,
-    contextNote: "Presented as a core product of Asabiyyah Technologies Ltd."
+    contextNote: "Presented as a flagship product under Asabiyyah Technologies Ltd, not an independent company."
   },
   {
     id: "uspf-learning-hub",
     name: "USPF Learning Hub",
     tagline: "Edge-Native Offline Learning Infrastructure for Rural Schools",
     category: "Educational Technology | Offline-First Architecture",
-    status: "Architecture Concept",
+    status: "Architecture Concept (USPF Challenge)",
     statusBadgeColor: "indigo",
-    problem: "Rural schools targeted by the Universal Service Provision Fund (USPF) frequently lack reliable broadband and electricity, leaving expensive computer laboratories underutilized and students cut off from digital learning resources.",
-    solution: "Conceived for the USPF Changemaker Challenge, the USPF Learning Hub is an edge-native educational infrastructure model. It deploys a local edge micro-server (Raspberry Pi or localized server) running FastAPI, local SQLite data tracking, a ZPD (Zone of Proximal Development) orchestration engine, and a quantized edge LLM (Qwen) with local vector retrieval (FAISS/ChromaDB).",
+    problem: "Rural schools targeted by the Universal Service Provision Fund (USPF) frequently lack reliable broadband and electricity, leaving computer laboratories underutilized and students cut off from digital learning resources.",
+    solution: "Conceived as an educational technology concept for the USPF Changemaker Challenge, the USPF Learning Hub explores an edge-native offline infrastructure model. It envisions a local edge micro-server running FastAPI, local SQLite tracking, a Zone of Proximal Development (ZPD) mastery engine, and local RAG support to assist learners without continuous internet access.",
     specificContribution: "Authored the system architecture, use case diagrams, and sequence flows illustrating offline assessment submission, local ZPD node calculations, and asynchronous regional cloud sync.",
     coreMessage: "Designing learning infrastructure for environments where connectivity cannot be taken for granted.",
     technologies: ["Raspberry Pi Edge Server", "FastAPI", "Local SQLite", "ChromaDB / FAISS", "Quantized Edge LLM (Qwen)", "React PWA", "Asynchronous Cloud Sync"],
@@ -402,27 +402,27 @@ export const featuredProjects: Project[] = [
     diagramType: "image",
     diagramTitle: "USPF Hackathon: Offline-First Learning Hub System Architecture & UML Diagrams",
     featured: true,
-    contextNote: "Authentic hackathon UML and architecture specification diagram available."
+    contextNote: "Architectural concept developed for the USPF Changemaker Challenge; not a fully deployed institutional system."
   },
   {
     id: "cropshield-ai",
     name: "CropShield AI",
     tagline: "Early Potato Disease Detection for Plateau Smallholder Farmers",
     category: "AI for Agriculture | Mobile Technology",
-    status: "Field Prototype",
+    status: "Agricultural Prototype",
     statusBadgeColor: "teal",
-    problem: "Plateau State is Nigeria's potato agricultural hub, but late blight and viral infections devastate yields. Smallholder farmers lack immediate access to plant pathologists and reliable mobile internet in rural fields.",
-    solution: "An edge-friendly computer vision and agricultural support solution designed to diagnose potato leaf pathogens on-device. CropShield AI combines a lightweight mobile diagnosis pipeline with offline treatment guidance in Hausa and English, providing actionable agronomic remedies immediately.",
+    problem: "Plateau State is Nigeria's potato agricultural hub, but late blight and viral infections severely damage yields. Smallholder farmers lack immediate access to plant pathologists and reliable mobile internet in rural fields.",
+    solution: "An exploratory edge-friendly computer vision and agricultural support solution designed to diagnose potato leaf pathogens on-device. CropShield AI combines a mobile-first diagnosis pipeline with offline treatment guidance in Hausa and English, providing agronomic remedies immediately in the field.",
     specificContribution: "Researched local Plateau farmer operating constraints, designed the lightweight model inference strategy, and shaped the multilingual advisory workflows.",
     coreMessage: "Applying AI to practical agricultural challenges in local communities.",
     technologies: ["Computer Vision", "Mobile Machine Learning", "Python Backend", "Offline Knowledge Base", "Hausa/English Agronomic Guide"],
     keyArchitectureComponents: [
-      "Mobile On-Device Vision: Analyzes leaf imagery locally to detect blight symptoms without uploading high-res photos over cellular data.",
-      "Localized Remediation Protocols: Delivers weather-aware spraying recommendations in Hausa and English.",
-      "Offline Database of Agro-Dealers: Lists vetted local suppliers in Jos and surrounding local government areas."
+      "Mobile On-Device Vision: Explores analyzing leaf imagery locally to detect blight symptoms without uploading photos over cellular data.",
+      "Localized Remediation Protocols: Delivers agronomic treatment recommendations in Hausa and English.",
+      "Offline Agro-Directory: Lists vetted agricultural extension contacts and suppliers across Plateau State communities."
     ],
     featured: true,
-    contextNote: "Active exploratory prototype targeting local agricultural challenges in Plateau State."
+    contextNote: "Active exploratory prototype targeting local agricultural challenges in Plateau State; distinguishing prototype research from field validation."
   }
 ];
 

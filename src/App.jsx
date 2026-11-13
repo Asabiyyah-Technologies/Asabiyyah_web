@@ -5,7 +5,7 @@ const portfolioData = {
   personalIdentity: {
     fullName: "Muhammad Auwal Aliyu",
     publicName: "Abu Mus'ab",
-    title: "Full-Stack AI Engineer & Technology Founder",
+    title: "Full-Stack AI Engineer | Technology Founder | Educator",
     headline: "Engineering intelligent systems. Building technology that matters.",
     supportingIntro: "I build intelligent software systems at the intersection of AI, engineering, and human-centred innovation. My work focuses on applied AI, agentic systems, and accessible digital solutions designed for real-world conditions — including environments where connectivity, computing resources, and language can be limiting factors.",
     credibilityLine: "Computer Science | Applied AI | Software Engineering | Entrepreneurship",
@@ -249,7 +249,7 @@ const portfolioData = {
       tagline: "Offline-First Hausa–English Multilingual Agentic AI Tutoring for SS1 ICT",
       category: "Applied AI | Educational Technology | Offline-First Systems",
       domain: "ai-edtech",
-      status: "Working Prototype",
+      status: "Working Prototype (NERDC 2025 ICT)",
       statusColor: "emerald",
       previewImage: "/assets/projects/digital-learner.png",
       previewImageCaption: "Learner interface testing on shared tablet environment",
@@ -275,46 +275,46 @@ const portfolioData = {
       tagline: "Multi-Agent Autonomous Transaction Investigation Platform",
       category: "Agentic AI | Financial Technology",
       domain: "agentic-fintech",
-      status: "Hackathon Prototype",
+      status: "Hackathon Prototype (Zenith Bank Zecathon 6.0)",
       statusColor: "blue",
       problem: "Modern financial institutions process millions of daily transactions. When transaction discrepancies, failed transfers, or reversals occur, manual support investigations create severe backlogs, customer frustration, and high operational expenditure.",
-      solution: "Built for the prestigious Zenith Bank Zecathon 6.0, ResolveIQ coordinates specialised AI agents into an automated investigative workflow. Rather than relying on a single prompt, the system separates concerns into specialized agents: a Complaint Parser, an Evidence Collector, a Root-Cause Diagnostic Agent, and a Resolution Formulation Agent.",
+      solution: "Developed as a competition prototype for Zenith Bank Zecathon 6.0, ResolveIQ coordinates specialised AI agents into an automated investigative workflow. Rather than relying on a single prompt, the prototype separates concerns into specialized agents: an Evidence Agent, a Root-Cause Diagnostic Agent, and a Resolution Formulation Agent.",
       specificContribution: "Designed the multi-agent orchestration architecture, structured financial data evaluation routines, tool/function calling contracts, and automated resolution generation based on banking operational constraints.",
       coreMessage: "Exploring how coordinated AI agents can improve complex financial investigation workflows.",
       technologies: ["Python", "Multi-Agent Frameworks", "Function Calling", "Tool Calling", "Financial Schema Modeling", "FastAPI", "PostgreSQL"],
       keyArchitectureComponents: [
-        "Evidence Agent: Programmatically calls banking APIs and ledger records to reconstruct transactional chronologies.",
+        "Evidence Agent: Programmatically calls simulated banking APIs and ledger records to reconstruct transactional chronologies.",
         "Root-Cause Agent: Compares reconstructed logs against known failure modes (switch timeout, insufficient balance, token desync).",
         "Resolution Agent: Generates compliant customer explanations and drafts actionable reversal/escalation tickets.",
         "Structured Audit Trail: Logs every agent decision step to satisfy strict banking regulatory and audit standards."
       ],
       featured: true,
-      contextNote: "Developed as a competition prototype for Zenith Bank Zecathon 6.0."
+      contextNote: "Developed as an investigative prototype for Zenith Bank Zecathon 6.0; not a deployed banking production system."
     },
     {
       id: "amana-shield",
       name: "Amana Shield",
-      tagline: "Automated Electoral Scam & WhatsApp Phishing Detection Intelligence",
+      tagline: "AI-Assisted WhatsApp Scam & Phishing Detection System",
       category: "Applied AI | Cybersecurity | Digital Safety",
       domain: "security-ai",
-      status: "Ongoing Security System",
+      status: "Active Security Architecture",
       statusColor: "purple",
       previewImage: "/assets/projects/amana-shield-architecture.svg",
       previewImageCaption: "Entity-Relationship & Phishing Threat Assessment Schema",
-      problem: "Vulnerable citizens and job seekers in Nigeria are relentlessly targeted by fraudulent WhatsApp forward messages, fake empowerment schemes, and impersonation domains designed to harvest personal information or steal funds.",
-      solution: "Engineered an automated scam and phishing link detection intelligence system (AI4Elections 2026). The platform ingests forwarded WhatsApp messages, parses URLs, extracts domain metadata via DNS and RDAP queries, checks against trusted and untrusted registries, and produces structured LLM-assisted verdicts explaining threats in plain language.",
-      specificContribution: "Authored the core FastAPI backend, designed the relational database schema for campaign tracking, implemented DNS/RDAP network enrichment modules, and authored procedural RAG prompts for electoral fact verification.",
+      problem: "Everyday users, job seekers, and communities in Nigeria are relentlessly targeted by fraudulent WhatsApp forwarded messages, fake empowerment schemes, and deceptive links designed to harvest personal credentials or extort money.",
+      solution: "An AI-assisted scam and phishing detection system. The platform ingests forwarded WhatsApp messages, parses URLs, extracts domain metadata via DNS and RDAP queries, checks against trusted and untrusted registries, and produces structured LLM-assisted verdicts explaining threats in plain language.",
+      specificContribution: "Authored the core FastAPI backend, designed the relational database schema for threat tracking, implemented DNS/RDAP network enrichment modules, and authored structured LLM evaluation prompts that produce actionable safety advice.",
       coreMessage: "Making digital safety more accessible to everyday users.",
-      technologies: ["FastAPI", "Python", "WhatsApp Cloud API", "PostgreSQL", "RDAP/DNS Intelligence", "Structured LLM Verification", "Procedural RAG", "Alembic"],
+      technologies: ["FastAPI", "Python", "WhatsApp Cloud API", "PostgreSQL", "RDAP/DNS Intelligence", "Structured LLMs", "SQLite", "Alembic"],
       keyArchitectureComponents: [
         "WhatsApp Ingestion Engine: Receives suspicious forward messages directly from user mobile chats via webhooks.",
         "Network Domain Intelligence: Performs real-time RDAP registration age checks, DNS record validation, and registrar reputation scoring.",
-        "Procedural RAG Against Verified Sources: Compares claims against official government and electoral databases.",
-        "Structured Risk Scoring: Emits unambiguous risk classifications (Safe, Suspicious, Confirmed Threat) with plain-language rationales."
+        "Structured LLM Threat Assessment: Employs structured schemas to evaluate deceptive claims, social engineering tactics, and phishing patterns.",
+        "Plain-Language Rationales: Emits unambiguous risk classifications (Safe, Suspicious, Confirmed Threat) with straightforward explanations."
       ],
       diagramAsset: "/assets/projects/amana-shield-architecture.svg",
       diagramType: "svg",
-      diagramTitle: "Amana Shield Entity Relationship & Threat Assessment Architecture",
+      diagramTitle: "Amana Shield Threat Assessment & Verification Architecture",
       featured: true,
       contextNote: "Authentic system ER diagram available for technical inspection."
     },
@@ -324,14 +324,14 @@ const portfolioData = {
       tagline: "Zero-Dependency Double-Entry Infrastructure for Community Savings Groups",
       category: "Fintech | Community Technology | Digital Inclusion",
       domain: "fintech-systems",
-      status: "Active Product Development",
+      status: "Active Product Development (Asabiyyah)",
       statusColor: "amber",
       previewImage: "/assets/projects/dila-system-interface.png",
       previewImageCaption: "Dila Mobile App System Interface · Real-Time Wallet & Adashe Ledger",
       secondaryImage: "/assets/projects/adashe-community-savings.jpeg",
       secondaryImageCaption: "Field Reality: Informal community savings gathering in Northern Nigeria",
       problem: "Over 48 million Nigerian adults save in informal rotating community pools (Adashe, Esusu, Ajo). Reliance on physical notebooks and cash handoffs leads to ledger errors, lack of transparency, disputes, and zero legal or institutional recourse.",
-      solution: "Dila (formerly Adashe) is a flagship product under Asabiyyah Technologies Ltd. It digitizes traditional community savings groups using zero-dependency, double-entry ledger principles on SQLite, custom printed QR collection posters, non-interest financial workflows, and accessible multilingual interfaces tailored to local community realities.",
+      solution: "Dila (formerly Adashe) is a flagship product being developed under Asabiyyah Technologies Ltd. It digitizes traditional community savings groups using zero-dependency, double-entry ledger principles on SQLite, custom printed QR collection posters, non-interest financial workflows, and accessible multilingual interfaces tailored to local community realities.",
       specificContribution: "As CEO & Co-Founder of Asabiyyah Technologies, led the strategic product direction, designed the double-entry accounting ledger schemas, formulated the offline-resilient edge sync strategy, and guided the brand architecture.",
       coreMessage: "Building practical digital infrastructure for community-based financial activities.",
       technologies: ["SQLite", "Double-Entry Bookkeeping", "Offline-First Sync", "FastAPI / NestJS", "QR Verification", "Multilingual UX (Hausa/English)", "Tailwind CSS"],
@@ -339,7 +339,7 @@ const portfolioData = {
         "Strict Double-Entry Ledger: Code-enforced mathematical balance ensuring every contribution and payout has auditable debit/credit pairs.",
         "Offline-Resilient Edge Storage: Uses SQLite with localized caching so group leaders can record collections without network connectivity.",
         "Physical QR Collection Sheets: Bridges the physical and digital divide with scannable QR tokens for illiterate and informal savers.",
-        "Non-Interest & Culturally Rooted Workflows: Built around ethical communal principles respecting Islamic finance and local traditions."
+        "Non-Interest & Culturally Rooted Workflows: Built around ethical communal principles respecting local community traditions."
       ],
       diagramAsset: "/assets/projects/dila-system-interface.png",
       diagramType: "image",
@@ -353,14 +353,14 @@ const portfolioData = {
       tagline: "Edge-Native Offline Learning Infrastructure for Rural Schools",
       category: "Educational Technology | Offline-First Architecture",
       domain: "edtech-offline",
-      status: "Architecture Concept",
+      status: "Architecture Concept (USPF Challenge)",
       statusColor: "indigo",
       previewImage: "/assets/projects/uspf-architecture-wide.png",
       previewImageCaption: "USPF Changemaker Challenge: Offline-First High-Level System Architecture",
       secondaryImage: "/assets/projects/rural-classroom.png",
       secondaryImageCaption: "Target Community: Rural school students lacking stable broadband access",
-      problem: "Rural schools targeted by the Universal Service Provision Fund (USPF) frequently lack reliable broadband and electricity, leaving expensive computer laboratories underutilized and students cut off from digital learning resources.",
-      solution: "Conceived for the USPF Changemaker Challenge, the USPF Learning Hub is an edge-native educational infrastructure model. It deploys a local edge micro-server (Raspberry Pi or localized server) running FastAPI, local SQLite data tracking, a ZPD (Zone of Proximal Development) orchestration engine, and a quantized edge LLM (Qwen) with local vector retrieval (FAISS/ChromaDB).",
+      problem: "Rural schools targeted by the Universal Service Provision Fund (USPF) frequently lack reliable broadband and electricity, leaving computer laboratories underutilized and students cut off from digital learning resources.",
+      solution: "Conceived as an educational technology concept for the USPF Changemaker Challenge, the USPF Learning Hub explores an edge-native offline infrastructure model. It envisions a local edge micro-server running FastAPI, local SQLite tracking, a Zone of Proximal Development (ZPD) mastery engine, and local RAG support to assist learners without continuous internet access.",
       specificContribution: "Authored the system architecture, use case diagrams, and sequence flows illustrating offline assessment submission, local ZPD node calculations, and asynchronous regional cloud sync.",
       coreMessage: "Designing learning infrastructure for environments where connectivity cannot be taken for granted.",
       technologies: ["Raspberry Pi Edge Server", "FastAPI", "Local SQLite", "ChromaDB / FAISS", "Quantized Edge LLM (Qwen)", "React PWA", "Asynchronous Cloud Sync"],
@@ -374,7 +374,7 @@ const portfolioData = {
       diagramType: "image",
       diagramTitle: "USPF Hackathon: High-Level System Architecture (Edge Server & Offline Mesh)",
       featured: true,
-      contextNote: "Authentic hackathon UML and architecture specification diagram available."
+      contextNote: "Architectural concept developed for the USPF Changemaker Challenge; not a fully deployed institutional system."
     },
     {
       id: "cropshield-ai",
@@ -382,20 +382,20 @@ const portfolioData = {
       tagline: "Early Potato Disease Detection for Plateau Smallholder Farmers",
       category: "AI for Agriculture | Mobile Technology",
       domain: "agritech-ai",
-      status: "Field Prototype",
+      status: "Agricultural Prototype",
       statusColor: "teal",
-      problem: "Plateau State is Nigeria's potato agricultural hub, but late blight and viral infections devastate yields. Smallholder farmers lack immediate access to plant pathologists and reliable mobile internet in rural fields.",
-      solution: "An edge-friendly computer vision and agricultural support solution designed to diagnose potato leaf pathogens on-device. CropShield AI combines a lightweight mobile diagnosis pipeline with offline treatment guidance in Hausa and English, providing actionable agronomic remedies immediately.",
+      problem: "Plateau State is Nigeria's potato agricultural hub, but late blight and viral infections severely damage yields. Smallholder farmers lack immediate access to plant pathologists and reliable mobile internet in rural fields.",
+      solution: "An exploratory edge-friendly computer vision and agricultural support solution designed to diagnose potato leaf pathogens on-device. CropShield AI combines a mobile-first diagnosis pipeline with offline treatment guidance in Hausa and English, providing agronomic remedies immediately in the field.",
       specificContribution: "Researched local Plateau farmer operating constraints, designed the lightweight model inference strategy, and shaped the multilingual advisory workflows.",
       coreMessage: "Applying AI to practical agricultural challenges in local communities.",
       technologies: ["Computer Vision", "Mobile Machine Learning", "Python Backend", "Offline Knowledge Base", "Hausa/English Agronomic Guide"],
       keyArchitectureComponents: [
-        "Mobile On-Device Vision: Analyzes leaf imagery locally to detect blight symptoms without uploading high-res photos over cellular data.",
-        "Localized Remediation Protocols: Delivers weather-aware spraying recommendations in Hausa and English.",
-        "Offline Database of Agro-Dealers: Lists vetted local suppliers in Jos and surrounding local government areas."
+        "Mobile On-Device Vision: Explores analyzing leaf imagery locally to detect blight symptoms without uploading photos over cellular data.",
+        "Localized Remediation Protocols: Delivers agronomic treatment recommendations in Hausa and English.",
+        "Offline Agro-Directory: Lists vetted agricultural extension contacts and suppliers across Plateau State communities."
       ],
       featured: true,
-      contextNote: "Active exploratory prototype targeting local agricultural challenges in Plateau State."
+      contextNote: "Active exploratory prototype targeting local agricultural challenges in Plateau State; distinguishing prototype research from field validation."
     }
   ],
   principles: [
@@ -841,7 +841,7 @@ const App = () => {
                 <span className="font-bold text-slate-900 tracking-tight text-base leading-none">Muhammad Auwal Aliyu</span>
                 <span className="text-xs font-mono font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/60 hidden sm:inline-block">Abu Mus'ab</span>
               </div>
-              <p className="text-xs text-slate-500 font-normal mt-0.5 leading-none hidden md:block">Full-Stack AI Engineer & Founder</p>
+              <p className="text-xs text-slate-500 font-normal mt-0.5 leading-none hidden md:block">Full-Stack AI Engineer | Technology Founder | Educator</p>
             </div>
           </a>
 
@@ -900,7 +900,7 @@ const App = () => {
               />
               <div>
                 <div className="text-sm font-bold text-slate-900 leading-tight">Muhammad Auwal Aliyu</div>
-                <div className="text-xs text-slate-500">Abu Mus'ab · Full-Stack AI Engineer</div>
+                <div className="text-xs text-slate-500">Abu Mus'ab · Full-Stack AI Engineer | Technology Founder | Educator</div>
               </div>
             </div>
             <nav className="flex flex-col space-y-2 text-sm font-medium text-slate-700">
@@ -947,9 +947,9 @@ const App = () => {
               <div className="lg:col-span-8">
                 
                 {/* Identity & Badges */}
-                <div className="flex flex-wrap items-center gap-2.5 mb-6">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200/80">
-                    Full-Stack AI Engineer & Technology Founder
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5 sm:mb-6">
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200/80 shadow-2xs">
+                    Full-Stack AI Engineer | Technology Founder | Educator
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200/60 flex items-center gap-1.5">
                     <Icon name="mapPin" className="w-3.5 h-3.5" />
@@ -961,7 +961,7 @@ const App = () => {
                 </div>
 
                 {/* Authoritative Headline */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.1] mb-6">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6">
                   Engineering intelligent systems. <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-800 to-slate-900">
                     Building technology that matters.
@@ -969,26 +969,26 @@ const App = () => {
                 </h1>
 
                 {/* Supporting Introduction */}
-                <p className="text-lg sm:text-xl text-slate-600 leading-relaxed font-normal mb-8 max-w-3xl">
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-6 sm:mb-8 max-w-3xl">
                   I build intelligent software systems at the intersection of AI, engineering, and human-centred innovation. My work focuses on applied AI, agentic systems, and accessible digital solutions designed for real-world conditions — including environments where connectivity, computing resources, and language can be limiting factors.
                 </p>
 
                 {/* Credibility Line */}
-                <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wide uppercase text-slate-500 mb-8 pb-4 border-b border-slate-100">
-                  <span className="text-blue-600">Computer Science</span>
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold tracking-wide uppercase text-slate-500 mb-6 sm:mb-8 pb-4 border-b border-slate-100">
+                  <span className="text-blue-700">Computer Science</span>
                   <span className="text-slate-300">|</span>
-                  <span className="text-blue-600">Applied AI</span>
+                  <span className="text-blue-700">Applied AI</span>
                   <span className="text-slate-300">|</span>
-                  <span className="text-blue-600">Software Engineering</span>
+                  <span className="text-blue-700">Software Engineering</span>
                   <span className="text-slate-300">|</span>
-                  <span className="text-blue-600">Entrepreneurship</span>
+                  <span className="text-blue-700">Entrepreneurship</span>
                 </div>
 
-                {/* Primary CTAs */}
-                <div className="flex flex-wrap items-center gap-4">
+                {/* Primary CTAs - Mobile-first responsive stack */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                   <a 
                     href="#projects" 
-                    className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm hover:shadow transition-all flex items-center gap-2 group"
+                    className="min-h-[44px] px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm hover:shadow transition-all flex items-center justify-center gap-2 group"
                   >
                     <span>Explore My Work</span>
                     <Icon name="arrowDown" className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -996,7 +996,7 @@ const App = () => {
 
                   <a 
                     href="#contact" 
-                    className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm border border-slate-200 hover:border-slate-300 transition-all flex items-center gap-2 shadow-xs"
+                    className="min-h-[44px] px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-slate-900 font-semibold text-sm border border-slate-200 hover:border-slate-300 transition-all flex items-center justify-center gap-2 shadow-2xs"
                   >
                     <Icon name="message" className="w-4 h-4 text-blue-600" />
                     <span>Let's Connect</span>
@@ -1004,7 +1004,7 @@ const App = () => {
 
                   <button 
                     onClick={() => setShowCertificateModal(true)}
-                    className="px-5 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium text-sm border border-slate-200/80 transition-all flex items-center gap-2"
+                    className="min-h-[44px] px-5 py-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium text-sm border border-slate-200/80 transition-all flex items-center justify-center gap-2"
                   >
                     <Icon name="award" className="w-4 h-4 text-emerald-600" />
                     <span>Verify DataCamp AI Credential</span>
@@ -1014,8 +1014,8 @@ const App = () => {
               </div>
 
               {/* Right Column: Founder Portrait Card */}
-              <div className="lg:col-span-4 flex justify-center">
-                <div className="relative group w-full max-w-sm">
+              <div className="lg:col-span-4 flex justify-center mt-6 lg:mt-0">
+                <div className="relative group w-full max-w-xs sm:max-w-sm mx-auto">
                   {/* Subtle decorative frame */}
                   <div className="absolute -inset-1.5 bg-gradient-to-tr from-blue-600/30 via-slate-400/20 to-blue-500/20 rounded-3xl blur-md opacity-75 group-hover:opacity-100 transition duration-500"></div>
                   
@@ -1026,16 +1026,16 @@ const App = () => {
                         alt="Muhammad Auwal Aliyu (Abu Mus'ab)" 
                         className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
-                        <span className="text-[11px] font-mono tracking-widest uppercase text-blue-300 font-semibold">
-                          Executive Founder & AI Systems Engineer
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white">
+                        <span className="text-[10px] sm:text-[11px] font-mono tracking-widest uppercase text-blue-300 font-semibold leading-tight mb-1">
+                          Full-Stack AI Engineer | Technology Founder | Educator
                         </span>
-                        <div className="text-lg font-bold tracking-tight">Muhammad Auwal Aliyu</div>
+                        <div className="text-base sm:text-lg font-bold tracking-tight">Muhammad Auwal Aliyu</div>
                         <div className="text-xs text-slate-300 font-normal">Known publicly as Abu Mus'ab</div>
                       </div>
                     </div>
 
-                    <div className="p-3 pt-4 flex items-center justify-between text-xs border-t border-slate-100 mt-2">
+                    <div className="p-3 pt-3.5 flex items-center justify-between text-xs border-t border-slate-100 mt-2">
                       <div className="flex items-center gap-1.5 text-slate-700 font-medium">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span>Active Builder & Founder</span>
@@ -1136,7 +1136,7 @@ const App = () => {
                   <h3 className="text-lg font-bold text-slate-900 tracking-tight leading-tight">
                     Muhammad Auwal Aliyu
                   </h3>
-                  <div className="text-xs font-mono font-medium text-blue-700">Abu Mus'ab · Founder & AI Engineer</div>
+                  <div className="text-xs font-mono font-medium text-blue-700">Abu Mus'ab · Full-Stack AI Engineer | Technology Founder | Educator</div>
                   <div className="text-xs text-slate-500 mt-0.5">Jos, Plateau State, Nigeria</div>
                 </div>
               </div>
@@ -1145,7 +1145,7 @@ const App = () => {
                 <div>
                   <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold block">Academic Standing</span>
                   <span className="text-base font-semibold text-blue-700">First Class Honours (CGPA 4.79 / 5.00)</span>
-                  <span className="text-xs text-slate-500 block">B.Sc. Computer Science, FUTB Class of 2026</span>
+                  <span className="text-xs text-slate-500 block">B.Sc. Computer Science, FUTB Class of 2026 (Awaiting formal degree conferment)</span>
                 </div>
                 <div>
                   <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold block">Company Roles</span>
@@ -1319,22 +1319,22 @@ const App = () => {
             ))}
           </div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Projects Grid - Explicitly Single-Column on Mobile, 2-Column on Tablet/Desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 projects-responsive-grid w-full">
             {filteredProjects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between overflow-hidden group"
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between overflow-hidden group min-w-0 w-full"
               >
-                {/* Project Header */}
-                <div className="p-6 sm:p-7">
+                {/* Project Header & Body Content */}
+                <div className="p-5 sm:p-7 flex-1 flex flex-col">
                   
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <span className="text-xs font-mono font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200/60 uppercase tracking-wide">
+                  <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+                    <span className="text-[11px] sm:text-xs font-mono font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200/60 uppercase tracking-wide">
                       {project.category}
                     </span>
                     
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${
+                    <span className={`px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold border ${
                       project.statusColor === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
                       project.statusColor === 'blue' ? 'bg-blue-50 text-blue-700 border-blue-200' :
                       project.statusColor === 'purple' ? 'bg-purple-50 text-purple-700 border-purple-200' :
@@ -1358,15 +1358,16 @@ const App = () => {
                       onClick={() => setActiveDiagram({ title: project.diagramTitle || project.name, asset: project.previewImage, type: project.diagramType || 'image' })}
                       className="mb-5 rounded-xl border border-slate-200 overflow-hidden bg-slate-50 cursor-pointer group/img relative"
                     >
-                      <div className="max-h-48 overflow-hidden flex items-center justify-center bg-slate-900/5">
+                      <div className="w-full h-48 sm:h-52 overflow-hidden flex items-center justify-center bg-slate-900/5">
                         <img 
                           src={project.previewImage} 
                           alt={project.name} 
-                          className="w-full h-44 object-cover object-top group-hover/img:scale-105 transition duration-300"
+                          className="w-full h-full object-cover object-top group-hover/img:scale-105 transition duration-300"
+                          onError={(e) => { e.target.parentElement.style.display = 'none'; }}
                         />
                       </div>
                       <div className="p-2.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-600">
-                        <span className="truncate font-medium">{project.previewImageCaption || "System Interface Preview"}</span>
+                        <span className="truncate font-medium pr-2">{project.previewImageCaption || "System Interface Preview"}</span>
                         <span className="text-blue-600 font-semibold flex items-center gap-1 shrink-0">
                           <Icon name="zoom" className="w-3.5 h-3.5" />
                           <span>Expand</span>
@@ -1375,50 +1376,54 @@ const App = () => {
                     </div>
                   )}
 
-                  {/* Problem & Approach Summary */}
-                  <div className="space-y-3 text-xs sm:text-sm text-slate-700">
+                  {/* Problem & Approach Summary - Easily Scannable */}
+                  <div className="space-y-3 text-xs sm:text-sm text-slate-700 flex-1">
                     <div>
                       <strong className="text-slate-900 block text-xs uppercase tracking-wider font-semibold">The Problem:</strong>
-                      <p className="text-slate-600 mt-0.5 line-clamp-3">{project.problem}</p>
+                      <p className="text-slate-600 mt-1 leading-relaxed">{project.problem}</p>
                     </div>
 
                     <div>
                       <strong className="text-slate-900 block text-xs uppercase tracking-wider font-semibold">Engineering Approach:</strong>
-                      <p className="text-slate-600 mt-0.5 line-clamp-3">{project.solution}</p>
+                      <p className="text-slate-600 mt-1 leading-relaxed">{project.solution}</p>
                     </div>
                   </div>
 
-                  {/* Tech Badges */}
-                  <div className="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 5).map((tech, i) => (
-                      <span key={i} className="text-xs font-mono bg-slate-50 text-slate-700 px-2 py-0.5 rounded border border-slate-200/70">
+                  {/* Tech Badges - Top 4 with Interactive Disclosure */}
+                  <div className="mt-5 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5 items-center">
+                    {project.technologies.slice(0, 4).map((tech, i) => (
+                      <span key={i} className="text-[11px] sm:text-xs font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200/80">
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 5 && (
-                      <span className="text-xs font-mono text-slate-500 px-1.5 py-0.5">
-                        +{project.technologies.length - 5} more
-                      </span>
+                    {project.technologies.length > 4 && (
+                      <button 
+                        onClick={() => setActiveProject(project)}
+                        className="text-[11px] sm:text-xs font-mono text-blue-700 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 py-0.5 rounded border border-blue-200/70 transition-colors"
+                        title="Click to view all technologies in project deep-dive"
+                      >
+                        +{project.technologies.length - 4} more in deep dive
+                      </button>
                     )}
                   </div>
 
                 </div>
 
-                {/* Project Card Footer Actions */}
-                <div className="px-6 py-4 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between gap-3">
+                {/* Project Card Footer Actions - Mobile-First Touch Friendly */}
+                <div className="px-5 sm:px-6 py-3.5 sm:py-4 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3">
                   <button 
                     onClick={() => setActiveProject(project)}
-                    className="text-xs font-semibold text-blue-700 hover:text-blue-800 flex items-center gap-1.5 focus:outline-none"
+                    className="w-full sm:w-auto min-h-[42px] px-3.5 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white sm:bg-transparent sm:text-blue-700 sm:hover:text-blue-800 sm:p-0 flex items-center justify-center sm:justify-start gap-1.5 transition-colors focus:outline-none"
                   >
                     <span>Deep Dive Architecture</span>
                     <Icon name="arrowRight" className="w-3.5 h-3.5" />
                   </button>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-200/60">
                     {project.diagramAsset && (
                       <button 
                         onClick={() => setActiveDiagram({ title: project.diagramTitle || project.name, asset: project.diagramAsset, type: project.diagramType })}
-                        className="px-2.5 py-1 text-xs font-medium rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1 shadow-2xs"
+                        className="flex-1 sm:flex-initial min-h-[38px] px-3 py-1.5 text-xs font-medium rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center justify-center gap-1 shadow-2xs transition-colors"
                         title="View Architecture Diagram / System Interface"
                       >
                         <Icon name="zoom" className="w-3.5 h-3.5 text-blue-600" />
@@ -1431,10 +1436,11 @@ const App = () => {
                         href={project.githubUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-white rounded-lg border border-transparent hover:border-slate-200 transition-colors"
+                        className="min-h-[38px] min-w-[38px] px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center gap-1.5 shadow-2xs transition-colors"
                         title="View GitHub Repository"
                       >
                         <Icon name="github" className="w-4 h-4" />
+                        <span className="sm:hidden font-medium">GitHub</span>
                       </a>
                     )}
                   </div>
@@ -1905,7 +1911,7 @@ const App = () => {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-white hover:bg-blue-50/70 border border-slate-200/80 hover:border-blue-200 text-slate-700 hover:text-blue-700 transition-all flex items-center gap-2 group text-xs font-medium shadow-2xs"
+                      className="min-h-[44px] p-2.5 rounded-xl bg-white hover:bg-blue-50/70 border border-slate-200/80 hover:border-blue-200 text-slate-700 hover:text-blue-700 transition-all flex items-center gap-2 group text-xs font-medium shadow-2xs"
                     >
                       <Icon name={s.icon} className="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" />
                       <span className="truncate">{s.platform}</span>
@@ -2021,7 +2027,7 @@ const App = () => {
             />
             <div>
               <div className="font-bold text-slate-900 text-sm">Muhammad Auwal Aliyu (Abu Mus'ab)</div>
-              <p className="text-slate-500 text-xs">Building intelligent systems. Empowering people. Expanding possibilities.</p>
+              <p className="text-slate-500 text-xs">Full-Stack AI Engineer | Technology Founder | Educator · Building technology that matters.</p>
             </div>
           </div>
 
@@ -2397,7 +2403,7 @@ const App = () => {
                 Muhammad Auwal Aliyu
               </h3>
               <p className="text-xs font-semibold text-blue-700 uppercase tracking-wider mt-0.5">
-                AI Systems Engineer & Full-Stack Developer
+                Full-Stack AI Engineer | Technology Founder | Educator
               </p>
               <p className="text-xs text-slate-500 font-mono mt-1">
                 Jos, Plateau State, Nigeria · 08064753943 · aliyumuhammadauwal92@gmail.com
