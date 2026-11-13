@@ -1,0 +1,29 @@
+# ==============================================================================
+# MUHAMMAD AUWAL ALIYU (ABU MUS'AB) — Render.com Blueprint (render.yaml)
+# Personal Portfolio: Full-Stack AI Engineer, Technology Founder & Educator
+# ==============================================================================
+
+services:
+  - type: web
+    name: muhammad-auwal-aliyu-portfolio
+    runtime: static
+    branch: main
+    buildCommand: "node scripts/build.js"
+    staticPublishPath: "./dist"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /sw.js
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY

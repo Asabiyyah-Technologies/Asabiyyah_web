@@ -1,11 +1,21 @@
 {
-  "name": "asabiyyah-web",
+  "name": "muhammad-auwal-aliyu-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Asabiyyah Technologies Ltd Corporate Website",
+  "description": "Personal Portfolio of Muhammad Auwal Aliyu (Abu Mus'ab) — Full-Stack AI Engineer & Technology Founder",
+  "author": "Muhammad Auwal Aliyu (Abu Mus'ab)",
   "scripts": {
-    "build": "bash build.sh || python3 build.py || python build.py"
+    "build": "node scripts/build.js",
+    "serve": "node scripts/serve.js",
+    "preview": "node scripts/serve.js",
+    "dev": "node scripts/serve.js"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tailwindcss": "^3.4.0"
+  }
 }

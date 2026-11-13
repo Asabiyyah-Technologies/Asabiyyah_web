@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.asabiyyah.com/sitemap.xml
+Sitemap: https://abumusab.dev/sitemap.xml

@@ -35,3 +35,9 @@ wheels/
 Thumbs.db
 desktop.ini
 *.log
+
+# Workspace Scratch & Legacy Archives
+dist.zip
+extracted_media/
+legacy_asabiyyah_site/
+

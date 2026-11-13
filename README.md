@@ -1,131 +1,103 @@
-# Asabiyyah Technologies Ltd — Official Corporate Website
+# Muhammad Auwal Aliyu (Abu Mus'ab) — Personal Portfolio
 
-[![Federal Republic of Nigeria](https://img.shields.io/badge/CAC_Registration-RC_9918400-0D2B4E.svg)](https://www.asabiyyah.com/legal)
-[![Incorporation](https://img.shields.io/badge/CAMA-2020_Compliant-0D2B4E.svg)](https://www.asabiyyah.com/about#legal)
-[![Cloudflare Pages](https://img.shields.io/badge/Deployed_on-Cloudflare_Pages-F38020.svg?logo=cloudflare)](https://pages.cloudflare.com)
-[![WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG_2.2_AA-emerald.svg)](docs/qa/ACCESSIBILITY_REPORT.md)
-[![Zero npm Dependencies](https://img.shields.io/badge/npm_Dependencies-0_(Zero)-blue.svg)](docs/engineering/DEPENDENCY_REGISTER.md)
-[![Build Time](https://img.shields.io/badge/Build_Time-%3C_0.1s-gold.svg)](docs/qa/PERFORMANCE_REPORT.md)
-
-Official corporate website and system architecture repository for **Asabiyyah Technologies Ltd** (RC 9918400), an African technology company engineering high-integrity enterprise software, applied artificial intelligence, and resilient digital infrastructure.
-
-> **Corporate Motto:** *"Building Technology That Matters."*
+> **Central Positioning:** A technology builder working at the intersection of Artificial Intelligence, Software Engineering, and Human-Centred Innovation.  
+> **Core Philosophy:** *Building technology that works for people, not just ideal conditions.*
 
 ---
 
-## 🏛️ Statutory Corporate Profile
+## 🌟 Overview
 
-| Parameter | Official Record |
-| :--- | :--- |
-| **Legal Entity Name** | **ASABIYYAH TECHNOLOGIES LTD** |
-| **Corporate Affairs Commission (CAC)** | **RC 9918400** |
-| **Tax Identification Number (TIN)** | **2621713612761** |
-| **Governing Statute** | Companies and Allied Matters Act 2020 (CAMA 2020) |
-| **Date of Incorporation** | October 7, 2026 |
-| **Authorized Share Capital** | ₦5,000,000.00 (Five Million Naira) |
-| **Registered Head Office** | 2, Kunya - B Mutum Road, Babura Town, Jigawa State — 732104 |
-| **Operational Desks** | Babura (HQ), Jos (Lab), Kano (Commercial Hub), Abuja (Liaison) |
-| **Contact Email** | `info@asabiyyah.com` |
-| **Telephone / WhatsApp** | `+234 806 475 3943` |
+This is the world-class, editorial personal portfolio website for **Muhammad Auwal Aliyu**, publicly known as **Abu Mus'ab**.
 
----
+Designed to reflect the caliber of an emerging global technology founder and AI systems engineer, the platform prioritises authenticity over hype, demonstrated engineering work over generic claims, and meaningful human impact over vanity metrics.
 
-## ⚡ Architectural Foundation
-
-The website is engineered using a **zero-dependency static architecture** designed for lightning build times, top-tier performance on African mobile connections, and zero supply-chain vulnerabilities:
-
-- **Static Compiler (`build.py`):** Pure Python 3 standard library build engine compiling all 7 routes into clean directory paths in `< 100 milliseconds`.
-- **Edge Serverless Contact Intake (`functions/api/contact.js`):** Native Cloudflare Pages Function providing honeypot bot trap filtering, bot velocity throttling, XSS sanitization, and optional webhook forwarding.
-- **Single-Source Data Architecture (`src/data/`):** All factual business information (CAC numbers, team profiles, service deliverables, product specifications) is decoupled into version-controlled JSON files.
-- **Edge Security Headers (`public/_headers`):** Strict Content-Security-Policy (CSP), HSTS preloading, frame protection (`X-Frame-Options: DENY`), and MIME-type enforcement.
+### Key Identity & Credentials Integrated:
+- **Full Name:** Muhammad Auwal Aliyu
+- **Public Name:** Abu Mus'ab
+- **Professional Title:** Full-Stack AI Engineer & Technology Founder
+- **Location:** Jos, Plateau State, Nigeria (WAT / UTC+1)
+- **Academic Standing:** First Class Honours, B.Sc. Computer Science, Federal University of Technology Babura (FUTB), Class of 2026 (**CGPA: 4.79 / 5.00**)
+- **DataCamp Certified AI Engineer:** Associate Level (**Credential ID:** `AIEDA0012468264105`, Certified Nov 8, 2026)
+- **Leadership:** CEO & Co-Founder, Asabiyyah Technologies Ltd; Founder & CEO, AMTIC Enterprises
+- **Fellowship:** UNDP Graduate Fellow in collaboration with 3MTT (Serving at Hamzury Innovation Hub, Jos)
+- **Contact:** `aliyumuhammadauwal92@gmail.com` | `+234 806 475 3943`
 
 ---
 
-## 🧭 Site Structure (7 Canonical Routes)
+## 🏗️ Architecture & Stack
 
-1. **`/` (Home):** Asymmetric 7:5 Hero split, Corporate thesis (*'Asabiyyah* social cohesion), 4 commercial practices, Dila & AMANA SHIELD spotlights, engineering pillars, leadership strip, and conversion call to action.
-2. **`/about` (About Us):** Historical treatise on Ibn Khaldun's *'Asabiyyah* (عصبية), Mission, Vision, 5 Core Values, Statutory CAC Legal Profile Table, Founding Leadership Profiles with verified credentials, and 4 regional operating hubs.
-3. **`/services` (Commercial Practices):** In-depth specifications of the 4 engineering practices (Custom Enterprise Software, Applied AI & Intelligent Systems, Process Automation & Digital Ledgers, Resilient Digital Infrastructure), 4-phase delivery methodology, and 3 engagement models.
-4. **`/products` (Portfolio & R&D):** Internal technology portfolio:
-   - **Dila:** Tier 1 Commercial Flagship (Community Savings & Cooperative OS) with mandatory non-bank regulatory notice.
-   - **AMANA SHIELD:** Tier 2 Civic Threat Intelligence Initiative (Scam & Phishing detection via WhatsApp Cloud API).
-   - **ClassGPT-N:** Tier 3 Applied AI Research Direction (Offline multilingual tutoring framework).
-   - **ResolveIQ:** Tier 4 Internal operational resolution tool.
-5. **`/engineering` (System Architecture):** Technical deep-dives:
-   - *Offline-First Edge Sync Topology* (Local SQLite to Cloud PostgreSQL).
-   - *Grounded AI & Uncertainty Abstention* (Strict abstention as UNVERIFIED).
-   - *Relational Double-Entry Accounting Schema* (Zero-dependency SQL ledger).
-   - *Full Production Tech Stack Inventory*.
-6. **`/contact` (Corporate Intake Desk):** Statutory head office card, response SLA, WhatsApp desk, and interactive project inquiry form with bot deterrence.
-7. **`/legal` (Legal Governance):** CAMA 2020 disclosures, Non-custodial financial technology disclaimer, NDPR/NDPA-compliant data privacy policy, terms of service, and intellectual property terms.
+- **Framework:** React 18/19 Component Architecture with TypeScript interfaces (`src/types/portfolio.ts`).
+- **Styling:** Tailwind CSS with a light-first editorial design system (crisp whites, slate surfaces, deep charcoal typography, restrained tech-blue accents).
+- **Icons:** Inline Lucide SVG iconography.
+- **Offline-First / PWA:** 100% self-contained local vendor libraries (`react.production.min.js`, `react-dom.production.min.js`, `tailwind.min.js`), Service Worker (`sw.js`), and Web App Manifest (`manifest.json`).
+- **Fast Build System:** Node + Babel standalone compiler producing an ultra-fast zero-runtime-overhead bundle (`dist/app.js`).
 
 ---
 
-## 🚀 Local Development Quickstart
+## 📁 Authentic Resources from User's Drive Integrated
 
-### Prerequisites
-- **Python 3.8+** (No Node.js, npm, or yarn required).
-- Git.
+The portfolio integrates authentic files, documents, and diagrams discovered in the user's environment:
 
-### 1. Build the Website
+1. **USPF Hackathon System Architecture & UML Diagrams** (`public/assets/projects/uspf-learning-hub-architecture.jpg`):
+   - Converted and embedded for the interactive zoomable architecture modal in **Project 05 (USPF Learning Hub)**.
+2. **Amana Shield Threat & ER Schema** (`public/assets/projects/amana-shield-architecture.svg`):
+   - Integrated as an interactive vector architecture inspection modal for **Project 03 (Amana Shield / AI4Elections 2026)**.
+3. **DataCamp AI Engineer Associate Certificate** (`public/assets/certificates/datacamp-ai-engineer-associate.pdf`):
+   - Integrated with official certificate card and direct PDF download link.
+4. **Official Curriculum Vitae** (`public/assets/resume/muhammad-auwal-aliyu-cv.pdf`):
+   - Available via the interactive CV inspection modal and direct PDF download.
+5. **Dila Official Brand Assets** (`public/assets/brand/dila-primary.svg`, `dila-symbol.svg`, `dila-icon.svg`):
+   - Used for **Project 04 (Dila by Asabiyyah Technologies Ltd)**.
+6. **IslamTech with Abu Mus'ab Blueprint** (`ZERO TO AI ENGINEER.docx`):
+   - Integrated into the Teaching & Community Impact section detailing the 30-day bilingual AI curriculum.
+7. **ClassGPT 2.0 Education Intelligence Deliverables**:
+   - Synthesised into the core architecture of **Project 01 (ClassGPT-N Framework)** with verified GitHub link: [https://github.com/MaAbumusAb/classgpt](https://github.com/MaAbumusAb/classgpt).
+
+---
+
+## 🚀 Development & Local Preview
+
+### Prerequisites:
+- `node` (Node v24 is preconfigured via `Antigravity/bin/agy-node.cmd`)
+- `python` (Python 3.x)
+
+### Commands:
+
 ```bash
-python build.py
-```
-*Compiles all pages into `dist/` in ~0.090s.*
+# 1. Compile the production site (runs Babel compiler and syncs assets)
+npm run build
+# OR directly:
+python scripts/build.py
 
-### 2. Run the Local Test Server
-```bash
-python -m http.server 3000 --directory dist
-```
-Navigate to `http://localhost:3000` in your web browser.
-
-### 3. Run the Automated Test Suite
-```bash
-# Run 13-point integration & route test suite
-python scripts/run_local_tests.py
-
-# Run edge serverless contact API unit tests
-python scripts/test_contact_api.py
-
-# Run mathematical contrast & security audit
-python scripts/qa_audit.py
+# 2. Start the local preview server (serves on http://localhost:5173)
+npm run preview
+# OR:
+npm run serve
 ```
 
 ---
 
-## 🌐 Cloudflare Pages Deployment
+## 📦 Deployment
 
-### Build Configuration Settings
-- **Framework Preset:** `None` (or `Custom`)
-- **Build Command:** `python build.py`
-- **Build Output Directory:** `dist`
-- **Root Directory:** `/`
+This repository is pre-configured for zero-friction one-click deployment across global edge platforms:
 
-### Environment Variables
-- `PYTHON_VERSION`: `3.10`
-- `INQUIRY_WEBHOOK_URL`: *(Optional)* Webhook URL to receive live contact form submissions in Slack/Discord/CRM.
+### 1. Render.com (Blueprint Support Included)
+This repository includes a native [`render.yaml`](render.yaml) specification for Render:
+1. Log in to [dashboard.render.com](https://dashboard.render.com).
+2. Go to **Blueprints** > **New Blueprint Instance**.
+3. Select this repository: `https://github.com/MaAbumusAb/portfolio`.
+4. Render automatically detects `render.yaml`, builds via `node scripts/build.js`, and serves `dist/` with global CDN caching and SPA rewrite rules.
+5. Your portfolio is live instantly at `https://<service-name>.onrender.com`.
 
-See [`docs/engineering/DEPLOYMENT_GUIDE.md`](docs/engineering/DEPLOYMENT_GUIDE.md) for complete DNS, SSL, and custom domain setup.
+### 2. Cloudflare Pages
+1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com).
+2. Navigate to **Compute (Workers) & Pages** > **Create Application** > **Pages** > **Connect to Git**.
+3. Select `MaAbumusAb/portfolio`.
+4. Configure Build Settings:
+   - **Framework Preset:** `None`
+   - **Build Command:** `node scripts/build.js` (or `npm run build`)
+   - **Build Output Directory:** `dist`
+5. Click **Save and Deploy**. Cloudflare provisions your global edge deployment with custom domain, SSL, and instant rollouts at `https://portfolio-<id>.pages.dev`.
 
----
-
-## 🛡️ Regulatory Guardrails & Integrity Commitments
-
-- **Dila Regulatory Classification:** Dila operates strictly as a pure software infrastructure platform. Dila does **NOT** take custody of client deposits, issue loans, or operate as a bank. All financial routing is processed directly by Central Bank of Nigeria (CBN)-licensed commercial banks and regulated payment service providers.
-- **Zero Fabrication:** All corporate records, academic credentials (FUTB CGPA 4.79/5.00 First Class), and development statuses are 100% verified against primary source materials. Zero invented client logos or fictitious testimonials appear anywhere in this codebase.
-- **Parent Company Independence:** Asabiyyah Technologies Ltd is the sovereign parent technology house and holding company, distinct from its individual product brands.
-
----
-
-## 👥 Executive Leadership
-
-- **Muhammad Auwal Aliyu** — Co-Founder & Chief Executive Officer (CEO) · Director & Shareholder (PSC, 33.33% Equity)
-- **Sulaiman Sabo** — Co-Founder & Chief Technology Officer (CTO) · Shareholder (PSC, 33.33% Equity)
-- **Mahmud Rabiu Zakariyya** — Co-Founder & Chief Operating Officer (COO) · Shareholder (PSC, 33.33% Equity)
-
----
-
-## 📄 License & Intellectual Property
-
-&copy; 2026 Asabiyyah Technologies Ltd (RC 9918400). All rights reserved.  
-Proprietary software and brand assets of Asabiyyah Technologies Ltd.
+### 3. GitHub Pages
+- You can enable GitHub Pages in your repository settings under **Settings** > **Pages** pointing to the `main` or `gh-pages` branch.

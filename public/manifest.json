@@ -1,0 +1,21 @@
+{
+  "name": "Muhammad Auwal Aliyu (Abu Mus'ab) — Portfolio",
+  "short_name": "Abu Mus'ab",
+  "description": "Full-Stack AI Engineer, Technology Founder & Educator. Engineering intelligent systems. Building technology that matters.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFB",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/assets/brand/asabiyyah-logo-master.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/brand/asabiyyah-logo-master.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

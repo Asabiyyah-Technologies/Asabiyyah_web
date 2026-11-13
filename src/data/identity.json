@@ -1,0 +1,32 @@
+{
+  "personalIdentity": {
+    "fullName": "Muhammad Auwal Aliyu",
+    "publicName": "Abu Mus'ab",
+    "title": "Full-Stack AI Engineer & Technology Founder",
+    "headline": "Engineering intelligent systems. Building technology that matters.",
+    "supportingIntro": "I build intelligent software systems at the intersection of AI, engineering, and human-centred innovation. My work focuses on applied AI, agentic systems, and accessible digital solutions designed for real-world conditions \u2014 including environments where connectivity, computing resources, and language can be limiting factors.",
+    "credibilityLine": "Computer Science | Applied AI | Software Engineering | Entrepreneurship",
+    "centralPositioning": "A technology builder working at the intersection of Artificial Intelligence, Software Engineering, and Human-Centred Innovation.",
+    "corePhilosophy": "Building technology that works for people, not just ideal conditions.",
+    "brandStatement": "Building intelligent systems. Empowering people. Expanding possibilities.",
+    "location": "Jos, Plateau State, Nigeria",
+    "nationality": "Nigerian",
+    "languages": [
+      {
+        "name": "English",
+        "level": "Professional & Academic"
+      },
+      {
+        "name": "Hausa",
+        "level": "Native & Multilingual AI Research"
+      },
+      {
+        "name": "Arabic",
+        "level": "Literate & Classical Competence"
+      }
+    ],
+    "email": "aliyumuhammadauwal92@gmail.com",
+    "phone": "+234 806 475 3943",
+    "openForOpportunities": "Available for Applied AI Engineering, Systems Architecture & Advisory"
+  }
+}
