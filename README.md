@@ -1,5 +1,8 @@
 # Muhammad Auwal Aliyu (Abu Mus'ab) — Personal Portfolio
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/MaAbumusAb/portfolio)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub_Pages-blue?logo=github)](https://maabumusab.github.io/portfolio/)
+
 > **Central Positioning:** A technology builder working at the intersection of Artificial Intelligence, Software Engineering, and Human-Centred Innovation.  
 > **Core Philosophy:** *Building technology that works for people, not just ideal conditions.*
 
